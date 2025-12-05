@@ -1,0 +1,317 @@
+[
+  {
+    "id": 10001,
+    "name": "安缇洛雅·阿玛斯塔夏",
+    "subrace": 30005,
+    "level": 2,
+    "clasz": [
+      [
+        20007,
+        2
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 18,
+        "dexterity": 15,
+        "constitution": 16,
+        "intelligent": 12,
+        "wisdom": 14,
+        "charisma": 17
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 16,
+      "movement": 6,
+      "initiative": 2,
+      "abilities": [
+        50701,
+        50702
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 42702,
+      "offHand": 40501,
+      "armour": 40402,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "armour": 0,
+      "artifacts": []
+    },
+    "knapsack_items": []
+  },
+  {
+    "id": 10002,
+    "name": "索林·白须",
+    "subrace": 30003,
+    "level": 2,
+    "clasz": [
+      [
+        20005,
+        2
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 20,
+        "dexterity": 16,
+        "constitution": 17,
+        "intelligent": 8,
+        "wisdom": 11,
+        "charisma": 14
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 16,
+      "movement": 5,
+      "initiative": 3,
+      "abilities": [
+        50501,
+        50502,
+        50503
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 41901,
+      "offHand": 0,
+      "armour": 40402,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "armour": 0,
+      "artifacts": []
+    },
+    "knapsack_items": []
+  },
+  {
+    "id": 10003,
+    "name": "彻宁·格拉尔",
+    "subrace": 30001,
+    "level": 2,
+    "clasz": [
+      [
+        20008,
+        2
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 16,
+        "dexterity": 16,
+        "constitution": 14,
+        "intelligent": 12,
+        "wisdom": 14,
+        "charisma": 12
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 14,
+      "movement": 6,
+      "initiative": 3,
+      "abilities": [
+        50801
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 42301,
+      "offHand": 0,
+      "armour": 40202,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 43001,
+      "offHand": 0,
+      "armour": 40202,
+      "artifacts": []
+    },
+    "knapsack_items": []
+  },
+  {
+    "id": 10004,
+    "name": "凯芙拉·斯托维恩",
+    "subrace": 30001,
+    "level": 2,
+    "clasz": [
+      [
+        20003,
+        2
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 15,
+        "dexterity": 10,
+        "constitution": 14,
+        "intelligent": 12,
+        "wisdom": 18,
+        "charisma": 12
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 16,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": [
+        50301,
+        50302,
+        50303
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 40601,
+      "offHand": 40501,
+      "armour": 40303,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "armour": 0,
+      "artifacts": []
+    },
+    "knapsack_items": []
+  },
+  {
+    "id": 10005,
+    "name": "梅·文",
+    "subrace": 30008,
+    "level": 2,
+    "clasz": [
+      [
+        20002,
+        2
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 10,
+        "dexterity": 18,
+        "constitution": 12,
+        "intelligent": 14,
+        "wisdom": 14,
+        "charisma": 18
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 15,
+      "movement": 6,
+      "initiative": 4,
+      "abilities": [
+        50201,
+        50202,
+        50203
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 40701,
+      "offHand": 0,
+      "armour": 40202,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "armour": 0,
+      "artifacts": []
+    },
+    "knapsack_items": []
+  },
+  {
+    "id": 10006,
+    "name": "米亚斯坦·樱木",
+    "subrace": 30009,
+    "level": 2,
+    "clasz": [
+      [
+        20010,
+        2
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 8,
+        "dexterity": 18,
+        "constitution": 16,
+        "intelligent": 11,
+        "wisdom": 12,
+        "charisma": 18
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 17,
+      "movement": 6,
+      "initiative": 4,
+      "abilities": [
+        51202,
+        51001,
+        51002
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 40701,
+      "offHand": 0,
+      "armour": 40101,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "armour": 0,
+      "artifacts": []
+    },
+    "knapsack_items": []
+  }
+]

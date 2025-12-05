@@ -1,0 +1,8 @@
+[
+  {
+    "battle_map_length": 25,
+    "battle_down_round_count_max": 3,
+    "artifact_field": 3,
+    "NoArmourAC": 10
+  }
+]

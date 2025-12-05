@@ -1,0 +1,446 @@
+[
+  {
+    "id": 40101,
+    "name": "布袍",
+    "type_info": {
+      "$type": "NArmourInfo"
+    },
+    "price": 200,
+    "description": "这是关于“布袍”的描述。"
+  },
+  {
+    "id": 40201,
+    "name": "布甲",
+    "type_info": {
+      "$type": "MArmourInfo",
+      "armourClass": 11
+    },
+    "price": 500,
+    "description": "这是关于“布甲”的描述。"
+  },
+  {
+    "id": 40202,
+    "name": "皮甲",
+    "type_info": {
+      "$type": "MArmourInfo",
+      "armourClass": 11
+    },
+    "price": 1000,
+    "description": "这是关于“皮甲”的描述。"
+  },
+  {
+    "id": 40203,
+    "name": "镶钉皮甲",
+    "type_info": {
+      "$type": "MArmourInfo",
+      "armourClass": 12
+    },
+    "price": 4500,
+    "description": "这是关于“镶钉皮甲”的描述。"
+  },
+  {
+    "id": 40301,
+    "name": "兽皮甲",
+    "type_info": {
+      "$type": "LArmourInfo",
+      "armourClass": 12,
+      "limited": 2
+    },
+    "price": 1000,
+    "description": "这是关于“兽皮甲”的描述。"
+  },
+  {
+    "id": 40302,
+    "name": "链甲衫",
+    "type_info": {
+      "$type": "LArmourInfo",
+      "armourClass": 13,
+      "limited": 2
+    },
+    "price": 5000,
+    "description": "这是关于“链甲衫”的描述。"
+  },
+  {
+    "id": 40303,
+    "name": "鳞甲",
+    "type_info": {
+      "$type": "LArmourInfo",
+      "armourClass": 14,
+      "limited": 2
+    },
+    "price": 5000,
+    "description": "这是关于“鳞甲”的描述。"
+  },
+  {
+    "id": 40304,
+    "name": "胸甲",
+    "type_info": {
+      "$type": "LArmourInfo",
+      "armourClass": 14,
+      "limited": 2
+    },
+    "price": 40000,
+    "description": "这是关于“胸甲”的描述。"
+  },
+  {
+    "id": 40305,
+    "name": "半身板甲",
+    "type_info": {
+      "$type": "LArmourInfo",
+      "armourClass": 15,
+      "limited": 2
+    },
+    "price": 75000,
+    "description": "这是关于“半身板甲”的描述。"
+  },
+  {
+    "id": 40401,
+    "name": "环甲",
+    "type_info": {
+      "$type": "HArmourInfo",
+      "armourClass": 14,
+      "equipNeed": 0
+    },
+    "price": 3000,
+    "description": "这是关于“环甲”的描述。"
+  },
+  {
+    "id": 40402,
+    "name": "链甲",
+    "type_info": {
+      "$type": "HArmourInfo",
+      "armourClass": 16,
+      "equipNeed": 13
+    },
+    "price": 7500,
+    "description": "这是关于“链甲”的描述。"
+  },
+  {
+    "id": 40403,
+    "name": "板条甲",
+    "type_info": {
+      "$type": "HArmourInfo",
+      "armourClass": 17,
+      "equipNeed": 15
+    },
+    "price": 20000,
+    "description": "这是关于“板条甲”的描述。"
+  },
+  {
+    "id": 40404,
+    "name": "板甲",
+    "type_info": {
+      "$type": "HArmourInfo",
+      "armourClass": 18,
+      "equipNeed": 15
+    },
+    "price": 150000,
+    "description": "这是关于“板甲”的描述。"
+  },
+  {
+    "id": 40501,
+    "name": "盾牌",
+    "type_info": {
+      "$type": "ShieldInfo",
+      "armourClass": 2
+    },
+    "price": 1000,
+    "description": "这是关于“盾牌”的描述。"
+  },
+  {
+    "id": 40601,
+    "name": "短棒",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 32
+    },
+    "price": 10,
+    "description": "这是关于“短棒”的描述。"
+  },
+  {
+    "id": 40701,
+    "name": "匕首",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 64
+    },
+    "price": 200,
+    "description": "这是关于“匕首”的描述。"
+  },
+  {
+    "id": 40801,
+    "name": "巨棒",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 128
+    },
+    "price": 20,
+    "description": "这是关于“巨棒”的描述。"
+  },
+  {
+    "id": 40901,
+    "name": "手斧",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 256
+    },
+    "price": 500,
+    "description": "这是关于“手斧”的描述。"
+  },
+  {
+    "id": 41001,
+    "name": "标枪",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 512
+    },
+    "price": 50,
+    "description": "这是关于“标枪”的描述。"
+  },
+  {
+    "id": 41101,
+    "name": "长棍",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 1024
+    },
+    "price": 20,
+    "description": "这是关于“长棍”的描述。"
+  },
+  {
+    "id": 41201,
+    "name": "镰刀",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 2048
+    },
+    "price": 100,
+    "description": "这是关于“镰刀”的描述。"
+  },
+  {
+    "id": 41301,
+    "name": "矛",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 4096
+    },
+    "price": 100,
+    "description": "这是关于“矛”的描述。"
+  },
+  {
+    "id": 41401,
+    "name": "轻弩",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 8192
+    },
+    "price": 2500,
+    "description": "这是关于“轻弩”的描述。"
+  },
+  {
+    "id": 41501,
+    "name": "飞镖",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 16384
+    },
+    "price": 5,
+    "description": "这是关于“飞镖”的描述。"
+  },
+  {
+    "id": 41601,
+    "name": "短弓",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 32768
+    },
+    "price": 2500,
+    "description": "这是关于“短弓”的描述。"
+  },
+  {
+    "id": 41701,
+    "name": "战斧",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 65536
+    },
+    "price": 1000,
+    "description": "这是关于“战斧”的描述。"
+  },
+  {
+    "id": 41801,
+    "name": "链枷",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 131072
+    },
+    "price": 1000,
+    "description": "这是关于“链枷”的描述。"
+  },
+  {
+    "id": 41901,
+    "name": "巨斧",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 262144
+    },
+    "price": 3000,
+    "description": "这是关于“巨斧”的描述。"
+  },
+  {
+    "id": 42001,
+    "name": "巨剑",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 524288
+    },
+    "price": 5000,
+    "description": "这是关于“巨剑”的描述。"
+  },
+  {
+    "id": 42101,
+    "name": "长剑",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 1048576
+    },
+    "price": 1500,
+    "description": "这是关于“长剑”的描述。"
+  },
+  {
+    "id": 42201,
+    "name": "巨锤",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 2097152
+    },
+    "price": 1000,
+    "description": "这是关于“巨锤”的描述。"
+  },
+  {
+    "id": 42301,
+    "name": "长矛",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 4194304
+    },
+    "price": 500,
+    "description": "这是关于“长矛”的描述。"
+  },
+  {
+    "id": 42401,
+    "name": "刺剑",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 8388608
+    },
+    "price": 2500,
+    "description": "这是关于“刺剑”的描述。"
+  },
+  {
+    "id": 42501,
+    "name": "弯刀",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 16777216
+    },
+    "price": 2500,
+    "description": "这是关于“弯刀”的描述。"
+  },
+  {
+    "id": 42601,
+    "name": "短剑",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 33554432
+    },
+    "price": 1000,
+    "description": "这是关于“短剑”的描述。"
+  },
+  {
+    "id": 42701,
+    "name": "战锤",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 67108864
+    },
+    "price": 1500,
+    "description": "这是关于“战锤”的描述。"
+  },
+  {
+    "id": 42702,
+    "name": "辉黯",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 67108864
+    },
+    "price": 3000,
+    "description": "这是关于“辉黯”的描述。"
+  },
+  {
+    "id": 42801,
+    "name": "手弩",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 134217728
+    },
+    "price": 7500,
+    "description": "这是关于“手弩”的描述。"
+  },
+  {
+    "id": 42901,
+    "name": "重弩",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 268435456
+    },
+    "price": 5000,
+    "description": "这是关于“重弩”的描述。"
+  },
+  {
+    "id": 43001,
+    "name": "长弓",
+    "type_info": {
+      "$type": "WeaponInfo",
+      "type": 536870912
+    },
+    "price": 5000,
+    "description": "这是关于“长弓”的描述。"
+  },
+  {
+    "id": 44001,
+    "name": "治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 1000,
+    "description": "这是关于“治疗药水”的描述。"
+  },
+  {
+    "id": 44002,
+    "name": "高等治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 1600,
+    "description": "这是关于“高等治疗药水”的描述。"
+  },
+  {
+    "id": 44003,
+    "name": "特效治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 2500,
+    "description": "这是关于“特效治疗药水”的描述。"
+  },
+  {
+    "id": 44004,
+    "name": "极效治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 4500,
+    "description": "这是关于“极效治疗药水”的描述。"
+  }
+]

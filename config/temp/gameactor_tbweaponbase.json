@@ -1,0 +1,352 @@
+[
+  {
+    "id": 32,
+    "name": "短棒",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 4
+      },
+      "damageType": 6
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 64,
+    "name": "匕首",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 4
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 128,
+    "name": "巨棒",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 6
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 2
+  },
+  {
+    "id": 256,
+    "name": "手斧",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 512,
+    "name": "标枪",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 1024,
+    "name": "长棍",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 6
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 2
+  },
+  {
+    "id": 2048,
+    "name": "镰刀",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 4
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 4096,
+    "name": "矛",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 2
+  },
+  {
+    "id": 8192,
+    "name": "轻弩",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 3,
+    "position": 1
+  },
+  {
+    "id": 16384,
+    "name": "飞镖",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 4
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 2,
+    "position": 1
+  },
+  {
+    "id": 32768,
+    "name": "短弓",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 3,
+    "position": 2
+  },
+  {
+    "id": 65536,
+    "name": "战斧",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 131072,
+    "name": "链枷",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 10
+      },
+      "damageType": 6
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 262144,
+    "name": "巨斧",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 12
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 2
+  },
+  {
+    "id": 524288,
+    "name": "巨剑",
+    "damge_dice": {
+      "dice": {
+        "amount": 2,
+        "diceFaces": 6
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 2
+  },
+  {
+    "id": 1048576,
+    "name": "长剑",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 2097152,
+    "name": "巨锤",
+    "damge_dice": {
+      "dice": {
+        "amount": 2,
+        "diceFaces": 6
+      },
+      "damageType": 6
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 2
+  },
+  {
+    "id": 4194304,
+    "name": "长矛",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 10
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 8388608,
+    "name": "刺剑",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 16777216,
+    "name": "弯刀",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 8
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 33554432,
+    "name": "短剑",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 67108864,
+    "name": "战锤",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 6
+    },
+    "ability_addtion": 1,
+    "range": 1,
+    "position": 1
+  },
+  {
+    "id": 134217728,
+    "name": "手弩",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 6
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 2,
+    "position": 1
+  },
+  {
+    "id": 268435456,
+    "name": "重弩",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 10
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 5,
+    "position": 2
+  },
+  {
+    "id": 536870912,
+    "name": "长弓",
+    "damge_dice": {
+      "dice": {
+        "amount": 1,
+        "diceFaces": 8
+      },
+      "damageType": 7
+    },
+    "ability_addtion": 2,
+    "range": 4,
+    "position": 2
+  }
+]

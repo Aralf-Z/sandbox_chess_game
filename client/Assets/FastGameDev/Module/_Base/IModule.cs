@@ -1,0 +1,9 @@
+namespace FastGameDev.Module
+{
+    internal interface IModule
+    {
+        int InitOrder { get; }
+        void Init();
+        void Deinit();
+    }
+}
