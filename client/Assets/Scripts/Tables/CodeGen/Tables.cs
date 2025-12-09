@@ -13,35 +13,32 @@ namespace Game.Config
 {
 public partial class Tables
 {
-    public TbAudio TbAudio {get; }
-    public GameCore.TbGSingleton TbGSingleton {get; }
-    public GameActor.TbAdventurer TbAdventurer {get; }
-    public GameActor.TbClass TbClass {get; }
-    public GameActor.TbSubrace TbSubrace {get; }
-    public GameActor.TbItem TbItem {get; }
-    public GameActor.TbWeaponBase TbWeaponBase {get; }
-    public GameActor.TbAbility TbAbility {get; }
-    public GameActor.TbPreset TbPreset {get; }
-    public GameCombat.TbCampaign TbCampaign {get; }
+    public Global.TbGSingleton TbGSingleton {get; }
+    public Character.TbAdventurer TbAdventurer {get; }
+    public Character.TbClass TbClass {get; }
+    public Character.TbSubrace TbSubrace {get; }
+    public Character.TbItem TbItem {get; }
+    public Character.TbWeaponBase TbWeaponBase {get; }
+    public Character.TbAbility TbAbility {get; }
+    public Character.TbPreset TbPreset {get; }
+    public Combat.TbCampaign TbCampaign {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
-        TbAudio = new TbAudio(loader("tbaudio"));
-        TbGSingleton = new GameCore.TbGSingleton(loader("gamecore_tbgsingleton"));
-        TbAdventurer = new GameActor.TbAdventurer(loader("gameactor_tbadventurer"));
-        TbClass = new GameActor.TbClass(loader("gameactor_tbclass"));
-        TbSubrace = new GameActor.TbSubrace(loader("gameactor_tbsubrace"));
-        TbItem = new GameActor.TbItem(loader("gameactor_tbitem"));
-        TbWeaponBase = new GameActor.TbWeaponBase(loader("gameactor_tbweaponbase"));
-        TbAbility = new GameActor.TbAbility(loader("gameactor_tbability"));
-        TbPreset = new GameActor.TbPreset(loader("gameactor_tbpreset"));
-        TbCampaign = new GameCombat.TbCampaign(loader("gamecombat_tbcampaign"));
+        TbGSingleton = new Global.TbGSingleton(loader("global_tbgsingleton"));
+        TbAdventurer = new Character.TbAdventurer(loader("character_tbadventurer"));
+        TbClass = new Character.TbClass(loader("character_tbclass"));
+        TbSubrace = new Character.TbSubrace(loader("character_tbsubrace"));
+        TbItem = new Character.TbItem(loader("character_tbitem"));
+        TbWeaponBase = new Character.TbWeaponBase(loader("character_tbweaponbase"));
+        TbAbility = new Character.TbAbility(loader("character_tbability"));
+        TbPreset = new Character.TbPreset(loader("character_tbpreset"));
+        TbCampaign = new Combat.TbCampaign(loader("combat_tbcampaign"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
-        TbAudio.ResolveRef(this);
         TbGSingleton.ResolveRef(this);
         TbAdventurer.ResolveRef(this);
         TbClass.ResolveRef(this);

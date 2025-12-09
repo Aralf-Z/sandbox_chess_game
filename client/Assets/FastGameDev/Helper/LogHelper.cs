@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace FastGameDev.Helper
 {
+    [ExecuteAlways]
     public class LogHelper: MonoBehaviour
     {
         public enum Level
@@ -20,6 +21,11 @@ namespace FastGameDev.Helper
         private static LogHelper sIns;
 
         private void Awake()
+        {
+            sIns = this;
+        }
+        
+        private void OnEnable()
         {
             sIns = this;
         }

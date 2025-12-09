@@ -8,7 +8,7 @@ namespace FastGameDev.Core
         
     }
 
-    internal static class GetModuleExtenstion
+    public static class GetModuleExtenstion
     {
         public static GameModule Module(this IGetModule getModule)
         {

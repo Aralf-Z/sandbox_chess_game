@@ -11,7 +11,7 @@ namespace FastGameDev.Module
 
         void IModule.Init()
         {
-            var file = File.ReadAllText(MapFilePath);
+            var file = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, MAP_FILE_NAME));
             mAssetMap = JsonHelper.DeserializeObject<AssetMap>(file);
         }
 
@@ -19,9 +19,9 @@ namespace FastGameDev.Module
         {
             mAssetMap = null;
         }
-        
-        public static readonly string MapFilePath = Path.Combine(Application.streamingAssetsPath, "asset_map.json");
-        
+
+        public const string MAP_FILE_NAME = "asset_map.json";
+
         private AssetMap mAssetMap;
         
         public T LoadSync<T>(string assetName) where T : Object

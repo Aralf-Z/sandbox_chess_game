@@ -5,7 +5,7 @@ namespace FastGameDev.Core
         
     }
     
-    internal static class IGetEntityExtension
+    public static class IGetEntityExtension
     {
         public static GameEntity Entity(this IGetEntity getEntity)
         {

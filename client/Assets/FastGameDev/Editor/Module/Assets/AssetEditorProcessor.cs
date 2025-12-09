@@ -12,7 +12,7 @@ namespace FastGameDev.Editor
         
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            var filePath = AssetModule.MapFilePath;
+            var filePath = AssetModule.MAP_FILE_NAME;
             var assetMap = File.Exists(filePath) ? JsonHelper.DeserializeObject<AssetMap>(File.ReadAllText(filePath)) : new AssetMap();
 
             if (importedAssets.Length > 0)

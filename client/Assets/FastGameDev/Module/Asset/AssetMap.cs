@@ -4,7 +4,7 @@ namespace FastGameDev.Module
 {
     public class AssetMap
     {
-        private readonly Dictionary<string, string> mNamePathDic = new();
+        public readonly Dictionary<string, string> mNamePathDic = new();
 
         public string this[string key] => mNamePathDic[key];
         

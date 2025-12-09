@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FastGameDev.Core
 {
-    internal class GameSystem:MonoBehaviour
+    public class GameSystem:MonoBehaviour
     {
         public bool IsInited { get; private set; }
         

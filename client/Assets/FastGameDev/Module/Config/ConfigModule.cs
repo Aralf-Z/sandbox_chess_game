@@ -16,11 +16,11 @@ namespace FastGameDev.Module
         public string configFilePath = Path.Combine(Application.streamingAssetsPath, "tables");
         public string codeFilePath = Path.Combine(Application.dataPath, "Script/Table/CodeGen");
         
-        public int InitOrder => InitOrderDefine.CONFIG;
+        int IModule.InitOrder => InitOrderDefine.CONFIG;
 
-        public Tables tables;
+        public Tables Tables { get; private set; }
         
-        public async void Init()
+        void IModule.Init()
         {
             var tablesCtor = typeof(Tables).GetConstructors()[0];
             var loaderReturnType = tablesCtor.GetParameters()[0].ParameterType.GetGenericArguments()[1];
@@ -69,7 +69,7 @@ namespace FastGameDev.Module
                     ? new Func<string, ByteBuf>(LoadByteBuf)
                     : new Func<string, JSONNode>(LoadJson);
             
-                tables = (Tables)tablesCtor.Invoke(new object[] {loader});
+                Tables = (Tables)tablesCtor.Invoke(new object[] {loader});
             }
             catch (Exception e)
             {
@@ -79,7 +79,7 @@ namespace FastGameDev.Module
 #endif
         }
 
-        public void Deinit()
+        void IModule. Deinit()
         {
             
         }

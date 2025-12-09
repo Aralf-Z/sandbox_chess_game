@@ -1,0 +1,31 @@
+namespace Game
+{
+    public enum EmFixedAttri
+    {
+        Strength,
+        Dexterity,
+        Constitution,
+        Intelligent,
+        Wisdom,
+        Charisma,
+        StrengthModifier,
+        DexterityModifier,
+        ConstitutionModifier,
+        IntelligentModifier,
+        WisdomModifier,
+        CharismaModifier,
+        AcidResistance,
+        ColdResistance,
+        FireResistance,
+        LightningResistance,
+        PoisonResistance,
+        BludgeoningResistance,
+        PiercingResistance,
+        SlashingResistance,
+        ArmourClass,
+        Movement,
+        Initiative,
+        MaxHealth,
+        ExpOnKilled,
+    }
+}

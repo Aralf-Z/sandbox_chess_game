@@ -1,12 +1,7 @@
-/*
-
-*/
-
 using System;
 using System.IO;
 using FastGameDev.Helper;
 using FastGameDev.Module;
-using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -70,17 +65,17 @@ namespace FastGameDev.Editor
                     }
 
                     var name = AssetDatabase.LoadAssetAtPath<Object>(originalPath).name;
-                    LogHelper.Info("ResTool", $"资源录入：{name}");
+                    LogHelper.Info($"资源录入-{name}","Asset");
                     EditorUtility.DisplayProgressBar("ResourcesConfigBuilding", originalPath, (float) i / guids.Length);
                     resConfig.Add(name, path[0]);
                 }
                 
-                CreateResConfig(resConfig);
-                LogHelper.Info("ResTool", "资源路径配置完成");
+                CreateAssetConfig(resConfig);
+                LogHelper.Info("资源路径配置完成","Asset");
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
-                LogHelper.Info("ResTool", $"资源路径配置失败:{e.Message}");
+                LogHelper.Info($"资源路径配置失败:{e.Message}","Asset");
                 throw;
             }
             finally
@@ -89,37 +84,18 @@ namespace FastGameDev.Editor
             }
         }
 
-        private static void CreateResConfig(AssetMap data)
+        private static void CreateAssetConfig(AssetMap data)
         {
-            var dataPath = Path.Combine(Application.streamingAssetsPath, AssetModule.MapFilePath);
-            var folders = AssetModule.MapFilePath.Split("/");
-            var tempPath = Application.streamingAssetsPath;
-
-            if (!Directory.Exists(Application.streamingAssetsPath))
-            {
-                Directory.CreateDirectory(Application.streamingAssetsPath);
-                AssetDatabase.Refresh();
-            }
-
-            for(int i = 0; i < folders.Length - 1; i++)
-            {
-                var fold = folders[i];
-                
-                tempPath = Path.Combine(tempPath, fold);
-                
-                if (!Directory.Exists(tempPath))
-                {
-                    Directory.CreateDirectory(tempPath);
-                    AssetDatabase.Refresh();
-                }
-            }
+            var dataPath = Path.Combine(Application.streamingAssetsPath, AssetModule.MAP_FILE_NAME);
             
             if (!File.Exists(dataPath))
             {
                 File.Create(dataPath);
                 AssetDatabase.Refresh();
             }
-            File.WriteAllText(dataPath, JsonConvert.SerializeObject(data));
+
+            var content = JsonHelper.SerializeObject(data);
+            File.WriteAllText(dataPath, content);
             AssetDatabase.Refresh();
         }
     }

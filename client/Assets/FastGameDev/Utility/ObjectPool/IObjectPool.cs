@@ -14,7 +14,7 @@ namespace FastGameDev.ObjectPool
         
         void Recycle(IEnumerable<T> objs);
         
-        void ClearCache();
+        void Recycle();
         
         void Clear();
     }

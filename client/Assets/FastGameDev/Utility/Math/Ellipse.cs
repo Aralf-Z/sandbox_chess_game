@@ -1,3 +1,5 @@
+using System;
+
 namespace FastGameDev.Math
 {   
     public class Ellipse
@@ -19,7 +21,7 @@ namespace FastGameDev.Math
 
         public (float yMax, float yMin) GetYFromX(float x)
         {
-            var y =(float) System.Math.Sqrt(1 - (x + mXDelta) * (x + mXDelta) / (EllipseA * EllipseA)) * EllipseB;
+            var y = MathF.Sqrt(1 - (x + mXDelta) * (x + mXDelta) / (EllipseA * EllipseA)) * EllipseB;
 
             return (y - mYDelta, -y - mYDelta);
         }

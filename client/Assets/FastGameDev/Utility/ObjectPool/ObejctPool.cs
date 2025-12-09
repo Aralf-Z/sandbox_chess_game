@@ -22,6 +22,10 @@ namespace FastGameDev.ObjectPool
             return obj;
         }
 
+        /// <summary>
+        /// 回收单个
+        /// </summary>
+        /// <param name="obj"></param>
         public void Recycle(T obj)
         {
             if (obj.IsCollected) return;
@@ -31,12 +35,19 @@ namespace FastGameDev.ObjectPool
             mCached.Remove(obj);
         }
 
+        /// <summary>
+        /// 回收复数个
+        /// </summary>
+        /// <param name="objs"></param>
         public void Recycle(IEnumerable<T> objs)
         {
             foreach (var obj in objs) Recycle(obj);
         }
 
-        public void ClearCache()
+        /// <summary>
+        /// 回收所有
+        /// </summary>
+        public void Recycle()
         {
             foreach (var obj in mCached)
             {
@@ -45,12 +56,14 @@ namespace FastGameDev.ObjectPool
                 mPool.Enqueue(obj);
             }
             mCached.Clear();
-            
         }
         
+        /// <summary>
+        /// 清空池
+        /// </summary>
         public void Clear()
         {
-            ClearCache();
+            Recycle();
             mPool.Clear();
         }
     }

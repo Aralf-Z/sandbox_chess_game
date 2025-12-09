@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FastGameDev.Core
 {
-    internal class GameModule: MonoBehaviour
+    public class GameModule: MonoBehaviour
     {
         public bool IsInited { get; private set; }
         

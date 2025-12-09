@@ -13,9 +13,9 @@ namespace FastGameDev.Core
             //todo 当发生阻塞时可以异步等
             LogHelper.Info("初始化游戏模块", "流程");
             App.gameModule.Init();
-            App.gameRecord.Init();
             App.gameEntity.Init();
             App.gameLogic.Init();
+            App.gameRecord.Init();
             App.gameSystem.Init();
         }
 

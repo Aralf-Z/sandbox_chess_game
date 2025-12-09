@@ -8,7 +8,7 @@ namespace FastGameDev
         
     }
 
-    internal static class IGetAssetExtension
+    public static class IGetAssetExtension
     {
         public static AssetModule Asset(this IGetAsset getAsset)
         {
@@ -21,11 +21,24 @@ namespace FastGameDev
         
     }
 
-    internal static class IGetUIExtension
+    public static class IGetUIExtension
     {
         public static UIModule UI(this IGetUI getUI)
         {
             return getUI.Module().UI;
+        }
+    }
+    
+    public interface IGetConfig: IGetModule
+    {
+        
+    }
+
+    public static class IGetConfigExtension
+    {
+        public static ConfigModule UI(this IGetConfig getConfig)
+        {
+            return getConfig.Module().Config;
         }
     }
 }

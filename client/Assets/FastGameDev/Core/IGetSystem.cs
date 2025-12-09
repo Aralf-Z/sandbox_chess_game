@@ -5,7 +5,7 @@ namespace FastGameDev.Core
         
     }
 
-    internal static class GetSystemExtension
+    public static class GetSystemExtension
     {
         public static GameSystem System(this IGetSystem getSystem)
         {

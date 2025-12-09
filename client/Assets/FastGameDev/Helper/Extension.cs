@@ -10,7 +10,7 @@ namespace FastGameDev.Helper
             var g = (byte)(color.g * 255f);
             var b = (byte)(color.b * 255f);
             var a = (byte)(color.a * 255f);
-
+            
             return $"#{r:X2}{g:X2}{b:X2}{a:X2}";
         }
         
