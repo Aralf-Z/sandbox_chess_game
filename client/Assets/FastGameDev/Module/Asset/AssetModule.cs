@@ -19,7 +19,12 @@ namespace FastGameDev.Module
         {
             mAssetMap = null;
         }
-
+        
+        void IModule.OnUpdate(float dt)
+        {
+            
+        }
+        
         public const string MAP_FILE_NAME = "asset_map.json";
 
         private AssetMap mAssetMap;

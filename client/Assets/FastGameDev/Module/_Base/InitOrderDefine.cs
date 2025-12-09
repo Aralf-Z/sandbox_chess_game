@@ -5,5 +5,6 @@ namespace FastGameDev.Module
         public const int ASSET = 10;
         public const int CONFIG = 20;
         public const int UI = 100;
+        public const int CAMERA = 200;
     }
 }

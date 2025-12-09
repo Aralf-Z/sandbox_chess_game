@@ -26,6 +26,11 @@ namespace FastGameDev.Module
             
         }
 
+        void IModule.OnUpdate(float dt)
+        {
+            
+        }
+        
         private readonly Dictionary<EmUIOrder, Transform> mOrdersRoot = new();//层级根节点
         private readonly Dictionary<Type, UIWindow> mCachedWindows = new();//缓存的window
         private readonly Dictionary<Type, UIWindow> mOpeningWindows = new();//打开中的window

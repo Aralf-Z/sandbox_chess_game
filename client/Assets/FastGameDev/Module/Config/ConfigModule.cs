@@ -84,6 +84,11 @@ namespace FastGameDev.Module
             
         }
         
+        void IModule.OnUpdate(float dt)
+        {
+            
+        }
+        
         private ByteBuf LoadByteBuf(string file)
         {
             return new (File.ReadAllBytes(Path.Combine(configFilePath, $"{file}.bytes")));

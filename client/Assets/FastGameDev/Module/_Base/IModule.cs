@@ -5,5 +5,6 @@ namespace FastGameDev.Module
         int InitOrder { get; }
         void Init();
         void Deinit();
+        void OnUpdate(float dt);
     }
 }
