@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using FastGameDev.Module;
+using FastGameDev.Utility.FSM;
 using UnityEngine;
 
 namespace Game
@@ -7,11 +9,36 @@ namespace Game
     public class GameCameraFollower: MonoBehaviour
         , ICameraFollower
     {
-        public Vector3 CameraPosition => transform.position + new Vector3(0, 0, -10);
+        public float moveSpeed = 5;
         
+        private Dictionary<Type, StatusBase> mStatusMap;
+        private StatusBase mCurStatus;
+        
+        public Vector3 CameraPosition => transform.position + new Vector3(0, 0, -10);
+
+        public void Init()
+        {
+            mStatusMap = new Dictionary<Type, StatusBase>()
+            {
+                [typeof(CameraModeTroopsBf)] = new CameraModeTroopsBf(),
+            };
+            foreach (var (_,status) in mStatusMap)
+            {
+                status.Init(this);
+            }
+        }
+
         public void OnUpdate(float dt)
         {
-            //transform.position += new Vector3(dt * -5, 0, 0);
+            mCurStatus?.OnUpdate(dt);
+        }
+
+
+        public void ChangeStatus<T>() where T : StatusBase
+        {
+            mCurStatus?.OnExit();
+            mCurStatus = mStatusMap[typeof(T)];
+            mCurStatus.OnEnter();
         }
     }
 }

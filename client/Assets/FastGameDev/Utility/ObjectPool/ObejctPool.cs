@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FastGameDev.ObjectPool
+namespace FastGameDev.Utility.ObjectPool
 {
     public class ObjectPool<T> : IObjectPool<T> where T : class, IObject<T>, new()
     {

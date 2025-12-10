@@ -18,10 +18,12 @@ namespace Game
         private readonly List<TroopsBattlefieldTipTileEntity> mTipTileEntities = new List<TroopsBattlefieldTipTileEntity>();
         private GameObject mOnSelectTipTile;
 
+        protected override string Tag =>　"TroopsBattlefield";
+        
         protected override void Init(int configId)
         {
             //tiles gen
-            var tile = this.Asset().LoadSync<GameObject>(kNormalTile);
+            var tile = this.Module().Asset.LoadSync<GameObject>(kNormalTile);
 
             mTiles = new Dictionary<GridPoint, SpriteRenderer>();
             for (var i = 1; i <= BattlefieldDefine.GRID_LENGTH; i++)
@@ -54,7 +56,7 @@ namespace Game
             }
             
             //tip
-            var prefab = this.Asset().LoadSync<GameObject>(kOnSelectedTip);
+            var prefab = this.Module().Asset.LoadSync<GameObject>(kOnSelectedTip);
             mOnSelectTipTile = Instantiate(prefab, transform);
             var spriteRenderer = mOnSelectTipTile.GetComponent<SpriteRenderer>();
             spriteRenderer.sortingOrder = SpriteOrderDefine.LEGION_BATTLEFIELD_TIP_TILE;

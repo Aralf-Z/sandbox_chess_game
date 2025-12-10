@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using FastGameDev.Core;
 using UnityEngine;
 
 namespace FastGameDev.Module
 {
-    public class UIModule: MonoBehaviour,
-        IModule,
-        IGetAsset
+    public class UIModule: MonoBehaviour
+        , IModule
+        , IGetModule
     {
         int IModule.InitOrder => InitOrderDefine.UI;
 
@@ -76,7 +77,7 @@ namespace FastGameDev.Module
 
             if (mCachedWindows.ContainsKey(type)) return;
             
-            var window = this.Asset().LoadSync<GameObject>(windowName).GetComponent<T>();
+            var window = this.Module().Asset.LoadSync<GameObject>(windowName).GetComponent<T>();
 
             if (window == null)
             {

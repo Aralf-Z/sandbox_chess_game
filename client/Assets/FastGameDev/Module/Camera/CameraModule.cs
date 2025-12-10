@@ -1,3 +1,4 @@
+using FastGameDev.Utility.FSM;
 using UnityEngine;
 
 namespace FastGameDev.Module
@@ -14,6 +15,7 @@ namespace FastGameDev.Module
         {
             mMain = Camera.main;
             mFollower = transform.GetComponentInChildren<ICameraFollower>();
+            mFollower.Init();
         }
 
         void IModule.Deinit()
@@ -25,6 +27,11 @@ namespace FastGameDev.Module
         {
             mFollower.OnUpdate(dt);
             mMain.transform.position = mFollower.CameraPosition;
+        }
+
+        public void ChangeCameraMode<T>() where T : StatusBase
+        {
+            mFollower.ChangeStatus<T>();
         }
     }
 }

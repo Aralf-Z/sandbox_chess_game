@@ -1,4 +1,4 @@
-namespace FastGameDev.Value
+namespace FastGameDev.Utility.Value
 {
     public class SourceValue
     {

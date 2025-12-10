@@ -1,8 +1,9 @@
+using FastGameDev.Core;
 using FastGameDev.Syztem;
 
 namespace Game
 {
-    public class TroopBattleSystem: SyztemBase
+    public class TroopBattleSystem: SystemBase
     {
         protected override void Init()
         {
@@ -11,7 +12,7 @@ namespace Game
 
         public void EnterBattle(TroopEntity ally, TroopEntity enemy, TroopsBattlefieldEntity field)
         {
-            
+            this.Module().Camera.ChangeCameraMode<CameraModeTroopsBf>();
         }
 
         public void ExiteBattle()

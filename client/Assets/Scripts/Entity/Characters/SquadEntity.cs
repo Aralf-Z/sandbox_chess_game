@@ -2,8 +2,11 @@ using FastGameDev.Entity;
 
 namespace Game
 {
-    public sealed class SquadEntity: MonoEntityBase
+    public sealed class SquadEntity: NormalEntityBase
+        , IHaveInfo
     {
+        protected override string Tag =>　"Squad";
+        
         protected override void Init(int configId)
         {
             
@@ -18,5 +21,7 @@ namespace Game
         {
             
         }
+
+        public IInfo Info { get; set; }
     }
 }

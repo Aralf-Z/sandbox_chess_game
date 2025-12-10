@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FastGameDev.AI
+namespace FastGameDev.Utility.AI
 {
     public partial class AStar
     {

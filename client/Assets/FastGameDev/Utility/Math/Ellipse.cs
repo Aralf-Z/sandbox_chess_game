@@ -1,6 +1,6 @@
 using System;
 
-namespace FastGameDev.Math
+namespace FastGameDev.Utility.Math
 {   
     public class Ellipse
     {

@@ -1,6 +1,9 @@
+using FastGameDev;
+using FastGameDev.Core;
+
 namespace Game
 {
-    public sealed class EnemyEntity: CharecterEntity
+    public sealed class EnemyEntity: CharacterEntity
     {
         protected override void OnUpdate(float dt)
         {
@@ -19,7 +22,7 @@ namespace Game
         
         protected override void Init(int configId)
         {
-            var cfg = cfgModule.Tables.TbPreset[configId];
+            var cfg = this.Module().Config.Tables.TbPreset[configId];
             var itemPreset = cfg.ItemPreset1;
             
             Attribute = new CharacterAttri();

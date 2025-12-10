@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using FastGameDev.Math;
+using FastGameDev.Utility.Math;
 
 namespace Game
 {

@@ -4,6 +4,8 @@ namespace Game
 {
     public sealed class TroopEntity: MonoEntityBase
     {
+        protected override string Tag =>　"Troop";
+        
         protected override void Init(int configId)
         {
             throw new System.NotImplementedException();

@@ -1,15 +1,18 @@
 using FastGameDev.Core;
-using UnityEngine;
 
 namespace FastGameDev.Entity
 {
     /// <summary>
-    /// 需要绑定游戏对象的实体脚本基类
+    /// 不需要绑定游戏对象的实体脚本基类
     /// </summary>
-    public abstract class MonoEntityBase: MonoBehaviour
-        , IGetEntity
+    public abstract class NormalEntityBase :
+        IGetEntity
         , IGetModule
     {
+        // internal NormalEntityBase()
+        // {
+        // }
+
         protected internal abstract string Tag { get; }
         protected internal abstract void Init(int configId);
         protected internal abstract void OnUpdate(float dt);

@@ -6,11 +6,12 @@ using UnityEngine;
 namespace FastGameDev.Core
 {
     public class GameEntity : MonoBehaviour,
-        IGetAsset
+        IGetModule
     {
         private bool mIsInited;
         
         private readonly List<MonoEntityBase> mMonoEntities = new List<MonoEntityBase>();
+        private readonly List<NormalEntityBase> mNormalEntities = new List<NormalEntityBase>();
         
         internal void Init()
         {
@@ -53,7 +54,7 @@ namespace FastGameDev.Core
         //todo 未池化
         public T RequireMonoEntity<T>(string assetName, int configId = 0) where T : MonoEntityBase
         {
-            var template = this.Asset().LoadSync<GameObject>(assetName);
+            var template = this.Module().Asset.LoadSync<GameObject>(assetName);
             var go = Instantiate(template);
             var en = go.GetComponent<T>();
             mMonoEntities.Add(en);
@@ -75,6 +76,27 @@ namespace FastGameDev.Core
                 var go = e.gameObject;
                 mMonoEntities.Remove(e);
                 Destroy(go);
+            }
+        }
+        
+        public T RequireNormalEntity<T>(int configId = 0) where T : NormalEntityBase, new ()
+        {
+            var en = new T();
+            mNormalEntities.Add(en);
+            en.Init(configId);
+            return en;
+        }
+
+        public void RecycleNormalEntity<T>(T entity) where T : NormalEntityBase
+        {
+            mNormalEntities.Remove(entity);
+        }
+        
+        public void RecycleNormalEntity<T>(IEnumerable<T> entity) where T : NormalEntityBase
+        {
+            foreach (var e in entity)
+            {
+                mNormalEntities.Remove(e);
             }
         }
     }

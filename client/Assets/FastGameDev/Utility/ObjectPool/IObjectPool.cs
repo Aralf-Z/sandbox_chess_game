@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FastGameDev.ObjectPool
+namespace FastGameDev.Utility.ObjectPool
 {
     /// <summary>
     /// 对象池接口

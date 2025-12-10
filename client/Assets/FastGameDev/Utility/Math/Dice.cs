@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FastGameDev.Math
+namespace FastGameDev.Utility.Math
 {
     public struct Dices
     {

@@ -1,4 +1,4 @@
-namespace FastGameDev.Singleton
+namespace FastGameDev.Utility.Singleton
 {
     /// <summary>
     /// 普通单例类

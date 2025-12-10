@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FastGameDev.Math
+namespace FastGameDev.Utility.Math
 {
     /// <summary>
     /// PRD随机分布

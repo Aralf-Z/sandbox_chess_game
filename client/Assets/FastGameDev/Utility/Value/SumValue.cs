@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FastGameDev.Value
+namespace FastGameDev.Utility.Value
 {
     /// <summary>
     /// 总值

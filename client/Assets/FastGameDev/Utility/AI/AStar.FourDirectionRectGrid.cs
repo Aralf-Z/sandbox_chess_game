@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FastGameDev.AI
+namespace FastGameDev.Utility.AI
 {
     public partial class AStar
     {

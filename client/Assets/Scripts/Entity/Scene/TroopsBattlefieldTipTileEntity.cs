@@ -7,6 +7,8 @@ namespace Game
     {
         public GridPoint point;
         
+        protected override string Tag =>　"scene";
+        
         protected override void Init(int configId)
         {
             var renders = GetComponentsInChildren<Renderer>();

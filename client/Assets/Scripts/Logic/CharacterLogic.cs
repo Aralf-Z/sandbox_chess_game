@@ -5,12 +5,12 @@ namespace Logic
 {
     public class CharacterLogic: LogicBase
     {
-        public void RecoverOnNewBattle(CharecterEntity charecter)
+        public void RecoverOnNewBattle(CharacterEntity character)
         {
             
         }
 
-        public void RecoverOnNewTurn(CharecterEntity charecter)
+        public void RecoverOnNewTurn(CharacterEntity character)
         {
             
         }

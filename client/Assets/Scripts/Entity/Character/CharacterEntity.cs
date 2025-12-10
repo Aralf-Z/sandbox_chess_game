@@ -1,18 +1,16 @@
 using FastGameDev;
 using FastGameDev.Entity;
-using FastGameDev.Module;
 
 namespace Game
 {
-    public abstract class CharecterEntity : MonoEntityBase
+    public abstract class CharacterEntity : MonoEntityBase
         , IHaveAttribute
         , IHaveIdentity
         , IHaveInfo
         , IHaveItemPacket
-        , IGetConfig
+    
     {
-        protected ConfigModule cfgModule;
-        
+        protected override string Tag =>　"Character";
         public abstract IAttribute Attribute { get; protected set; }
         public abstract IIdentity Identity { get;  protected set; }
         public abstract IInfo Info { get;  protected set; }
