@@ -2,8 +2,8 @@ namespace Game
 {
     public interface IInfo
     {
-        int ConfigId { get; }
-        string DisplayName { get; }
+        int ConfigId { get; set; }
+        string DisplayName { get; set; }
     }
 
     public interface IHaveInfo

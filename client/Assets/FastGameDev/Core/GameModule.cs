@@ -7,7 +7,7 @@ namespace FastGameDev.Core
 {
     public class GameModule: MonoBehaviour
     {
-        public bool IsInited { get; private set; }
+        internal bool IsInited { get; private set; }
         
         public AssetModule Asset { get; private set; }
         public UIModule UI { get; private set; }

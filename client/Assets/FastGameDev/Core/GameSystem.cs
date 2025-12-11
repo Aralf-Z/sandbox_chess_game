@@ -1,13 +1,24 @@
+using System;
+using System.Collections.Generic;
+using FastGameDev.Syztem;
 using UnityEngine;
 
 namespace FastGameDev.Core
 {
-    public class GameSystem:MonoBehaviour
+    public class GameSystem: MonoBehaviour
     {
-        public bool IsInited { get; private set; }
+        private Dictionary<Type, SystemBase> mSystems = new Dictionary<Type, SystemBase>();
+        
+        internal bool IsInited { get; private set; }
         
         internal void Init()
         {
+            foreach (var sys in GetComponentsInChildren<SystemBase>())
+            {
+                sys.Init();
+                mSystems.Add(sys.GetType(), sys);
+            }
+            
             IsInited = true;
         }
 
@@ -25,5 +36,7 @@ namespace FastGameDev.Core
         {
             
         }
+
+        public T Get<T>() where T : SystemBase => mSystems[typeof(T)] as T;
     }
 }

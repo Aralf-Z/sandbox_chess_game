@@ -2,17 +2,17 @@ using FastGameDev;
 using FastGameDev.Core;
 using FastGameDev.Helper;
 
-namespace Game.Flow
+namespace Game
 {
     public class FlowDemo: FlowBase
     , IGetEntity
     , IGetModule
+    , IGetSystem
     {
         public int allyId = 71001;
         public int enemyId = 70001;
 
         public string troopsBfAsset = "troops_battlefield";
-        public string 
         
         protected override void Init()
         {
@@ -28,19 +28,15 @@ namespace Game.Flow
             //敌方军团随机位置
             //我方军团随机位置
             //TroopsBattleSystem.EnterBattle()
+            
             var entity = this.Entity();
             var tables = this.Module().Config.Tables;
-            var bf = entity.RequireMonoEntity<TroopsBattlefieldEntity>(troopsBfAsset);
-            foreach (var (squadName, squadStances) in tables.TbCampaign[allyId].Squads)
-            {
-                var squad = entity.RequireNormalEntity<SquadEntity>();
-                squad.Info = new SquadInfo(squadName);
-                //todo squad content
-            }
-            foreach (var (squadName, squadStances) in tables.TbCampaign[enemyId].Squads)
-            {
-                
-            }
+            var tbf = entity.RequireMonoEntity<TroopsBattlefieldEntity>(troopsBfAsset);
+            var allyTroop = entity.RequireNormalEntity<TroopEntity>(allyId);
+            var enemyTroop =  entity.RequireNormalEntity<TroopEntity>(enemyId);
+            
+            this.Module().UI.Open<BattlefieldUI>();
+            this.System().Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
         }
 
         protected override void Check()

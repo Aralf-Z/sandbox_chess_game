@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace FastGameDev.Core
 {
+    //todo 先暂时把逻辑写在Entity中吧？ Logic的分离，感觉有点设计过度的样子
     public class GameEntity : MonoBehaviour,
         IGetModule
     {

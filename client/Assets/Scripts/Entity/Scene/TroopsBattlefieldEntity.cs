@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using FastGameDev;
 using FastGameDev.Core;
 using FastGameDev.Entity;
 using UnityEngine;

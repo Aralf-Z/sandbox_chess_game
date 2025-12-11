@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UI
+namespace Game
 {
     public partial class BattlefieldUI
     {

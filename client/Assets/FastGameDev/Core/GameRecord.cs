@@ -4,7 +4,7 @@ namespace FastGameDev.Core
 {
     public class GameRecord: MonoBehaviour
     {
-        public bool IsInited { get; private set; }
+        internal bool IsInited { get; private set; }
         
         internal void Init()
         {

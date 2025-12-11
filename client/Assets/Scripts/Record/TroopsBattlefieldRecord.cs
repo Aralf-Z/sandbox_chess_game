@@ -4,6 +4,7 @@ namespace Game
 {
     public class TroopsBattlefieldRecord: RecordBase
     {
+        public TroopsBattlefieldEntity battlefield;
         public TroopEntity allyTroop;
         public TroopEntity enemyTroop;
         public SquadEntity curActingSquad;

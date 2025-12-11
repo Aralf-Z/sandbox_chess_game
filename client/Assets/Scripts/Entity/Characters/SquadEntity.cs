@@ -4,6 +4,8 @@ namespace Game
 {
     public sealed class SquadEntity: NormalEntityBase
         , IHaveInfo
+        , IHaveCharactersGrid
+        , IHaveAttribute
     {
         protected override string Tag =>　"Squad";
         
@@ -21,7 +23,9 @@ namespace Game
         {
             
         }
-
-        public IInfo Info { get; set; }
+        
+        public IInfo Info => new SquadInfo();
+        public ICharactersGrid SquadGrid { get; } = new SquadGrid();
+        public IAttribute Attribute { get; } = new SquadAttri();
     }
 }

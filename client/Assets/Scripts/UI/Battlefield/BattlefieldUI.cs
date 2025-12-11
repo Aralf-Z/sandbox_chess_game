@@ -2,7 +2,7 @@ using System;
 using FastGameDev.Module;
 using UnityEngine;
 
-namespace Game.UI
+namespace Game
 {
     public partial class BattlefieldUI : UIWindow
     {

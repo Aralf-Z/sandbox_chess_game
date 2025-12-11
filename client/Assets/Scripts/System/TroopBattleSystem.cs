@@ -5,6 +5,8 @@ namespace Game
 {
     public class TroopBattleSystem: SystemBase
     {
+        private TroopsBattlefieldRecord mBfRecord;
+        
         protected override void Init()
         {
             
@@ -13,6 +15,9 @@ namespace Game
         public void EnterBattle(TroopEntity ally, TroopEntity enemy, TroopsBattlefieldEntity field)
         {
             this.Module().Camera.ChangeCameraMode<CameraModeTroopsBf>();
+            mBfRecord.allyTroop = ally;
+            mBfRecord.enemyTroop = enemy;
+            mBfRecord.battlefield = field;
         }
 
         public void ExiteBattle()
