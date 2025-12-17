@@ -1,6 +1,6 @@
 namespace Game
 {
-    public struct EquipmentGroup
+    public struct Equipments
     {
         public int mainHand;
         public int offHand;

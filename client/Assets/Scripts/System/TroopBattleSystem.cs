@@ -9,7 +9,7 @@ namespace Game
         
         protected override void Init()
         {
-            
+            mBfRecord = this.Record().Get<TroopsBattlefieldRecord>();
         }
 
         public void EnterBattle(TroopEntity ally, TroopEntity enemy, TroopsBattlefieldEntity field)
@@ -18,6 +18,8 @@ namespace Game
             mBfRecord.allyTroop = ally;
             mBfRecord.enemyTroop = enemy;
             mBfRecord.battlefield = field;
+            
+            field.Enter();
         }
 
         public void ExiteBattle()

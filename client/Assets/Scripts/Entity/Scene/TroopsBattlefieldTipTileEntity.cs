@@ -18,14 +18,5 @@ namespace Game
             }
         }
 
-        protected override void OnUpdate(float dt)
-        {
-            
-        }
-
-        protected override void OnFixedUpdate(float fdt)
-        {
-            
-        }
     }
 }

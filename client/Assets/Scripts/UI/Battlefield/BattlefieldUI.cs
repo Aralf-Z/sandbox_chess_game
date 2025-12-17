@@ -6,6 +6,8 @@ namespace Game
 {
     public partial class BattlefieldUI : UIWindow
     {
+        public override EmUIOrder Order => EmUIOrder.Normal;
+
         // private BattlefieldUIActorFloatInfo actorFloatInfoTemplate;
         //
         // private IObjectPool<BattlefieldUIActorFloatInfo>  mActorPool;
@@ -40,5 +42,6 @@ namespace Game
         //     ((RectTransform)info.transform).anchoredPosition = new Vector2(pos.x, pos.y);
         //     info.SetName(ae.Actor.Info.Name);
         // }
+
     }
 }

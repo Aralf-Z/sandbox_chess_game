@@ -34,8 +34,6 @@ namespace FastGameDev.Core
             gameModule.OnUpdate(dt);
             gameSystem.OnUpdate(dt);
             gameLogic.OnUpdate(dt);
-            gameRecord.OnUpdate(dt);
-            gameEntity.OnUpdate(dt);
         }
 
         private void FixedUpdate()
@@ -46,8 +44,6 @@ namespace FastGameDev.Core
             gameModule.OnFixedUpdate(dt);
             gameSystem.OnFixedUpdate(dt);
             gameLogic.OnFixedUpdate(dt);
-            gameRecord.OnFixedUpdate(dt);
-            gameEntity.OnFixedUpdate(dt);
         }
 
         public void ShutDownGame()

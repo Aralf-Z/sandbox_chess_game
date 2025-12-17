@@ -3,7 +3,7 @@ using FastGameDev.Utility.Math;
 
 namespace Game
 {
-    public class TroopsBattlefieldGrid: IGrid
+    public class TroopsBattlefieldGrid
     {
         private readonly SimplePerlinNoise mPerlin;
         

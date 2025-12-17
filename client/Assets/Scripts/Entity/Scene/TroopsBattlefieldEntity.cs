@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using FastGameDev.Core;
 using FastGameDev.Entity;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace Game
 {
     public sealed class TroopsBattlefieldEntity: MonoEntityBase
-    , IHaveGrid
+        , IGetRecord
     {
         private const string kNormalTile = "tile_normal";
         private const string kTipTile = "tip_tile";
@@ -40,7 +41,7 @@ namespace Game
                 }
             }
 
-            //tileInfo set
+            //tileEntity set
             Grid = new TroopsBattlefieldGrid();
             foreach (var (point, render) in mTiles)
             {
@@ -61,17 +62,81 @@ namespace Game
             spriteRenderer.sortingOrder = SpriteOrderDefine.LEGION_BATTLEFIELD_TIP_TILE;
             mOnSelectTipTile.SetActive(false);
         }
+
+        public void Enter()
+        {
+            SetSquadPosition();
+            RefreshSquadPosition();
+        }
         
-        protected override void OnUpdate(float dt)
+        private void SetSquadPosition()
         {
-            
-        }
+            const int tilesMaxLength = BattlefieldDefine.GRID_LENGTH * BattlefieldDefine.GRID_LENGTH;
 
-        protected override void OnFixedUpdate(float fdt)
+            var record = this.Record().Get<TroopsBattlefieldRecord>();
+            var random = new System.Random();
+            var allyTiles = ArrayPool<GridPoint>.Shared.Rent(tilesMaxLength);
+            var enemyTiles = ArrayPool<GridPoint>.Shared.Rent(tilesMaxLength);
+            var atCount = 0;
+            var etCount = 0;
+            
+            record.squads.Clear();
+            
+            try
+            {
+                for (var x = 1; x <= BattlefieldDefine.GRID_LENGTH; x++)
+                {
+                    for (var y = 1; y <= BattlefieldDefine.GRID_LENGTH; y++)
+                    {
+                        var position = new GridPoint(x, y);
+                        if (x <= BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION)
+                        {
+                            if (Grid[position] != BattlefieldDefine.TILE_TYPE_BLOCK)
+                                allyTiles[atCount++] = position;
+                        }
+                        else
+                        {
+                            if (Grid[position] != BattlefieldDefine.TILE_TYPE_BLOCK)
+                                enemyTiles[etCount++] = position;
+                        }
+                    }
+                }
+                foreach (var squad in record.allyTroop.Setup.squads)
+                {
+                    var index = random.Next(atCount);
+                    var point = allyTiles[index];
+                    squad.Context.gridPoint = point;
+                    record.squads[point] = squad;
+                    allyTiles[index] = allyTiles[atCount--];
+                }
+                foreach (var squad in record.enemyTroop.Setup.squads)
+                {
+                    var index = random.Next(etCount);
+                    var point = enemyTiles[index];
+                    squad.Context.gridPoint = point;
+                    record.squads[point] = squad;
+                    enemyTiles[index] = enemyTiles[etCount--];
+                }
+            }
+            finally
+            {
+                ArrayPool<GridPoint>.Shared.Return(allyTiles,true);
+                ArrayPool<GridPoint>.Shared.Return(enemyTiles, true);
+            }
+        }
+        
+        //更新地块，更新所有队伍位置
+        private void RefreshSquadPosition()
         {
-            
+            var record = this.Record().Get<TroopsBattlefieldRecord>();
+            foreach (var (point, entity) in record.squads)
+            {
+                entity.transform.position = WorldPosition(point);
+            }
         }
+        
 
+        
         public void OnSelectPoint(GridPoint point)
         {
             var onSelectWorldPos = WorldPosition(point);
@@ -104,6 +169,6 @@ namespace Game
             return new Vector2(point.X - offset + rootPosition.x, point.Y - offset + rootPosition.y);
         }
 
-        public IGrid Grid { get; private set; }
+        public TroopsBattlefieldGrid Grid { get; private set; }
     }
 }

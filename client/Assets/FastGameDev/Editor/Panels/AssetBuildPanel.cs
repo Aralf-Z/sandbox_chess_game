@@ -65,7 +65,7 @@ namespace FastGameDev.Editor
                     }
 
                     var name = AssetDatabase.LoadAssetAtPath<Object>(originalPath).name;
-                    LogHelper.Info($"资源录入-{name}","Asset");
+                    LogHelper.Info($"资源录入-'{name}'","Asset");
                     EditorUtility.DisplayProgressBar("ResourcesConfigBuilding", originalPath, (float) i / guids.Length);
                     resConfig.Add(name, path[0]);
                 }

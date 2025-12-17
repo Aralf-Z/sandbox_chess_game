@@ -7,7 +7,7 @@ namespace FastGameDev.Core
 
     public static class IGetRecordExtension
     {
-        public static GameRecord Data(this IGetRecord getMemory)
+        public static GameRecord Record(this IGetRecord getRecord)
         {
             return GameApplication.Instance.gameRecord;
         }

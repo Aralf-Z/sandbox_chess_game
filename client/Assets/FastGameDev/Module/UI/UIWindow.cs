@@ -6,6 +6,6 @@ namespace FastGameDev.Module
     public abstract class UIWindow: UIElement
         , IUIWindow
     {
-        public EmUIOrder Order { get; protected set; }
+        public abstract EmUIOrder Order { get; }
     }
 }

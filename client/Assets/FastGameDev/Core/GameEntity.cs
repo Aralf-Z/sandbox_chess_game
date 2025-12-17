@@ -29,28 +29,6 @@ namespace FastGameDev.Core
                 Destroy(entity.gameObject);
             }
         }
-        
-        internal void OnUpdate(float dt)
-        {
-            if (!mIsInited) return;
-            
-            for (var i = mMonoEntities.Count - 1; i >= 0; i--)
-            {
-                var entity = mMonoEntities[i];
-                entity.OnUpdate(dt);
-            }
-        }
-
-        internal void OnFixedUpdate(float dt)
-        {
-            if (!mIsInited) return;
-            
-            for (var i = mMonoEntities.Count - 1; i >= 0; i--)
-            {
-                var entity = mMonoEntities[i];
-                entity.OnFixedUpdate(dt);
-            }
-        }
 
         //todo 未池化
         public T RequireMonoEntity<T>(string assetName, int configId = 0) where T : MonoEntityBase

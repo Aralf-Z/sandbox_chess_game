@@ -114,22 +114,22 @@ namespace Game
         // }
         protected override void OnCreate()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         protected override void OnOpen()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         protected override void OnHide()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         protected override void OnClose()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

@@ -35,8 +35,8 @@ namespace Game
             var allyTroop = entity.RequireNormalEntity<TroopEntity>(allyId);
             var enemyTroop =  entity.RequireNormalEntity<TroopEntity>(enemyId);
             
-            this.Module().UI.Open<BattlefieldUI>();
             this.System().Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
+            this.Module().UI.Open<BattlefieldUI>();
         }
 
         protected override void Check()

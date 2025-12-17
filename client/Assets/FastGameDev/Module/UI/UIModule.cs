@@ -46,7 +46,7 @@ namespace FastGameDev.Module
             
             var target = mCachedWindows[type];
             target.Open();
-            target.transform.SetParent(mOrdersRoot[target.Order]);
+            target.transform.SetParent(mOrdersRoot[target.Order], false);
             target.transform.SetAsLastSibling();
             mOpeningWindows.Add(type, target);
             
@@ -77,7 +77,9 @@ namespace FastGameDev.Module
 
             if (mCachedWindows.ContainsKey(type)) return;
             
-            var window = this.Module().Asset.LoadSync<GameObject>(windowName).GetComponent<T>();
+            var prefab = this.Module().Asset.LoadSync<GameObject>(windowName);
+            
+            var window = Instantiate(prefab).GetComponent<T>();
 
             if (window == null)
             {

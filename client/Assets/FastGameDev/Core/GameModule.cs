@@ -41,15 +41,15 @@ namespace FastGameDev.Core
         
         internal void OnUpdate(float dt)
         {
-            foreach (var module in modules)
-            {
-                module.OnUpdate(dt);
-            }
+            
         }
 
         internal void OnFixedUpdate(float dt)
         {
-            
+            foreach (var module in modules)
+            {
+                module.OnUpdate(dt);
+            }
         }
     }
 }

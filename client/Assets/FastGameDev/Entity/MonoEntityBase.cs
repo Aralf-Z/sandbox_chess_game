@@ -12,7 +12,5 @@ namespace FastGameDev.Entity
     {
         protected internal abstract string Tag { get; }
         protected internal abstract void Init(int configId);
-        protected internal abstract void OnUpdate(float dt);
-        protected internal abstract void OnFixedUpdate(float fdt);
     }
 }

@@ -4,7 +4,6 @@ using FastGameDev.Entity;
 namespace Game
 {
     public sealed class TroopEntity: NormalEntityBase
-        , IHaveSquads
     {
         protected override string Tag =>　"Troop";
         
@@ -19,30 +18,26 @@ namespace Game
             //todo temp code
             foreach (var (squadName, squadStances) in tables.TbCampaign[configId].Squads)
             {
-                var squad = entity.RequireNormalEntity<SquadEntity>();
+                var squad = entity.RequireMonoEntity<SquadEntity>("squad");
                 
-                squad.Info.DisplayName = squadName;
+                squad.Info.name = squadName;
 
                 foreach (var stance in squadStances)
                 {
-                    CharacterEntity ally = stance.Id / 10000 == 1 ? entity.RequireMonoEntity<AdventurerEntity>("adventurer") : entity.RequireMonoEntity<AllyEntity>("ally");
-                    squad.SquadGrid.SetCharacter(new GridPoint(stance.Row, stance.Column), ally);
+                    CharacterEntity ally = stance.Id / 10000 == 1 
+                        ? entity.RequireMonoEntity<AdventurerEntity>("adventurer", stance.Id) 
+                        : entity.RequireMonoEntity<AllyEntity>("ally", stance.Id);
+                    squad.Setup.characters.Add(ally);
+                    squad.Context.SetCharacter(stance.Row, stance.Column, ally);
                 }
                 
-                Squads.AllSquads.Add(squad);
+                squad.Refresh();
+                Setup.squads.Add(squad);
             }
         }
 
-        protected override void OnUpdate(float dt)
-        {
-            
-        }
-
-        protected override void OnFixedUpdate(float fdt)
-        {
-            
-        }
-
-        public ISquads Squads { get; } = new TroopSquads();
+        public TroopsInfo Info { get; private set; } = new TroopsInfo();
+        public TroopsSetup Setup { get; private set; } = new TroopsSetup();
+        public TroopsContext Context { get; private set; } = new TroopsContext();
     }
 }

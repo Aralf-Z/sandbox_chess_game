@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    public class CharacterAttri: IAttribute
+    public class Attributes
     {
         private readonly Dictionary<EmFixedAttri, float> mFixedAttri;
         private readonly Dictionary<EmResAttri, float> mResourceAttri;

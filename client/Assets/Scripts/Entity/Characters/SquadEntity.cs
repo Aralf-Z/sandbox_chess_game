@@ -1,12 +1,12 @@
 using FastGameDev.Entity;
+using UnityEngine;
 
 namespace Game
 {
-    public sealed class SquadEntity: NormalEntityBase
-        , IHaveInfo
-        , IHaveCharactersGrid
-        , IHaveAttribute
+    public sealed class SquadEntity: MonoEntityBase
     {
+        [SerializeField] private Transform[] characters;
+        
         protected override string Tag =>　"Squad";
         
         protected override void Init(int configId)
@@ -14,18 +14,20 @@ namespace Game
             
         }
 
-        protected override void OnUpdate(float dt)
+        public void Refresh()
         {
-            
-        }
-
-        protected override void OnFixedUpdate(float fdt)
-        {
-            
+            for (var i = 0; i < Setup.characters.Count; i++)
+            {
+                var chara =  Setup.characters[i];
+                chara.transform.SetParent(characters[i]);
+                chara.transform.localScale = Vector3.one;
+                chara.transform.localPosition = Vector3.zero;
+            }
         }
         
-        public IInfo Info => new SquadInfo();
-        public ICharactersGrid SquadGrid { get; } = new SquadGrid();
-        public IAttribute Attribute { get; } = new SquadAttri();
+        public Attributes Attribute { get; private set; } = new Attributes();
+        public SquadInfo Info { get; private set; } = new SquadInfo();
+        public SquadSetup Setup { get; private set; } = new SquadSetup();
+        public SquadContext Context { get; private set; } = new SquadContext();
     }
 }
