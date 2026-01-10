@@ -33,7 +33,9 @@ namespace FastGameDev.Editor
                     Debug.Log(config.name);
                     Debug.Log(config.isActive);
                     Debug.Log(config.entryScene);
-
+                    
+                    LogHelper.Debug("你好");
+                    LogHelperConfig.Save();
                     
                     config.isActive = !config.isActive;
                 }

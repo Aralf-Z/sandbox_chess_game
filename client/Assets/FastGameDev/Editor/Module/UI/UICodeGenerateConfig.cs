@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FastGameDev.Editor
 {
-    internal class UICodeGenerateConfig: DevConfig<UICodeGenerateConfig>
+    internal class UICodeGenerateConfig: EditorDevConfig<UICodeGenerateConfig>
     {
         public string namespaceName = "ZGame.UI";
         

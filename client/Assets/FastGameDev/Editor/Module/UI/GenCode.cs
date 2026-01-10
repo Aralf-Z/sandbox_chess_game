@@ -10,7 +10,7 @@ namespace FastGameDev.Editor
 {
     internal static class GenCode
     {
-        public static UICodeGenerateConfig Config => UICodeGenerateConfig.Instance;
+        public static UICodeGenerateConfig Config => UICodeGenerateConfig.Ins;
         
         [MenuItem("Assets/CodeGen/Create Code &w", false, 1)]
         private static void CreateCode()
