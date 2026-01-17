@@ -1,0 +1,383 @@
+[
+  {
+    "id": 30001,
+    "name": "人类",
+    "main_race": 1,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 65510,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "intelligent": 1,
+        "wisdom": 1,
+        "charisma": 1
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": []
+    }
+  },
+  {
+    "id": 30002,
+    "name": "丘陵矮人",
+    "main_race": 2,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 67239916,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 2,
+        "intelligent": 0,
+        "wisdom": 2,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          5,
+          0.5
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 5,
+      "initiative": 0,
+      "abilities": [
+        50011
+      ]
+    }
+  },
+  {
+    "id": 30003,
+    "name": "高山矮人",
+    "main_race": 2,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 67239916,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 2,
+        "dexterity": 0,
+        "constitution": 2,
+        "intelligent": 0,
+        "wisdom": 0,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          5,
+          0.5
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 5,
+      "initiative": 0,
+      "abilities": [
+        50011
+      ]
+    }
+  },
+  {
+    "id": 30004,
+    "name": "木精灵",
+    "main_race": 3,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 536936416,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 2,
+        "constitution": 0,
+        "intelligent": 0,
+        "wisdom": 1,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 7,
+      "initiative": 0,
+      "abilities": []
+    }
+  },
+  {
+    "id": 30005,
+    "name": "高精灵",
+    "main_race": 3,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 65504,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 2,
+        "constitution": 0,
+        "intelligent": 0,
+        "wisdom": 1,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 7,
+      "initiative": 0,
+      "abilities": [
+        51201,
+        51202
+      ]
+    }
+  },
+  {
+    "id": 30006,
+    "name": "半身人",
+    "main_race": 4,
+    "creature_type": 512,
+    "body_type": 2,
+    "proficiency": 65504,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 2,
+        "constitution": 0,
+        "intelligent": 0,
+        "wisdom": 0,
+        "charisma": 1
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 5,
+      "initiative": 0,
+      "abilities": [
+        50013
+      ]
+    }
+  },
+  {
+    "id": 30007,
+    "name": "侏儒",
+    "main_race": 5,
+    "creature_type": 512,
+    "body_type": 2,
+    "proficiency": 65504,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 1,
+        "constitution": 0,
+        "intelligent": 2,
+        "wisdom": 0,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 5,
+      "initiative": 0,
+      "abilities": [
+        50014
+      ]
+    }
+  },
+  {
+    "id": 30008,
+    "name": "半精灵",
+    "main_race": 6,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 537984992,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 1,
+        "constitution": 0,
+        "intelligent": 1,
+        "wisdom": 0,
+        "charisma": 2
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": []
+    }
+  },
+  {
+    "id": 30009,
+    "name": "龙裔",
+    "main_race": 7,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 65504,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 2,
+        "dexterity": 0,
+        "constitution": 0,
+        "intelligent": 0,
+        "wisdom": 0,
+        "charisma": 1
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 13,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": [
+        50015
+      ]
+    }
+  },
+  {
+    "id": 30010,
+    "name": "半兽人",
+    "main_race": 8,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 65504,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 2,
+        "dexterity": 0,
+        "constitution": 1,
+        "intelligent": 0,
+        "wisdom": 0,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": [
+        50012
+      ]
+    }
+  },
+  {
+    "id": 30011,
+    "name": "提夫林",
+    "main_race": 9,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 65504,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "intelligent": 1,
+        "wisdom": 0,
+        "charisma": 2
+      },
+      "resistance": [
+        [
+          3,
+          0.5
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": [
+        50016
+      ]
+    }
+  },
+  {
+    "id": 31001,
+    "name": "地精",
+    "main_race": 10,
+    "creature_type": 512,
+    "body_type": 2,
+    "proficiency": 0,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "intelligent": 0,
+        "wisdom": 0,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 0,
+      "movement": 0,
+      "initiative": 0,
+      "abilities": []
+    }
+  },
+  {
+    "id": 31002,
+    "name": "类地精",
+    "main_race": 10,
+    "creature_type": 512,
+    "body_type": 4,
+    "proficiency": 0,
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "intelligent": 0,
+        "wisdom": 0,
+        "charisma": 0
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 0,
+      "movement": 0,
+      "initiative": 0,
+      "abilities": []
+    }
+  }
+]

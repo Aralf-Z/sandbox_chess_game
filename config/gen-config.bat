@@ -1,6 +1,7 @@
 set CLIENT=../client/Assets
 
 dotnet ./Luban/Luban.dll ^
+    -v ^
     -t all ^
     -c cs-bin ^
     -d bin  ^

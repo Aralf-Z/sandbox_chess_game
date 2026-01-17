@@ -48,8 +48,7 @@
       "offHand": 0,
       "body": 0,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 10002,
@@ -101,8 +100,7 @@
       "offHand": 0,
       "body": 0,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 10003,
@@ -152,8 +150,7 @@
       "offHand": 0,
       "body": 40202,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 10004,
@@ -205,8 +202,7 @@
       "offHand": 0,
       "body": 0,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 10005,
@@ -258,8 +254,7 @@
       "offHand": 0,
       "body": 0,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 10006,
@@ -311,7 +306,6 @@
       "offHand": 0,
       "body": 0,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   }
 ]

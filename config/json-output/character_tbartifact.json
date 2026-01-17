@@ -1,0 +1,38 @@
+[
+  {
+    "id": 80001,
+    "name": "治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 1000,
+    "description": "这是关于“治疗药水”的描述。"
+  },
+  {
+    "id": 80002,
+    "name": "高等治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 1600,
+    "description": "这是关于“高等治疗药水”的描述。"
+  },
+  {
+    "id": 80003,
+    "name": "特效治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 2500,
+    "description": "这是关于“特效治疗药水”的描述。"
+  },
+  {
+    "id": 80004,
+    "name": "极效治疗药水",
+    "type_info": {
+      "$type": "ArtifactInfo"
+    },
+    "price": 4500,
+    "description": "这是关于“极效治疗药水”的描述。"
+  }
+]

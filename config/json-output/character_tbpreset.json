@@ -1,5 +1,297 @@
 [
   {
+    "id": 60001,
+    "name": "人类平民",
+    "subrace": 30001,
+    "level": 1,
+    "clasz": [
+      [
+        20005,
+        1
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 10,
+        "dexterity": 10,
+        "constitution": 10,
+        "intelligent": 10,
+        "wisdom": 10,
+        "charisma": 10
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 10,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": []
+    },
+    "item_preset1": {
+      "mainHand": 40601,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    }
+  },
+  {
+    "id": 60002,
+    "name": "商队护卫",
+    "subrace": 30001,
+    "level": 1,
+    "clasz": [
+      [
+        20005,
+        1
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 12,
+        "dexterity": 10,
+        "constitution": 10,
+        "intelligent": 10,
+        "wisdom": 10,
+        "charisma": 10
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 16,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": []
+    },
+    "item_preset1": {
+      "mainHand": 41301,
+      "offHand": 40501,
+      "body": 40303,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    }
+  },
+  {
+    "id": 60003,
+    "name": "商队弩手",
+    "subrace": 30001,
+    "level": 1,
+    "clasz": [
+      [
+        20005,
+        1
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 10,
+        "dexterity": 12,
+        "constitution": 10,
+        "intelligent": 10,
+        "wisdom": 10,
+        "charisma": 10
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 13,
+      "movement": 6,
+      "initiative": 0,
+      "abilities": []
+    },
+    "item_preset1": {
+      "mainHand": 42901,
+      "offHand": 0,
+      "body": 40301,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 40701,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    }
+  },
+  {
+    "id": 60004,
+    "name": "商队领袖·矮人",
+    "subrace": 30002,
+    "level": 1,
+    "clasz": [
+      [
+        20005,
+        1
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 12,
+        "dexterity": 8,
+        "constitution": 14,
+        "intelligent": 10,
+        "wisdom": 10,
+        "charisma": 12
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 18,
+      "movement": 5,
+      "initiative": -1,
+      "abilities": []
+    },
+    "item_preset1": {
+      "mainHand": 42701,
+      "offHand": 40501,
+      "body": 40402,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    }
+  },
+  {
+    "id": 60005,
+    "name": "矮人勇士",
+    "subrace": 30003,
+    "level": 1,
+    "clasz": [
+      [
+        20005,
+        1
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 14,
+        "dexterity": 8,
+        "constitution": 16,
+        "intelligent": 10,
+        "wisdom": 8,
+        "charisma": 10
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 18,
+      "movement": 5,
+      "initiative": -1,
+      "abilities": [
+        50501
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 41701,
+      "offHand": 40501,
+      "body": 40402,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    }
+  },
+  {
+    "id": 60006,
+    "name": "矮人碎铁近卫",
+    "subrace": 30003,
+    "level": 5,
+    "clasz": [
+      [
+        20005,
+        5
+      ]
+    ],
+    "expOnKilled": 0,
+    "max_hp": {
+      "$type": "MaxHpFromClass"
+    },
+    "attribute_preset": {
+      "abilityScores": {
+        "strength": 16,
+        "dexterity": 10,
+        "constitution": 18,
+        "intelligent": 10,
+        "wisdom": 8,
+        "charisma": 12
+      },
+      "resistance": [
+        [
+          0,
+          0
+        ]
+      ],
+      "armourClass": 20,
+      "movement": 5,
+      "initiative": 0,
+      "abilities": [
+        50501
+      ]
+    },
+    "item_preset1": {
+      "mainHand": 42701,
+      "offHand": 40501,
+      "body": 40404,
+      "artifacts": []
+    },
+    "item_preset2": {
+      "mainHand": 0,
+      "offHand": 0,
+      "body": 0,
+      "artifacts": []
+    }
+  },
+  {
     "id": 65001,
     "name": "地精盾刀手",
     "subrace": 31001,
@@ -50,8 +342,7 @@
       "offHand": 40501,
       "body": 40201,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 65002,
@@ -104,8 +395,7 @@
       "offHand": 0,
       "body": 40201,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 65003,
@@ -158,8 +448,7 @@
       "offHand": 0,
       "body": 0,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 65004,
@@ -212,8 +501,7 @@
       "offHand": 41201,
       "body": 40201,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 65005,
@@ -266,8 +554,7 @@
       "offHand": 40501,
       "body": 40402,
       "artifacts": []
-    },
-    "knapsack_items": []
+    }
   },
   {
     "id": 65006,
@@ -322,305 +609,6 @@
       "offHand": 0,
       "body": 40401,
       "artifacts": []
-    },
-    "knapsack_items": []
-  },
-  {
-    "id": 60001,
-    "name": "人类平民",
-    "subrace": 30001,
-    "level": 1,
-    "clasz": [
-      [
-        20005,
-        1
-      ]
-    ],
-    "expOnKilled": 0,
-    "max_hp": {
-      "$type": "MaxHpFromClass"
-    },
-    "attribute_preset": {
-      "abilityScores": {
-        "strength": 10,
-        "dexterity": 10,
-        "constitution": 10,
-        "intelligent": 10,
-        "wisdom": 10,
-        "charisma": 10
-      },
-      "resistance": [
-        [
-          0,
-          0
-        ]
-      ],
-      "armourClass": 10,
-      "movement": 6,
-      "initiative": 0,
-      "abilities": []
-    },
-    "item_preset1": {
-      "mainHand": 40601,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "item_preset2": {
-      "mainHand": 0,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "knapsack_items": []
-  },
-  {
-    "id": 60002,
-    "name": "商队护卫",
-    "subrace": 30001,
-    "level": 1,
-    "clasz": [
-      [
-        20005,
-        1
-      ]
-    ],
-    "expOnKilled": 0,
-    "max_hp": {
-      "$type": "MaxHpFromClass"
-    },
-    "attribute_preset": {
-      "abilityScores": {
-        "strength": 12,
-        "dexterity": 10,
-        "constitution": 10,
-        "intelligent": 10,
-        "wisdom": 10,
-        "charisma": 10
-      },
-      "resistance": [
-        [
-          0,
-          0
-        ]
-      ],
-      "armourClass": 16,
-      "movement": 6,
-      "initiative": 0,
-      "abilities": []
-    },
-    "item_preset1": {
-      "mainHand": 41301,
-      "offHand": 40501,
-      "body": 40303,
-      "artifacts": []
-    },
-    "item_preset2": {
-      "mainHand": 0,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "knapsack_items": []
-  },
-  {
-    "id": 60003,
-    "name": "商队弩手",
-    "subrace": 30001,
-    "level": 1,
-    "clasz": [
-      [
-        20005,
-        1
-      ]
-    ],
-    "expOnKilled": 0,
-    "max_hp": {
-      "$type": "MaxHpFromClass"
-    },
-    "attribute_preset": {
-      "abilityScores": {
-        "strength": 10,
-        "dexterity": 12,
-        "constitution": 10,
-        "intelligent": 10,
-        "wisdom": 10,
-        "charisma": 10
-      },
-      "resistance": [
-        [
-          0,
-          0
-        ]
-      ],
-      "armourClass": 13,
-      "movement": 6,
-      "initiative": 0,
-      "abilities": []
-    },
-    "item_preset1": {
-      "mainHand": 42901,
-      "offHand": 0,
-      "body": 40301,
-      "artifacts": []
-    },
-    "item_preset2": {
-      "mainHand": 40701,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "knapsack_items": []
-  },
-  {
-    "id": 60004,
-    "name": "商队领袖·矮人",
-    "subrace": 30002,
-    "level": 1,
-    "clasz": [
-      [
-        20005,
-        1
-      ]
-    ],
-    "expOnKilled": 0,
-    "max_hp": {
-      "$type": "MaxHpFromClass"
-    },
-    "attribute_preset": {
-      "abilityScores": {
-        "strength": 12,
-        "dexterity": 8,
-        "constitution": 14,
-        "intelligent": 10,
-        "wisdom": 10,
-        "charisma": 12
-      },
-      "resistance": [
-        [
-          0,
-          0
-        ]
-      ],
-      "armourClass": 18,
-      "movement": 5,
-      "initiative": -1,
-      "abilities": []
-    },
-    "item_preset1": {
-      "mainHand": 42701,
-      "offHand": 40501,
-      "body": 40402,
-      "artifacts": []
-    },
-    "item_preset2": {
-      "mainHand": 0,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "knapsack_items": []
-  },
-  {
-    "id": 60005,
-    "name": "矮人勇士",
-    "subrace": 30003,
-    "level": 1,
-    "clasz": [
-      [
-        20005,
-        1
-      ]
-    ],
-    "expOnKilled": 0,
-    "max_hp": {
-      "$type": "MaxHpFromClass"
-    },
-    "attribute_preset": {
-      "abilityScores": {
-        "strength": 14,
-        "dexterity": 8,
-        "constitution": 16,
-        "intelligent": 10,
-        "wisdom": 8,
-        "charisma": 10
-      },
-      "resistance": [
-        [
-          0,
-          0
-        ]
-      ],
-      "armourClass": 18,
-      "movement": 5,
-      "initiative": -1,
-      "abilities": [
-        50501
-      ]
-    },
-    "item_preset1": {
-      "mainHand": 41701,
-      "offHand": 40501,
-      "body": 40402,
-      "artifacts": []
-    },
-    "item_preset2": {
-      "mainHand": 0,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "knapsack_items": []
-  },
-  {
-    "id": 60006,
-    "name": "矮人碎铁近卫",
-    "subrace": 30003,
-    "level": 5,
-    "clasz": [
-      [
-        20005,
-        5
-      ]
-    ],
-    "expOnKilled": 0,
-    "max_hp": {
-      "$type": "MaxHpFromClass"
-    },
-    "attribute_preset": {
-      "abilityScores": {
-        "strength": 16,
-        "dexterity": 10,
-        "constitution": 18,
-        "intelligent": 10,
-        "wisdom": 8,
-        "charisma": 12
-      },
-      "resistance": [
-        [
-          0,
-          0
-        ]
-      ],
-      "armourClass": 20,
-      "movement": 5,
-      "initiative": 0,
-      "abilities": [
-        50501
-      ]
-    },
-    "item_preset1": {
-      "mainHand": 42701,
-      "offHand": 40501,
-      "body": 40404,
-      "artifacts": []
-    },
-    "item_preset2": {
-      "mainHand": 0,
-      "offHand": 0,
-      "body": 0,
-      "artifacts": []
-    },
-    "knapsack_items": []
+    }
   }
 ]
