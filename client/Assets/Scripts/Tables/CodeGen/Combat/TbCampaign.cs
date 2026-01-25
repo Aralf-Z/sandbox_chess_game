@@ -12,31 +12,34 @@ using Luban;
 
 namespace Game.Config.Combat
 {
+/// <summary>
+/// 战役-7
+/// </summary>
 public partial class TbCampaign
 {
-    private readonly System.Collections.Generic.Dictionary<int, Combat.CampaignCfg> _dataMap;
-    private readonly System.Collections.Generic.List<Combat.CampaignCfg> _dataList;
+    private readonly System.Collections.Generic.Dictionary<int, Combat.Campaign> _dataMap;
+    private readonly System.Collections.Generic.List<Combat.Campaign> _dataList;
     
     public TbCampaign(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, Combat.CampaignCfg>();
-        _dataList = new System.Collections.Generic.List<Combat.CampaignCfg>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, Combat.Campaign>(n);
+        _dataList = new System.Collections.Generic.List<Combat.Campaign>(n);
+        for(int i = n ; i > 0 ; --i)
         {
-            Combat.CampaignCfg _v;
-            _v = Combat.CampaignCfg.DeserializeCampaignCfg(_buf);
+            Combat.Campaign _v;
+            _v = global::Game.Config.Combat.Campaign.DeserializeCampaign(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, Combat.CampaignCfg> DataMap => _dataMap;
-    public System.Collections.Generic.List<Combat.CampaignCfg> DataList => _dataList;
+    public System.Collections.Generic.Dictionary<int, Combat.Campaign> DataMap => _dataMap;
+    public System.Collections.Generic.List<Combat.Campaign> DataList => _dataList;
 
-    public Combat.CampaignCfg GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public Combat.CampaignCfg Get(int key) => _dataMap[key];
-    public Combat.CampaignCfg this[int key] => _dataMap[key];
+    public Combat.Campaign GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
+    public Combat.Campaign Get(int key) => _dataMap[key];
+    public Combat.Campaign this[int key] => _dataMap[key];
 
     public void ResolveRef(Tables tables)
     {

@@ -12,31 +12,34 @@ using Luban;
 
 namespace Game.Config.Character
 {
+/// <summary>
+/// 能力-5
+/// </summary>
 public partial class TbAbility
 {
-    private readonly System.Collections.Generic.Dictionary<int, Character.AbilityCfg> _dataMap;
-    private readonly System.Collections.Generic.List<Character.AbilityCfg> _dataList;
+    private readonly System.Collections.Generic.Dictionary<int, Character.Ability> _dataMap;
+    private readonly System.Collections.Generic.List<Character.Ability> _dataList;
     
     public TbAbility(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, Character.AbilityCfg>();
-        _dataList = new System.Collections.Generic.List<Character.AbilityCfg>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, Character.Ability>(n);
+        _dataList = new System.Collections.Generic.List<Character.Ability>(n);
+        for(int i = n ; i > 0 ; --i)
         {
-            Character.AbilityCfg _v;
-            _v = Character.AbilityCfg.DeserializeAbilityCfg(_buf);
+            Character.Ability _v;
+            _v = global::Game.Config.Character.Ability.DeserializeAbility(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, Character.AbilityCfg> DataMap => _dataMap;
-    public System.Collections.Generic.List<Character.AbilityCfg> DataList => _dataList;
+    public System.Collections.Generic.Dictionary<int, Character.Ability> DataMap => _dataMap;
+    public System.Collections.Generic.List<Character.Ability> DataList => _dataList;
 
-    public Character.AbilityCfg GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public Character.AbilityCfg Get(int key) => _dataMap[key];
-    public Character.AbilityCfg this[int key] => _dataMap[key];
+    public Character.Ability GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
+    public Character.Ability Get(int key) => _dataMap[key];
+    public Character.Ability this[int key] => _dataMap[key];
 
     public void ResolveRef(Tables tables)
     {

@@ -12,31 +12,34 @@ using Luban;
 
 namespace Game.Config.Character
 {
+/// <summary>
+/// 预设-6
+/// </summary>
 public partial class TbPreset
 {
-    private readonly System.Collections.Generic.Dictionary<int, Character.PresetCfg> _dataMap;
-    private readonly System.Collections.Generic.List<Character.PresetCfg> _dataList;
+    private readonly System.Collections.Generic.Dictionary<int, Character.Preset> _dataMap;
+    private readonly System.Collections.Generic.List<Character.Preset> _dataList;
     
     public TbPreset(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, Character.PresetCfg>();
-        _dataList = new System.Collections.Generic.List<Character.PresetCfg>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, Character.Preset>(n);
+        _dataList = new System.Collections.Generic.List<Character.Preset>(n);
+        for(int i = n ; i > 0 ; --i)
         {
-            Character.PresetCfg _v;
-            _v = Character.PresetCfg.DeserializePresetCfg(_buf);
+            Character.Preset _v;
+            _v = global::Game.Config.Character.Preset.DeserializePreset(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, Character.PresetCfg> DataMap => _dataMap;
-    public System.Collections.Generic.List<Character.PresetCfg> DataList => _dataList;
+    public System.Collections.Generic.Dictionary<int, Character.Preset> DataMap => _dataMap;
+    public System.Collections.Generic.List<Character.Preset> DataList => _dataList;
 
-    public Character.PresetCfg GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public Character.PresetCfg Get(int key) => _dataMap[key];
-    public Character.PresetCfg this[int key] => _dataMap[key];
+    public Character.Preset GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
+    public Character.Preset Get(int key) => _dataMap[key];
+    public Character.Preset this[int key] => _dataMap[key];
 
     public void ResolveRef(Tables tables)
     {

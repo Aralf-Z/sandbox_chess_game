@@ -43,6 +43,5 @@ public abstract partial class MaxHp : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

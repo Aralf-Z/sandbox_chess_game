@@ -76,6 +76,5 @@ public sealed partial class AbilityScore : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

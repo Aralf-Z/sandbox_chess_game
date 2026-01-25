@@ -65,10 +65,10 @@
 //
 //         private void SpawnGrid(Dictionary<(int x, int y), SpriteRenderer> tiles, Transform root)
 //         {
-//             const float offset = ISquadGrid.GRID_LENGTH / 2f;
+//             const float offset = ISquadGrid.TROOP_BF_GRID_LENGTH / 2f;
 //             var sprite = ResTool.Load<Sprite>(kTileRes);
 //             
-//             for (var i = 0; i < ISquadGrid.GRID_LENGTH; i++)
+//             for (var i = 0; i < ISquadGrid.TROOP_BF_GRID_LENGTH; i++)
 //             {
 //                 for (var j = 0; j < 6; j++)
 //                 {

@@ -19,12 +19,12 @@ public sealed partial class AttributePreset : Luban.BeanBase
 {
     public AttributePreset(ByteBuf _buf) 
     {
-        AbilityScores = Character.AbilityScore.DeserializeAbilityScore(_buf);
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Resistance = new System.Collections.Generic.Dictionary<Character.EmDamageType, float>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { Character.EmDamageType _k0;  _k0 = (Character.EmDamageType)_buf.ReadInt(); float _v0;  _v0 = _buf.ReadFloat();     Resistance.Add(_k0, _v0);}}
+        AbilityScores = global::Game.Config.Character.AbilityScore.DeserializeAbilityScore(_buf);
+        {int n0 = _buf.ReadSize(); Resistance = new System.Collections.Generic.Dictionary<Character.EmDamageType, float>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { Character.EmDamageType _k0;  _k0 = (Character.EmDamageType)_buf.ReadInt(); float _v0;  _v0 = _buf.ReadFloat();     Resistance.Add(_k0, _v0);}}
         ArmourClass = _buf.ReadInt();
         Movement = _buf.ReadInt();
         Initiative = _buf.ReadInt();
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Abilities = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); Abilities[__index0] = __e0;}}
+        {int __n0 = _buf.ReadSize(); Abilities = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); Abilities[__index0] = __e0;}}
     }
 
     public static AttributePreset DeserializeAttributePreset(ByteBuf _buf)
@@ -77,6 +77,5 @@ public sealed partial class AttributePreset : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

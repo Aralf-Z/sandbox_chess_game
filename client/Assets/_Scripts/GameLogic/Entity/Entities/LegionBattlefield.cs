@@ -51,7 +51,7 @@
 //         
 //         private void SetSquadPosition()
 //         {
-//             const int tilesMaxLength = ILegionBattlefieldGrid.GRID_LENGTH * ILegionBattlefieldGrid.GRID_LENGTH;
+//             const int tilesMaxLength = ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH * ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH;
 //
 //             var bfm = Mod.Battlefield;
 //             var random = new System.Random();
@@ -63,9 +63,9 @@
 //             LegionBattlefieldGrid.PositionSquad.Clear();
 //             try
 //             {
-//                 for (var x = 1; x <= ILegionBattlefieldGrid.GRID_LENGTH; x++)
+//                 for (var x = 1; x <= ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH; x++)
 //                 {
-//                     for (var y = 1; y <= ILegionBattlefieldGrid.GRID_LENGTH; y++)
+//                     for (var y = 1; y <= ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH; y++)
 //                     {
 //                         var position = new GridPos(x, y);
 //                         if (x <= ILegionBattlefieldGrid.ALLY_ENEMY_ROW_DIVISION)
@@ -146,7 +146,7 @@
 //             const int maxCost = 9999;
 //             var pos = LegionBattlefieldGrid.SquadPositions[squad];
 //             var checkedMap = new Dictionary<GridPos, int>(){[pos] = 0};
-//             var movement = (int)squad.Resource[EmResAttri.Movement];
+//             var movement = (int)squad.Resource[ResAttri.Movement];
 //             var result = new List<(GridPos pos, bool isReachable)>(movement * 4);
 //             var curCheck = new List<GridPos>(){pos};
 //             var tempCheck = new List<GridPos>();
@@ -203,9 +203,9 @@
 //             {
 //                 if(tempCheck.Contains(checkPos) || checkedMap.ContainsKey(checkPos))
 //                     return;
-//                 if(checkPos.X is < 1 or > ILegionBattlefieldGrid.GRID_LENGTH)
+//                 if(checkPos.X is < 1 or > ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH)
 //                     return;
-//                 if(checkPos.Y is < 1 or > ILegionBattlefieldGrid.GRID_LENGTH)
+//                 if(checkPos.Y is < 1 or > ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH)
 //                     return;
 //                 tempCheck.Add(checkPos);
 //             }

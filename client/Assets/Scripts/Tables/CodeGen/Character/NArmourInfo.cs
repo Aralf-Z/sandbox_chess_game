@@ -41,6 +41,5 @@ public sealed partial class NArmourInfo : Character.ItemInfo
         + "}";
     }
 }
-
 }
 

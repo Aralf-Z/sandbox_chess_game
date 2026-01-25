@@ -13,41 +13,74 @@ namespace Game.Config
 {
 public partial class Tables
 {
-    public Global.TbGSingleton TbGSingleton {get; }
-    public Character.TbAdventurer TbAdventurer {get; }
-    public Character.TbClass TbClass {get; }
-    public Character.TbSubrace TbSubrace {get; }
-    public Character.TbItem TbItem {get; }
-    public Character.TbWeaponBase TbWeaponBase {get; }
+    public Game.TbGlobal TbGlobal {get; }
+    public Character.TbWeaponType TbWeaponType {get; }
+    /// <summary>
+    /// 能力-5
+    /// </summary>
     public Character.TbAbility TbAbility {get; }
+    /// <summary>
+    /// 冒险者-1
+    /// </summary>
+    public Character.TbAdventurer TbAdventurer {get; }
+    /// <summary>
+    /// 奇物-8
+    /// </summary>
+    public Character.TbArtifact TbArtifact {get; }
+    /// <summary>
+    /// 职业-2
+    /// </summary>
+    public Character.TbClasz TbClasz {get; }
+    /// <summary>
+    /// 装备-4
+    /// </summary>
+    public Character.TbEquipment TbEquipment {get; }
+    /// <summary>
+    /// 预设-6
+    /// </summary>
     public Character.TbPreset TbPreset {get; }
+    /// <summary>
+    /// 种族-3
+    /// </summary>
+    public Character.TbRace TbRace {get; }
+    /// <summary>
+    /// 战役-7
+    /// </summary>
     public Combat.TbCampaign TbCampaign {get; }
+    /// <summary>
+    /// 战术地图瓦片-8
+    /// </summary>
+    public Combat.TbTroopBfTile TbTroopBfTile {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
-        TbGSingleton = new Global.TbGSingleton(loader("global_tbgsingleton"));
-        TbAdventurer = new Character.TbAdventurer(loader("character_tbadventurer"));
-        TbClass = new Character.TbClass(loader("character_tbclass"));
-        TbSubrace = new Character.TbSubrace(loader("character_tbsubrace"));
-        TbItem = new Character.TbItem(loader("character_tbitem"));
-        TbWeaponBase = new Character.TbWeaponBase(loader("character_tbweaponbase"));
+        TbGlobal = new Game.TbGlobal(loader("game_tbglobal"));
+        TbWeaponType = new Character.TbWeaponType(loader("character_tbweapontype"));
         TbAbility = new Character.TbAbility(loader("character_tbability"));
+        TbAdventurer = new Character.TbAdventurer(loader("character_tbadventurer"));
+        TbArtifact = new Character.TbArtifact(loader("character_tbartifact"));
+        TbClasz = new Character.TbClasz(loader("character_tbclasz"));
+        TbEquipment = new Character.TbEquipment(loader("character_tbequipment"));
         TbPreset = new Character.TbPreset(loader("character_tbpreset"));
+        TbRace = new Character.TbRace(loader("character_tbrace"));
         TbCampaign = new Combat.TbCampaign(loader("combat_tbcampaign"));
+        TbTroopBfTile = new Combat.TbTroopBfTile(loader("combat_tbtroopbftile"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
-        TbGSingleton.ResolveRef(this);
-        TbAdventurer.ResolveRef(this);
-        TbClass.ResolveRef(this);
-        TbSubrace.ResolveRef(this);
-        TbItem.ResolveRef(this);
-        TbWeaponBase.ResolveRef(this);
+        TbGlobal.ResolveRef(this);
+        TbWeaponType.ResolveRef(this);
         TbAbility.ResolveRef(this);
+        TbAdventurer.ResolveRef(this);
+        TbArtifact.ResolveRef(this);
+        TbClasz.ResolveRef(this);
+        TbEquipment.ResolveRef(this);
         TbPreset.ResolveRef(this);
+        TbRace.ResolveRef(this);
         TbCampaign.ResolveRef(this);
+        TbTroopBfTile.ResolveRef(this);
     }
 }
 

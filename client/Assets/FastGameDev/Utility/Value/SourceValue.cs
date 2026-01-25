@@ -1,6 +1,6 @@
 namespace FastGameDev.Utility.Value
 {
-    public class SourceValue
+    public struct SourceValue
     {
         public string Name { get; private set; }
         public float Value { get; private set; }

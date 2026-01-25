@@ -41,6 +41,5 @@ public sealed partial class ArtifactInfo : Character.ItemInfo
         + "}";
     }
 }
-
 }
 

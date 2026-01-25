@@ -24,9 +24,9 @@
 //             var tile = ResTool.Load<GameObject>(kNormalTile);
 //             
 //             SelfGo = new GameObject("LegionBattlefield");
-//             for (var i = 1; i <= ILegionBattlefieldGrid.GRID_LENGTH; i++)
+//             for (var i = 1; i <= ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH; i++)
 //             {
-//                 for (var j = 1; j <= ILegionBattlefieldGrid.GRID_LENGTH; j++)
+//                 for (var j = 1; j <= ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH; j++)
 //                 {
 //                     var position = new GridPos(i, j);
 //                     var gt = Object.Instantiate(tile, SelfGo.transform);
@@ -34,7 +34,7 @@
 //                     var worldPos = WorldPosition(position);
 //                     gt.name = $"{i}_{j}";
 //                     gt.transform.position = new Vector3(worldPos.x, worldPos.y, 0);
-//                     renderer.sortingOrder = SpriteOrderDefine.LEGION_BATTLEFIELD_TILE;
+//                     renderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TILE;
 //                     mTiles.Add(position, renderer);
 //                 }
 //             }
@@ -42,7 +42,7 @@
 //             var prefab = ResTool.Load<GameObject>("tip_tile_on_select");
 //             mOnSelectTipTile = Object.Instantiate(prefab, SelfGo.transform);
 //             var spriteRenderer = mOnSelectTipTile.GetComponent<SpriteRenderer>();
-//             spriteRenderer.sortingOrder = SpriteOrderDefine.LEGION_BATTLEFIELD_TIP_TILE;
+//             spriteRenderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TIP_TILE;
 //             mOnSelectTipTile.SetActive(false);
 //         }
 //
@@ -91,7 +91,7 @@
 //         
 //         public (float x, float y) WorldPosition (GridPos position)
 //         {
-//             const float offset = ILegionBattlefieldGrid.GRID_LENGTH / 2f + 1;
+//             const float offset = ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH / 2f + 1;
 //             return (position.X - offset + Position.x, position.Y - offset + Position.y);
 //         }
 //
@@ -114,7 +114,7 @@
 //                 GameObject = Object.Instantiate(ResTool.Load<GameObject>(kReachableTipTile));
 //                 Renderer = GameObject.GetComponent<SpriteRenderer>();
 //                 TileClicked = GameObject.GetComponent<TileClicked>();
-//                 Renderer.sortingOrder = SpriteOrderDefine.LEGION_BATTLEFIELD_TIP_TILE;
+//                 Renderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TIP_TILE;
 //                 
 //             }
 //
@@ -137,7 +137,7 @@
 //             {
 //                 GameObject = Object.Instantiate(ResTool.Load<GameObject>(kUnreachableTipTile));
 //                 Renderer = GameObject.GetComponent<SpriteRenderer>();
-//                 Renderer.sortingOrder = SpriteOrderDefine.LEGION_BATTLEFIELD_TIP_TILE;
+//                 Renderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TIP_TILE;
 //             }
 //
 //             void IObject<UnreachableTipTile>.OnRequire()

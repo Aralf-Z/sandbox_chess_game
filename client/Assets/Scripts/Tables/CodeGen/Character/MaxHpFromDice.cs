@@ -19,7 +19,7 @@ public sealed partial class MaxHpFromDice : Character.MaxHp
 {
     public MaxHpFromDice(ByteBuf _buf)  : base(_buf) 
     {
-        Dice = Global.Dice.DeserializeDice(_buf);
+        Dice = global::Game.Config.Game.Dice.DeserializeDice(_buf);
         BaseNumber = _buf.ReadInt();
     }
 
@@ -31,7 +31,7 @@ public sealed partial class MaxHpFromDice : Character.MaxHp
     /// <summary>
     /// 骰子
     /// </summary>
-    public readonly Global.Dice Dice;
+    public readonly Game.Dice Dice;
     /// <summary>
     /// 基础值
     /// </summary>
@@ -54,6 +54,5 @@ public sealed partial class MaxHpFromDice : Character.MaxHp
         + "}";
     }
 }
-
 }
 

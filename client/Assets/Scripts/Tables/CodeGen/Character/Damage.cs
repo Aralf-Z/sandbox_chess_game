@@ -19,7 +19,7 @@ public sealed partial class Damage : Luban.BeanBase
 {
     public Damage(ByteBuf _buf) 
     {
-        Dice = Global.Dice.DeserializeDice(_buf);
+        Dice = global::Game.Config.Game.Dice.DeserializeDice(_buf);
         DamageType = (Character.EmDamageType)_buf.ReadInt();
     }
 
@@ -31,7 +31,7 @@ public sealed partial class Damage : Luban.BeanBase
     /// <summary>
     /// 数值
     /// </summary>
-    public readonly Global.Dice Dice;
+    public readonly Game.Dice Dice;
     /// <summary>
     /// 类型
     /// </summary>
@@ -53,6 +53,5 @@ public sealed partial class Damage : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

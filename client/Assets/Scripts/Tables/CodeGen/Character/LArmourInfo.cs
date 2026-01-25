@@ -53,6 +53,5 @@ public sealed partial class LArmourInfo : Character.ItemInfo
         + "}";
     }
 }
-
 }
 

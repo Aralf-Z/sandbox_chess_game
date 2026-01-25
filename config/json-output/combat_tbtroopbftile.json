@@ -1,0 +1,20 @@
+[
+  {
+    "id": 80001,
+    "name": "普通",
+    "cost": 1,
+    "asset": "tile_normal"
+  },
+  {
+    "id": 80002,
+    "name": "苦难",
+    "cost": 2,
+    "asset": "tile_tough"
+  },
+  {
+    "id": 80003,
+    "name": "无法通过",
+    "cost": 99999999,
+    "asset": "tile_block"
+  }
+]

@@ -11,8 +11,7 @@ namespace FastGameDev.Core
     {
         private bool mIsInited;
         
-        private readonly List<MonoEntityBase> mMonoEntities = new List<MonoEntityBase>();
-        private readonly List<NormalEntityBase> mNormalEntities = new List<NormalEntityBase>();
+        private readonly List<EntityBase> mEntities = new List<EntityBase>();
         
         internal void Init()
         {
@@ -22,60 +21,26 @@ namespace FastGameDev.Core
         internal void Destroy()
         {
             mIsInited = false;
-
-            for (var i = mMonoEntities.Count - 1; i >= 0; i--)
-            {
-                var entity = mMonoEntities[i];
-                Destroy(entity.gameObject);
-            }
-        }
-
-        //todo 未池化
-        public T RequireMonoEntity<T>(string assetName, int configId = 0) where T : MonoEntityBase
-        {
-            var template = this.Module().Asset.LoadSync<GameObject>(assetName);
-            var go = Instantiate(template);
-            var en = go.GetComponent<T>();
-            mMonoEntities.Add(en);
-            en.Init(configId);
-            return en;
-        }
-
-        public void RecycleMonoEntity<T>(T entity) where T : MonoEntityBase
-        {
-            var go = entity.gameObject;
-            mMonoEntities.Remove(entity);
-            Destroy(go);
         }
         
-        public void RecycleMonoEntity<T>(IEnumerable<T> entity) where T : MonoEntityBase
-        {
-            foreach (var e in entity)
-            {
-                var go = e.gameObject;
-                mMonoEntities.Remove(e);
-                Destroy(go);
-            }
-        }
-        
-        public T RequireNormalEntity<T>(int configId = 0) where T : NormalEntityBase, new ()
+        public T Require<T>(int configId = -1) where T : EntityBase, new ()
         {
             var en = new T();
-            mNormalEntities.Add(en);
+            mEntities.Add(en);
             en.Init(configId);
             return en;
         }
 
-        public void RecycleNormalEntity<T>(T entity) where T : NormalEntityBase
+        public void Recycle<T>(T entity) where T : EntityBase
         {
-            mNormalEntities.Remove(entity);
+            mEntities.Remove(entity);
         }
         
-        public void RecycleNormalEntity<T>(IEnumerable<T> entity) where T : NormalEntityBase
+        public void Recycle<T>(IEnumerable<T> entity) where T : EntityBase
         {
             foreach (var e in entity)
             {
-                mNormalEntities.Remove(e);
+                mEntities.Remove(e);
             }
         }
     }

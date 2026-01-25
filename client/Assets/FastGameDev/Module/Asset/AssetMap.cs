@@ -15,13 +15,17 @@ namespace FastGameDev.Module
 
         public void Remove(string name, string path)
         {
-            if(!mNamePathDic.ContainsKey(name))
-            {mNamePathDic.Remove(name);}
+            mNamePathDic.Remove(name);
         }
 
         public bool Contains(string name)
         {
             return mNamePathDic.ContainsKey(name);
+        }
+
+        public bool Try(string name, out string path)
+        {
+            return mNamePathDic.TryGetValue(name, out path);
         }
     }
 }

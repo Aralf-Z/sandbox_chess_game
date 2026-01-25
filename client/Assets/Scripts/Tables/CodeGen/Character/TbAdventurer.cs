@@ -12,31 +12,34 @@ using Luban;
 
 namespace Game.Config.Character
 {
+/// <summary>
+/// 冒险者-1
+/// </summary>
 public partial class TbAdventurer
 {
-    private readonly System.Collections.Generic.Dictionary<int, Character.AdventurerCfg> _dataMap;
-    private readonly System.Collections.Generic.List<Character.AdventurerCfg> _dataList;
+    private readonly System.Collections.Generic.Dictionary<int, Character.Adventurer> _dataMap;
+    private readonly System.Collections.Generic.List<Character.Adventurer> _dataList;
     
     public TbAdventurer(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, Character.AdventurerCfg>();
-        _dataList = new System.Collections.Generic.List<Character.AdventurerCfg>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, Character.Adventurer>(n);
+        _dataList = new System.Collections.Generic.List<Character.Adventurer>(n);
+        for(int i = n ; i > 0 ; --i)
         {
-            Character.AdventurerCfg _v;
-            _v = Character.AdventurerCfg.DeserializeAdventurerCfg(_buf);
+            Character.Adventurer _v;
+            _v = global::Game.Config.Character.Adventurer.DeserializeAdventurer(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, Character.AdventurerCfg> DataMap => _dataMap;
-    public System.Collections.Generic.List<Character.AdventurerCfg> DataList => _dataList;
+    public System.Collections.Generic.Dictionary<int, Character.Adventurer> DataMap => _dataMap;
+    public System.Collections.Generic.List<Character.Adventurer> DataList => _dataList;
 
-    public Character.AdventurerCfg GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
-    public Character.AdventurerCfg Get(int key) => _dataMap[key];
-    public Character.AdventurerCfg this[int key] => _dataMap[key];
+    public Character.Adventurer GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
+    public Character.Adventurer Get(int key) => _dataMap[key];
+    public Character.Adventurer this[int key] => _dataMap[key];
 
     public void ResolveRef(Tables tables)
     {

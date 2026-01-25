@@ -1,6 +1,8 @@
+using FastGameDev.Entity;
+
 namespace Game
 {
-    public class CharacterInfo
+    public class CharacterInfo: ComponentBase
     {
         public int configId;
         public int subrace;
