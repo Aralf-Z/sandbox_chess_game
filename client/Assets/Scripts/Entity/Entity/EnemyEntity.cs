@@ -1,6 +1,7 @@
 using FastGameDev;
 using FastGameDev.Core;
 using FastGameDev.Entity;
+using UnityEngine;
 
 namespace Game
 {
@@ -26,7 +27,10 @@ namespace Game
             
             Info.name = cfg.Name;
             Info.configId = config;
-            Info.subrace = cfg.Subrace;
+            Info.subrace = cfg.Subrace;  
+            Model.name = Tag;
+            Model.Load();
+            Model.Transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 }

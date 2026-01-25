@@ -28,7 +28,7 @@ namespace Game
         //更新地块，更新所有队伍位置
         private void RefreshSquadPosition()
         {
-            // var record = this.Record().Get<TroopsBattlefieldRecord>();
+            // var record = this.Record().Get<TroopBattlefieldRecord>();
             // foreach (var (point, entity) in record.characters)
             // {
             //     entity.transform.position = WorldPosition(point);

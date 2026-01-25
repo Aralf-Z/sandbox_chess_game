@@ -44,9 +44,15 @@ namespace Game
             var allyTroop = Entity.Require<TroopEntity>(allyId);
             var enemyTroop =  Entity.Require<TroopEntity>(enemyId);
             
+            
+            
             System.Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
             
-            UI.Open<BattlefieldUI>();
+            var sbf = Entity.Require<SquadBfEntity>();
+            Record.Get<SquadBattlefieldRecord>().bf = sbf;
+            System.Get<SquadBattleSystem>().Attack(allyTroop.Context.squads.First().Value, enemyTroop.Context.squads.First().Value);
+            
+            //UI.Open<BattlefieldUI>();
         }
 
         protected override void Check()

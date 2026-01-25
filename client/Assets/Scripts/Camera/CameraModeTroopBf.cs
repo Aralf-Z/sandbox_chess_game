@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class CameraModeTroopsBf: StatusBase
+    public class CameraModeTroopBf: StatusBase
     {
         private GameCameraFollower mHost;
         

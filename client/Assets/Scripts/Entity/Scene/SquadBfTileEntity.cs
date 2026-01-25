@@ -31,7 +31,7 @@ namespace Game
             { 17, new Color(0.60f, 0.60f, 0.60f) }, // 中性灰
         };
         
-        public GridPoint Point {get; private set;}
+        public GridPoint Point { get; private set;}
         
         public WorldModel Model { get; private set; }
         

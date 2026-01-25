@@ -20,7 +20,8 @@ namespace Game
         {
             mStatusMap = new Dictionary<Type, StatusBase>()
             {
-                [typeof(CameraModeTroopsBf)] = new CameraModeTroopsBf(),
+                [typeof(CameraModeTroopBf)] = new CameraModeTroopBf(),
+                [typeof(CameraModeSquadBf)] = new CameraModeSquadBf(),
             };
             foreach (var (_,status) in mStatusMap)
             {

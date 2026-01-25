@@ -33,6 +33,7 @@ namespace Game
                             ? entity.Require<EnemyEntity>(stance.Id)
                             : entity.Require<AllyEntity>(stance.Id);
                     
+                    squad.Info.stand = character is EnemyEntity ? EmSquadStand.Enemy : EmSquadStand.Ally;
                     squad.Setup.Set(stance.Row, stance.Column, character);
                 }
                 

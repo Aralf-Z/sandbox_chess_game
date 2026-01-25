@@ -6,11 +6,11 @@ namespace Game
 {
     public class TroopBattleSystem: SystemBase
     {
-        private TroopsBattlefieldRecord mBfRecord;
+        private TroopBattlefieldRecord mBfRecord;
         
         protected override void Init()
         {
-            mBfRecord = this.Record().Get<TroopsBattlefieldRecord>();
+            mBfRecord = this.Record().Get<TroopBattlefieldRecord>();
         }
 
         public void EnterBattle(TroopEntity ally, TroopEntity enemy, TroopBfEntity battlefield)
@@ -42,11 +42,12 @@ namespace Game
             }
             
             //related mode
-            this.Module().Camera.ChangeCameraMode<CameraModeTroopsBf>();
+            this.Module().Camera.ChangeCameraMode<CameraModeTroopBf>();
             
             battlefield.Enter();
         }
-
+        
+        
         private void TroopInit(TroopEntity troop)
         {
             //SetUp => Context

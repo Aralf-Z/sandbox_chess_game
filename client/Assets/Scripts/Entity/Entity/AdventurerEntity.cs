@@ -28,6 +28,9 @@ namespace Game
             Info.name = cfg.Name;
             Info.configId = config;
             Info.subrace = cfg.Subrace;
+
+            Model.name = Tag;
+            Model.Load();
         }
     }
 }

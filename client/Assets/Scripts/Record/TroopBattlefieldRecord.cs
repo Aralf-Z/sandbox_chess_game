@@ -3,7 +3,7 @@ using FastGameDev.Record;
 
 namespace Game
 {
-    public class TroopsBattlefieldRecord: RecordBase
+    public class TroopBattlefieldRecord: RecordBase
     {
         public TroopBfEntity bf;
         public TroopEntity allyTroop;
