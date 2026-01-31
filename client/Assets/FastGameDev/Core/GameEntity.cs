@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using FastGameDev.Entity;
+using FastGameDev.Helper;
 using UnityEngine;
 
 namespace FastGameDev.Core

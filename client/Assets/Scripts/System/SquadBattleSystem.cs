@@ -1,6 +1,6 @@
-using System;
 using FastGameDev.Core;
 using FastGameDev.Syztem;
+using UnityEngine;
 
 namespace Game
 {
@@ -24,15 +24,19 @@ namespace Game
                 {
                     case AdventurerEntity ally: 
                         ally.Model.Transform.position = mBfRecord.bf.SelfModel.GetWorldPos(EmSquadStand.Ally, pos.row, pos.column);
+                        ally.Model.Go.GetComponentInChildren<SpriteRenderer>().sortingOrder = SpriteOrderDefine.SQUAD_BATTLEFIELD_CHARACTER + (100 - (int)ally.Model.Transform.position.y) * 10;
                         break;
                     case AllyEntity ally: 
                         ally.Model.Transform.position = mBfRecord.bf.SelfModel.GetWorldPos(EmSquadStand.Ally, pos.row, pos.column);
+                        ally.Model.Go.GetComponentInChildren<SpriteRenderer>().sortingOrder = SpriteOrderDefine.SQUAD_BATTLEFIELD_CHARACTER + (100 - (int)ally.Model.Transform.position.y) * 10;
                         break;
                 }
             }
             foreach (var (pos, character) in mBfRecord.enemySquad.Context.characters)
             {
-                ((EnemyEntity)character).Model.Transform.position = mBfRecord.bf.SelfModel.GetWorldPos(EmSquadStand.Enemy, pos.row, pos.column);
+                var enemy = ((EnemyEntity)character);
+                enemy.Model.Transform.position = mBfRecord.bf.SelfModel.GetWorldPos(EmSquadStand.Enemy, pos.row, pos.column);
+                enemy.Model.Go.GetComponentInChildren<SpriteRenderer>().sortingOrder = SpriteOrderDefine.SQUAD_BATTLEFIELD_CHARACTER + (100 - (int)enemy.Model.Transform.position.y) * 10;
             }
             
             this.Module().Camera.ChangeCameraMode<CameraModeSquadBf>();

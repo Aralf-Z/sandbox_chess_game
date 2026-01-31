@@ -44,8 +44,6 @@ namespace Game
             var allyTroop = Entity.Require<TroopEntity>(allyId);
             var enemyTroop =  Entity.Require<TroopEntity>(enemyId);
             
-            
-            
             System.Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
             
             var sbf = Entity.Require<SquadBfEntity>();

@@ -35,7 +35,7 @@ namespace Game
                 {
                     var colIndex = x + 1;
                     var rowIndex = y + 1;
-                    var tileConfig = SquadBfTileEntity.GetConfig(x, y);
+                    var tileConfig = SquadBfTileEntity.GetConfig(colIndex, rowIndex);
                     var pos = GetLocalPos(rowIndex, colIndex);
                     
                     var allyTile = this.Entity().Require<SquadBfTileEntity>(tileConfig);
@@ -65,7 +65,7 @@ namespace Game
             const float x0 = - (BattlefieldDefine.SQUAD_BF_COL_COUNT - 1) / 2f;
             const float y0 = - (BattlefieldDefine.SQUAD_BF_ROW_COUNT - 2) / 2f;
 
-            return new Vector3(x0 + col - 1, y0 + row * 2 - 2, 0);
+            return new Vector3(x0 + col - 1, y0 + 2 * (BattlefieldDefine.SQUAD_BF_ROW_COUNT + 1 - row), 0);
         }
     }
 }
