@@ -19,7 +19,7 @@ namespace Game
             
             Point = new GridPoint(x, y);
             
-            Model = Add<WorldModel>();
+            Model = AddBuiltInComponent<WorldModel>();
             Model.name = Tables.TbTroopBfTile[id].Asset;
             Model.Load();
             Model.Go.name = Point.ToString();

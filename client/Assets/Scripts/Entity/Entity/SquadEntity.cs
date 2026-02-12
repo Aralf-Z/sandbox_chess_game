@@ -14,12 +14,14 @@ namespace Game
             Setup = AddBuiltInComponent<SquadSetup>();
             Context = AddBuiltInComponent<SquadContext>();
             Model = AddBuiltInComponent<WorldModel>();
+            SelfModel = AddBuiltInComponent<SquadModel>();
         }
         
         public Attribute Attribute { get; private set; }
         public SquadInfo Info { get; private set; }
         public SquadSetup Setup { get; private set; }
         public SquadContext Context { get; private set; }
+        public SquadModel SelfModel { get; private set; }
         public WorldModel Model { get; private set; }
     }
 }

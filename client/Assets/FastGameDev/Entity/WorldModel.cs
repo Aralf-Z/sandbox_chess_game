@@ -1,5 +1,7 @@
+using System;
 using FastGameDev.Core;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace FastGameDev.Entity
 {
@@ -11,6 +13,8 @@ namespace FastGameDev.Entity
         public Transform Transform => Go.transform;
         
         public string name = string.Empty;
+
+        public Action onSpawn;
         
         public void Load(Transform parent = null)
         {
@@ -26,9 +30,8 @@ namespace FastGameDev.Entity
                 Go.transform.SetParent(parent);
             }
             
-            OnSpawn();
+            onSpawn?.Invoke();
         }
-
-        protected virtual void OnSpawn() { }
+        
     }
 }

@@ -17,6 +17,7 @@ namespace Game
         protected override void Init(int config)
         {
             Grid = AddBuiltInComponent<TroopBfGrid>();
+            Model = AddBuiltInComponent<WorldModel>();
             SelfModel = AddBuiltInComponent<TroopBfModel>();
         }
 
@@ -56,7 +57,7 @@ namespace Game
         }
 
         public TroopBfGrid Grid { get; private set; }
-        public WorldModel Model => SelfModel;
+        public WorldModel Model { get; private set; }
         public TroopBfModel SelfModel { get; private set; }
     }
 }

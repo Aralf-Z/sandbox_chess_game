@@ -31,23 +31,22 @@ namespace FastGameDev.Module
         
         public T LoadSync<T>(string assetName) where T : Object
         {
-            T asset;
 #if UNITY_EDITOR
             var timer = Time.realtimeSinceStartup;
 
-            asset = mAssetMap.Try(assetName, out var path) ? Resources.Load<T>(path) : null;
+            var asset = mAssetMap.Try(assetName, out var path) ? Resources.Load<T>(path) : null;
             
             var cost = Time.realtimeSinceStartup - timer;
 
             if (cost > .01f)
             {
-                LogHelper.Warning($"{assetName} sync cost more than 0.01s [{cost}s], 'LoadAsync' is suggested", "AssetLoad");
+                LogHelper.Warning($"‘{assetName}’ sync cost more than 0.01s [{cost}s], 'LoadAsync' is suggested", "AssetLoad");
             }
-#else
-            asset = mAssetMap.Try(assetName, out var path) ? Resources.Load<T>(path) : null;
-#endif
-
+            
             return asset;
+#else
+            return mAssetMap.Try(assetName, out var path) ? Resources.Load<T>(path) : null;
+#endif
         }
     }
 }

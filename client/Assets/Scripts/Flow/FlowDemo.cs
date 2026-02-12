@@ -46,10 +46,9 @@ namespace Game
             
             System.Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
             
-            var sbf = Entity.Require<SquadBfEntity>();
-            Record.Get<SquadBattlefieldRecord>().bf = sbf;
-            System.Get<SquadBattleSystem>().Attack(allyTroop.Context.squads.First().Value, enemyTroop.Context.squads.First().Value);
-            
+            // var sbf = Entity.Require<SquadBfEntity>();
+            // Record.Get<SquadBattlefieldRecord>().bf = sbf;
+            // System.Get<SquadBattleSystem>().Attack(allyTroop.Context.squads.First().Value, enemyTroop.Context.squads.First().Value);
             //UI.Open<BattlefieldUI>();
         }
 

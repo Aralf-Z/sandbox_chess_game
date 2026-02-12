@@ -5,16 +5,22 @@ using UnityEngine;
 
 namespace Game
 {
-    public class TroopBfModel: WorldModel
+    public class TroopBfModel: ComponentBase
         , IGetEntity
     {
         private Dictionary<GridPoint, TroopBfTileEntity> mTiles = new ();
         
-        protected override void OnSpawn()
+        public WorldModel Model { get; private set; }
+        
+        protected override void OnAdded()
         {
             const float length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             const float x0 = - (length - 1) / 2f;
             const float y0 = - (length - 1) / 2f;
+
+            Model = Host.Get<WorldModel>();
+            Model.name = "troops_battlefield";
+            Model.Load();
             
             var grid = Host.Get<TroopBfGrid>();
             
@@ -28,7 +34,7 @@ namespace Game
                     var id = grid[point];
                     var tileConfig = TroopBfTileEntity.GetConfig(x1, y1, id);
                     var tile = this.Entity().Require<TroopBfTileEntity>(tileConfig);
-                    tile.Model.Transform.SetParent(Transform);
+                    tile.Model.Transform.SetParent(Model.Transform);
                     tile.Model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
                     mTiles[point] = tile;
                 }
@@ -41,7 +47,7 @@ namespace Game
             const float x0 = - (length - 1) / 2f;
             const float y0 = - (length - 1) / 2f;
 
-            return Transform.position + new Vector3(x0 + point.X - 1, y0 + point.Y - 1, 0);
+            return Model.Transform.position + new Vector3(x0 + point.X - 1, y0 + point.Y - 1, 0);
         }
     }
 }

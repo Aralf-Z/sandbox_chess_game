@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class SquadBfModel: WorldModel
+    public class SquadBfModel: ComponentBase
         , IGetEntity
     {
         private readonly Dictionary<(EmSquadStand, int row, int col), SquadBfTileEntity> mTiles = new();
@@ -14,19 +14,23 @@ namespace Game
         private Transform mAllyRoot;//固定在右边
 
         private Transform mEnemyRoot;//固定在左边
+
+        public WorldModel Model { get; private set; }
         
-        protected override void OnSpawn()
+        protected override void OnAdded()
         {
             const int col = BattlefieldDefine.SQUAD_BF_COL_COUNT;
             const int row = BattlefieldDefine.SQUAD_BF_ROW_COUNT;
             
+            Model = Host.Get<WorldModel>();
+            
             mAllyRoot = new GameObject("Ally").transform;
-            mAllyRoot.transform.SetParent(Transform);
+            mAllyRoot.transform.SetParent(Model.Transform);
             mAllyRoot.transform.localPosition = Vector3.left * 7;
             
             
             mEnemyRoot = new GameObject("Enemy").transform;
-            mEnemyRoot.transform.SetParent(Transform);
+            mEnemyRoot.transform.SetParent(Model.Transform);
             mEnemyRoot.transform.localPosition = Vector3.right * 7;
             
             for (var x = 0; x < col; x++)

@@ -43,6 +43,7 @@ namespace FastGameDev.Entity
             
             var component = new T { Host = this };
             mComponents.Add(key, component);
+            component.OnAdded();
             return component;
         }
         
