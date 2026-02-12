@@ -14,7 +14,7 @@ namespace FastGameDev.Entity
         
         public string name = string.Empty;
 
-        public Action onSpawn;
+        public event Action Evt_OnSpawn;
         
         public void Load(Transform parent = null)
         {
@@ -30,7 +30,7 @@ namespace FastGameDev.Entity
                 Go.transform.SetParent(parent);
             }
             
-            onSpawn?.Invoke();
+            Evt_OnSpawn?.Invoke();
         }
         
     }

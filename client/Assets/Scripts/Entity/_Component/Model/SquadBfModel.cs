@@ -19,10 +19,14 @@ namespace Game
         
         protected override void OnAdded()
         {
+            Model = Host.Get<WorldModel>();
+            Model.Evt_OnSpawn += OnModelLoaded;
+        }
+
+        private void OnModelLoaded()
+        {
             const int col = BattlefieldDefine.SQUAD_BF_COL_COUNT;
             const int row = BattlefieldDefine.SQUAD_BF_ROW_COUNT;
-            
-            Model = Host.Get<WorldModel>();
             
             mAllyRoot = new GameObject("Ally").transform;
             mAllyRoot.transform.SetParent(Model.Transform);

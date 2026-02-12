@@ -14,13 +14,15 @@ namespace Game
         
         protected override void OnAdded()
         {
+            Model = Host.Get<WorldModel>();
+            Model.Evt_OnSpawn += OnModelLoaded;
+        }
+
+        private void OnModelLoaded()
+        {
             const float length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             const float x0 = - (length - 1) / 2f;
             const float y0 = - (length - 1) / 2f;
-
-            Model = Host.Get<WorldModel>();
-            Model.name = "troops_battlefield";
-            Model.Load();
             
             var grid = Host.Get<TroopBfGrid>();
             

@@ -10,9 +10,11 @@ namespace Game
         protected override void OnAdded()
         {
             Model = Host.Get<WorldModel>();
-            Model.name = "squad";
-            Model.Load();
-            
+            Model.Evt_OnSpawn += OnModelLoaded;
+        }
+
+        private void OnModelLoaded()
+        {
             var render = Model.Transform.GetComponentInChildren<SpriteRenderer>();
             render.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_SQUAD;
         }

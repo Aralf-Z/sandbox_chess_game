@@ -25,7 +25,7 @@ namespace Game
             Model.Go.name = Point.ToString();
             
             var spriteRenderer = Model.Go.GetComponentInChildren<SpriteRenderer>();
-            spriteRenderer.sortingOrder = SpriteOrderDefine.SQUAD_BATTLEFIELD_TILE;
+            spriteRenderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TILE;
         }
 
         public static int GetConfig(int x, int y, int configId) => configId % 10000 * 10000 + x * 100 + y;
