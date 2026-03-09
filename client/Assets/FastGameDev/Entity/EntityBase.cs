@@ -22,8 +22,8 @@ namespace FastGameDev.Entity
         private readonly Dictionary<Type, ComponentBase> mComponents = new();
         
         protected internal abstract string Tag { get; }
-        
-        protected internal virtual void Init(int config){}
+
+        protected internal abstract void Init(int config);
 
         protected T AddBuiltInComponent<T>() where T: ComponentBase, new()
         {

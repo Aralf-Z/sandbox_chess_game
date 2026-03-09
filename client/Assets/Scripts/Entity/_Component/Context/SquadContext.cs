@@ -10,6 +10,7 @@ namespace Game
         , IGetModule
     {
         public GridPoint point;
+        public int initiative;
         public readonly Dictionary<(int row, int column), ICharacter> characters = new();
     }
 }

@@ -8,6 +8,8 @@ namespace FastGameDev.Entity
     public class WorldModel: ComponentBase
         , IGetModule
     {
+        private static GameObject kDefaultRoot = new GameObject("model_root");
+        
         public GameObject Go { get; private set; }
 
         public Transform Transform => Go.transform;
@@ -20,6 +22,8 @@ namespace FastGameDev.Entity
         {
             var template = this.Module().Asset.LoadSync<GameObject>(name);
 
+            parent = parent ? parent : kDefaultRoot.transform;
+            
             if (template)
             {
                 Go = Object.Instantiate(template, parent);
@@ -29,6 +33,8 @@ namespace FastGameDev.Entity
                 Go = new GameObject(name);
                 Go.transform.SetParent(parent);
             }
+            
+            Go.name = name;
             
             Evt_OnSpawn?.Invoke();
         }

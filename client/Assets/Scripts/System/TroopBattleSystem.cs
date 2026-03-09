@@ -1,16 +1,20 @@
 using System.Buffers;
 using FastGameDev.Core;
 using FastGameDev.Syztem;
+using FastGameDev.Utility.Math;
 
 namespace Game
 {
     public class TroopBattleSystem: SystemBase
     {
         private TroopBattlefieldRecord mBfRecord;
+        private Dice mDice;
         
         protected override void Init()
         {
             mBfRecord = this.Record().Get<TroopBattlefieldRecord>();
+
+            mDice = new Dice();
         }
 
         public void EnterBattle(TroopEntity ally, TroopEntity enemy, TroopBfEntity battlefield)
@@ -43,10 +47,16 @@ namespace Game
             
             //related mode
             this.Module().Camera.ChangeCameraMode<CameraModeTroopBf>();
+
+            var length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
+            var startPoint = length % 2 == 0 ? length / 2 : length / 2 + 1;
+            
+            mBfRecord.curPoint = new GridPoint(startPoint, startPoint);
+            
+            RollSquadInitiative();
             
             battlefield.Enter();
         }
-        
         
         private void TroopInit(TroopEntity troop)
         {
@@ -104,6 +114,7 @@ namespace Game
                     var index = random.Next(atCount);
                     var point = allyTiles[index];
                     mBfRecord.allyTroop.Context.squads[point] = squad;
+                    mBfRecord.liveSquads.Add(squad);
                     squad.Context.point = point;
                     allyTiles[index] = allyTiles[atCount--];
                 }
@@ -113,6 +124,7 @@ namespace Game
                     var index = random.Next(etCount);
                     var point = enemyTiles[index];
                     mBfRecord.enemyTroop.Context.squads[point] = squad;
+                    mBfRecord.liveSquads.Add(squad);
                     squad.Context.point = point;
                     enemyTiles[index] = enemyTiles[etCount--];
                 }
@@ -124,7 +136,7 @@ namespace Game
             }
         }
         
-        public void ExiteBattle()
+        public void ExitBattle()
         {
             
         }
@@ -160,6 +172,73 @@ namespace Game
         }
 
         private void RollSquadInitiative()
+        {
+            var dice = new Dices(20);
+            
+            foreach (var squad in mBfRecord.liveSquads)
+            {
+                var initiative = squad.Attribute.Int(PanelAttri.INITIATIVE) + mDice.RollSum(dice);
+                squad.Context.initiative =  initiative;
+            }
+            
+            SortLiveSquadsByInitiative();
+            mBfRecord.selectedSquad = mBfRecord.curSquad = mBfRecord.liveSquads[0];//todo 长度可能会<1？
+        }
+
+        private void SortLiveSquadsByInitiative()
+        {
+            //todo 排序可能不会稳定，隐性的bug？
+            mBfRecord.liveSquads.Sort((a, b) =>
+                (a.Context.initiative * 10000 + a.Attribute.Float(PanelAttri.INITIATIVE))
+                    .CompareTo(b.Context.initiative * 10000 + b.Attribute.Float(PanelAttri.INITIATIVE)));
+        }
+        
+        private void SearchNextSquad()
+        {
+            var find = false;
+            
+            foreach (var squad in mBfRecord.liveSquads)
+            {
+                if (find)
+                {
+                    mBfRecord.selectedSquad = mBfRecord.curSquad = squad;
+                    break;
+                }
+                find = squad == mBfRecord.curSquad;
+            }
+        }
+
+        public void CurSquadAttack()
+        {
+            
+        }
+        
+        public void CurSquadSkill()
+        {
+            
+        }
+        
+        public void CurSquadRush()
+        {
+            
+        }
+        
+        public void CurSquadReorganize()
+        {
+            
+        }
+        
+        public void CurSquadWait()
+        {
+            
+        }
+        
+        public void CurSquadEscape()
+        {
+            
+        }
+        
+        public void CurSquadEnd()
         {
             
         }

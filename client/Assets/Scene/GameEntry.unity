@@ -198,7 +198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1928748911}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1425715938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &29352327
 MonoBehaviour:
@@ -246,7 +246,7 @@ Transform:
   - {fileID: 1314772287}
   - {fileID: 102377053}
   - {fileID: 666352834}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1425715938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &33531291
 MonoBehaviour:
@@ -291,7 +291,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1481185690}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1425715938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &70458326
 MonoBehaviour:
@@ -882,7 +882,7 @@ Transform:
   - {fileID: 27448846}
   - {fileID: 367188388}
   - {fileID: 574827322}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1425715938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1030747300
 MonoBehaviour:
@@ -927,7 +927,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1425715938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1080260242
 MonoBehaviour:
@@ -1198,7 +1198,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1030747299}
+  - {fileID: 33531290}
+  - {fileID: 70458325}
+  - {fileID: 29352326}
+  - {fileID: 1866950770}
+  - {fileID: 1080260241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1425715939
@@ -1385,7 +1391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1425715938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1866950771
 MonoBehaviour:
@@ -1444,9 +1450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea2f107f3ec40b3ba81a24a11a34d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battlefield: {fileID: 0}
-  curActingSquad: {fileID: 0}
-  curSelectedSquad: {fileID: 0}
 --- !u!114 &1928748913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,8 +1462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59cb37f1eeb448858af838f9b055cfcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allySquad: {fileID: 0}
-  enemySquad: {fileID: 0}
 --- !u!1 &2009083442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,10 +5416,4 @@ SceneRoots:
   - {fileID: 565920005}
   - {fileID: 303167492}
   - {fileID: 1425715938}
-  - {fileID: 1030747299}
-  - {fileID: 33531290}
-  - {fileID: 70458325}
-  - {fileID: 29352326}
-  - {fileID: 1866950770}
-  - {fileID: 1080260241}
   - {fileID: 5073139055270342823}

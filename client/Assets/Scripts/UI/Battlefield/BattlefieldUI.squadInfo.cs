@@ -112,24 +112,6 @@ namespace Game
         // {
         //     
         // }
-        protected override void OnCreate()
-        {
-            
-        }
-
-        protected override void OnOpen()
-        {
-            
-        }
-
-        protected override void OnHide()
-        {
-            
-        }
-
-        protected override void OnClose()
-        {
-            
-        }
+        
     }
 }

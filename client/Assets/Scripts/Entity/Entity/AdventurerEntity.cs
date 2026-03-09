@@ -29,6 +29,8 @@ namespace Game
             Info.configId = config;
             Info.subrace = cfg.Subrace;
 
+            Attribute.Add(PanelAttri.INITIATIVE, cfg.AttributePreset.Initiative);
+            
             Model.name = Tag;
             Model.Load();
         }

@@ -6,9 +6,13 @@ namespace Game
 {
     public class Attribute: ComponentBase
     {
-        private readonly Dictionary<string, SumValue> mAttri;
+        private readonly Dictionary<string, SumValue> mAttri = new ();
         
         public float this[string attributeName] => mAttri[attributeName].Value;
+        
+        public int Int(string attributeName) => (int) mAttri[attributeName].Value;
+        
+        public float Float(string attributeName) => mAttri[attributeName].Value;
         
         public void Add(string attributeName, float baseValue) => mAttri.Add(attributeName, new SumValue(baseValue));
 

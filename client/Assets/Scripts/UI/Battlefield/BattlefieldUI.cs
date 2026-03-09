@@ -1,13 +1,53 @@
-using System;
+using FastGameDev.Core;
 using FastGameDev.Module;
-using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
     public partial class BattlefieldUI : UIWindow
+    , IGetSystem
+    , IGetRecord
     {
         public override EmUIOrder Order => EmUIOrder.Normal;
+        
+        public Button attackBtn;
+        public Button skillBtn;
+        public Button rushBtn;
+        public Button reorganizeBtn;
+        public Button waitBtn;
+        public Button escapeBtn;
+        public Button endBtn;
+        
+        protected override void OnCreate()
+        {
+            var sys = this.System().Get<TroopBattleSystem>();
+            
+            attackBtn.onClick.AddListener(sys.CurSquadAttack);
+            skillBtn.onClick.AddListener(sys.CurSquadSkill);
+            rushBtn.onClick.AddListener(sys.CurSquadRush);
+            reorganizeBtn.onClick.AddListener(sys.CurSquadReorganize);
+            waitBtn.onClick.AddListener(sys.CurSquadWait);
+            escapeBtn.onClick.AddListener(sys.CurSquadEscape);
+            endBtn.onClick.AddListener(sys.CurSquadEnd);
+        }
 
+        protected override void OnOpen()
+        {
+            
+        }
+
+        protected override void OnHide()
+        {
+            
+        }
+
+        protected override void OnClose()
+        {
+            
+        }
+        
+        
+        
         // private BattlefieldUIActorFloatInfo actorFloatInfoTemplate;
         //
         // private IObjectPool<BattlefieldUIActorFloatInfo>  mActorPool;

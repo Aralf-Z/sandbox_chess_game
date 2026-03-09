@@ -1,3 +1,4 @@
+using System.Linq;
 using FastGameDev.Core;
 using FastGameDev.Entity;
 
@@ -36,6 +37,9 @@ namespace Game
                     squad.Info.stand = character is EnemyEntity ? EmSquadStand.Enemy : EmSquadStand.Ally;
                     squad.Setup.Set(stance.Row, stance.Column, character);
                 }
+
+                squad.Attribute.Add(PanelAttri.INITIATIVE, 
+                    squad.Setup.characters.Values.Sum(x => ((EntityBase)x).Get<Attribute>()[PanelAttri.INITIATIVE])/ squad.Setup.characters.Count);
                 
                 Setup.squads.Add(squad);
             }

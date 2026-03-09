@@ -4,6 +4,7 @@ using FastGameDev.Core;
 using FastGameDev.Helper;
 using FastGameDev.Module;
 using Game.Config;
+using Game.Config.Character;
 
 namespace Game
 {
@@ -45,6 +46,9 @@ namespace Game
             var enemyTroop =  Entity.Require<TroopEntity>(enemyId);
             
             System.Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
+            
+            UI.Open<BattlefieldUI>();
+            UI.Open<DebugUI>();
             
             // var sbf = Entity.Require<SquadBfEntity>();
             // Record.Get<SquadBattlefieldRecord>().bf = sbf;

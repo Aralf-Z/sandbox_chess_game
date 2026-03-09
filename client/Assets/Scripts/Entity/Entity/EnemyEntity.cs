@@ -28,6 +28,9 @@ namespace Game
             Info.name = cfg.Name;
             Info.configId = config;
             Info.subrace = cfg.Subrace;  
+            
+            Attribute.Add(PanelAttri.INITIATIVE, cfg.AttributePreset.Initiative);
+            
             Model.name = Tag;
             Model.Load();
             Model.Transform.localScale = new Vector3(-1, 1, 1);
