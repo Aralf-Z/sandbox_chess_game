@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using FastGameDev.Record;
+using FastGameDev.Utility.Inspector;
 
 namespace Game
 {
+    [Inspectable("军团战场记录")]
     public class TroopBattlefieldRecord: RecordBase
     {
         public TroopBfEntity bf;

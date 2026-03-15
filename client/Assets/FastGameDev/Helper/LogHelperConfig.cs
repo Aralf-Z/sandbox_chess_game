@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using FastGameDev.Core;
+using UnityEngine;
 
 namespace FastGameDev.Helper
 {
@@ -12,6 +14,15 @@ namespace FastGameDev.Helper
             Error   = 3,
             Debug   = 4,
         }
+        
+        public List<Color> colors = new List<Color>()
+        {
+            Color.white,
+            Color.white,
+            Color.red,
+            Color.yellow,
+            Color.cyan
+        };
         
         public bool logTimeStamp = true;
         public Level level = Level.Debug;

@@ -1,8 +1,10 @@
+using FastGameDev.Utility.Inspector;
 using UnityEngine;
 
 namespace FastGameDev.Record
 {
-    public abstract class RecordBase: MonoBehaviour
+    [Inspectable]
+    public abstract class RecordBase
     {
         protected internal abstract void Init();
     }

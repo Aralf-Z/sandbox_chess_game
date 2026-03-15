@@ -1,7 +1,9 @@
 using FastGameDev.Record;
+using FastGameDev.Utility.Inspector;
 
 namespace Game
 {
+    [Inspectable("小队战场记录")]
     public class SquadBattlefieldRecord: RecordBase
     {
         public SquadBfEntity bf;
