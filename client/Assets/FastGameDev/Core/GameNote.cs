@@ -28,11 +28,11 @@ namespace FastGameDev.Core
                     note.Init();
                     mNotes.Add(type, note);
                     count++;
-                    Logger.LogInfo($"create note [{type.FullName}]", "note");
+                    Logger.LogInfo($"create note '{type.FullName}'", "note");
                 }
             }
             
-            Logger.LogInfo($"note loaded {count}.", "note");
+            Logger.LogInfo($"notes loaded '{count}'.", "note");
             
             IsInited = true;
         }

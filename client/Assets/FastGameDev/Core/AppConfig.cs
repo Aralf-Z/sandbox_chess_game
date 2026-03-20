@@ -27,6 +27,7 @@ namespace FastGameDev.Core
                     else
                     {
                         sInstance = new T();
+                        Save();
                     }
                 }
                 

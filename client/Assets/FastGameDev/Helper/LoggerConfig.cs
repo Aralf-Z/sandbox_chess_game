@@ -18,7 +18,8 @@ namespace FastGameDev.Helper
         public List<string> colors = new ()
         {
             "#FFFFFF",//白色
-            "#00FF00",//红色
+            "#FFFFFF",//白色
+            "#FF0000",//红色
             "#FFFF00",//黄色
             "#00FFFF",//蓝绿色
         };
