@@ -10,11 +10,11 @@ namespace Game
 {
     public class FlowDemo: FlowBase
         , IGetEntity
-        , IGetRecord
+        , IGetNote
         , IGetSystem
         , IGetModule
     {
-        private GameRecord Record => this.Record();
+        private GameNote Note => this.Note();
         private GameSystem System => this.System();
         private GameEntity Entity => this.Entity();
         private AssetModule Asset => this.Module().Asset;
@@ -33,7 +33,7 @@ namespace Game
 
         protected override void Enter()
         {
-            LogHelper.Info("Demo 开始", "流程");
+            Logger.LogInfo("Demo 开始", "流程");
             //todo
             //创建 "军团战斗地图"
             //创建 友方军团 和 敌方军团
@@ -51,7 +51,7 @@ namespace Game
             UI.Open<DebugUI>();
             
             // var sbf = Entity.Require<SquadBfEntity>();
-            // Record.Get<SquadBattlefieldRecord>().bf = sbf;
+            // Note.Get<SquadBattlefieldNote>().bf = sbf;
             // System.Get<SquadBattleSystem>().Attack(allyTroop.Context.squads.First().Value, enemyTroop.Context.squads.First().Value);
             //UI.Open<BattlefieldUI>();
         }

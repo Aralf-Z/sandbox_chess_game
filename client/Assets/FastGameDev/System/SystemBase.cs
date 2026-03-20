@@ -5,7 +5,7 @@ namespace FastGameDev.Syztem
 {
     public abstract class SystemBase: MonoBehaviour
         , IGetModule
-        , IGetRecord
+        , IGetNote
     {
         protected internal abstract void Init();
     }

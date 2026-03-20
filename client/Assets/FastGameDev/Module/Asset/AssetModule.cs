@@ -1,6 +1,7 @@
 using System.IO;
 using FastGameDev.Helper;
 using UnityEngine;
+using Logger = FastGameDev.Helper.Logger;
 
 namespace FastGameDev.Module
 {
@@ -40,7 +41,7 @@ namespace FastGameDev.Module
 
             if (cost > .01f)
             {
-                LogHelper.Warning($"‘{assetName}’ sync cost more than 0.01s [{cost}s], 'LoadAsync' is suggested", "AssetLoad");
+                Logger.LogWarning($"‘{assetName}’ sync cost more than 0.01s [{cost}s], 'LoadAsync' is suggested", "AssetLoad");
             }
             
             return asset;

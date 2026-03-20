@@ -58,7 +58,7 @@ namespace FastGameDev.Module
             }
             catch (Exception e)
             {
-                Debug.LogError(e);
+                LogDebug.LogError(e);
                 throw;
             }
             

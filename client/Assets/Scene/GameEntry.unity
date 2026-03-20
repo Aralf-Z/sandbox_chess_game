@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 29352326}
   - component: {fileID: 29352327}
   m_Layer: 0
-  m_Name: GameRecord
+  m_Name: GameNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03dfd02de6145046912b1873bf0ed67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameRecord: {fileID: 29352327}
+  gameNote: {fileID: 29352327}
   gameEntity: {fileID: 1080260242}
   gameLogic: {fileID: 1866950771}
   gameModule: {fileID: 33531291}

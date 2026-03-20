@@ -6,7 +6,7 @@ namespace FastGameDev.Core
     {
         public static GameApplication Instance;
         
-        [SerializeField] internal GameRecord gameRecord;
+        [SerializeField] internal GameNote gameNote;
         [SerializeField] internal GameEntity gameEntity;
         [SerializeField] internal GameLogic  gameLogic;
         [SerializeField] internal GameModule gameModule;
@@ -16,7 +16,7 @@ namespace FastGameDev.Core
         public void StartGame()
         {
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(gameRecord);
+            DontDestroyOnLoad(gameNote);
             DontDestroyOnLoad(gameEntity);
             DontDestroyOnLoad(gameLogic);
             DontDestroyOnLoad(gameModule);

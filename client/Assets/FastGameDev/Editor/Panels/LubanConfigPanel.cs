@@ -12,7 +12,7 @@
 // using Newtonsoft.Json;
 // using UnityEditor;
 // using UnityEngine;
-// using Debug = UnityEngine.Debug;
+// using LogDebug = UnityEngine.LogDebug;
 // using Path = System.IO.Path;
 //
 // namespace FastGameDev.Editor
@@ -328,7 +328,7 @@
 //
 //                     if (process is null)
 //                     {
-//                         LogTool.ToolError("Luban",$"Error: process Failed");
+//                         LogTool.ToolError("Luban",$"LogError: process Failed");
 //                     }
 //                     else
 //                     {
@@ -350,12 +350,12 @@
 //                             LogTool.ToolInfo("Luban", $"Analysis Succeed, OutPut Type: {outputType}");
 //                         }
 //                     
-//                         Debug.Log(outputStr);
+//                         LogDebug.Log(outputStr);
 //                     }
 //                 }
 //                 catch (Exception ex)
 //                 {
-//                     LogTool.ToolError("Luban",$"Error: {ex.Message}");
+//                     LogTool.ToolError("Luban",$"LogError: {ex.Message}");
 //                 }
 //             }
 //             finally
@@ -382,7 +382,7 @@
 //                 }
 //                 catch (Exception e)
 //                 {
-//                     Debug.LogError(e);
+//                     LogDebug.LogError(e);
 //                 }
 //                 finally
 //                 {
@@ -414,7 +414,7 @@
 //             }
 //             catch (Exception e)
 //             {
-//                 Debug.LogError(e);
+//                 LogDebug.LogError(e);
 //                 throw;
 //             }
 //         }

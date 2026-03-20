@@ -11,11 +11,11 @@ namespace FastGameDev.Core
         protected internal override void Enter()
         {
             //todo 当发生阻塞时可以异步等
-            LogHelper.Info("初始化游戏模块", "流程");
+            Logger.LogInfo("初始化游戏模块", "流程");
             App.gameModule.Init();
             App.gameEntity.Init();
             App.gameLogic.Init();
-            App.gameRecord.Init();
+            App.gameNote.Init();
             App.gameSystem.Init();
         }
 
@@ -27,7 +27,7 @@ namespace FastGameDev.Core
 
         protected override void Exit()
         {
-            LogHelper.Info("初始化游戏模块结束", "流程");
+            Logger.LogInfo("初始化游戏模块结束", "流程");
         }
     }
 }

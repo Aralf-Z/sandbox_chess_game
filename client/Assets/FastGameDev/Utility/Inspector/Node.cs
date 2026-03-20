@@ -9,10 +9,14 @@ namespace FastGameDev.Utility.Inspector
     {
         public NodeBase parent;
         public object owner;
-        public Type type;//todo 添加Type
+        public Type type;
+        
         public string tag;
         public string name;
+        
+        public int Id => depth * 10000 + index;
         public int depth;
+        public int index;
         public Adapter adapter;
 
         public abstract object GetValue();
@@ -30,6 +34,8 @@ namespace FastGameDev.Utility.Inspector
         public override void SetValue(object value) {}
     }
     
+    public abstract class LeafNode: NodeBase{}
+    
     public class FieldNode: NodeBase
     {
         public FieldInfo info;
@@ -39,15 +45,13 @@ namespace FastGameDev.Utility.Inspector
         public override void SetValue(object value) => info.SetValue(owner, value);
     }
     
-    public abstract class CollectionElementLeaf<T> : NodeBase
+    public abstract class CollectionElementLeaf<T> : LeafNode
     {
         public T collection;
     }
 
     public class ListElementLeaf : CollectionElementLeaf<IList>
     {
-        public int index;
-
         public override object GetValue() => collection[index];
 
         public override void SetValue(object value) => collection[index] = value;

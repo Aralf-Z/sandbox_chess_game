@@ -4,7 +4,7 @@ using FastGameDev.Utility.FSM;
 namespace Game
 {
     public class CameraModeSquadBf: StatusBase
-        , IGetRecord
+        , IGetNote
     {
         private GameCameraFollower mHost;
         
@@ -15,8 +15,8 @@ namespace Game
 
         public override void OnEnter()
         {
-            var record = this.Record().Get<SquadBattlefieldRecord>();
-            mHost.transform.position = record.bf.Model.Transform.position;
+            var note = this.Note().Get<SquadBattlefieldNote>();
+            mHost.transform.position = note.bf.Model.Transform.position;
         }
     }
 }

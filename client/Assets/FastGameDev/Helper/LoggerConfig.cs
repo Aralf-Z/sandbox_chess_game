@@ -14,17 +14,18 @@ namespace FastGameDev.Helper
             Error   = 3,
             Debug   = 4,
         }
-        
-        public List<Color> colors = new List<Color>()
+
+        public List<string> colors = new ()
         {
-            Color.white,
-            Color.white,
-            Color.red,
-            Color.yellow,
-            Color.cyan
+            "#FFFFFF",//白色
+            "#00FF00",//红色
+            "#FFFF00",//黄色
+            "#00FFFF",//蓝绿色
         };
         
         public bool logTimeStamp = true;
         public Level level = Level.Debug;
+        
+        
     }
 }

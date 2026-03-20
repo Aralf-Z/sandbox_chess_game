@@ -18,7 +18,7 @@ namespace Game
         // public void Set(ISquad squad)
         // {
         //     mSquad = squad;
-        //     squadName.text = mSquad.Info.Name;
+        //     squadName.text = mSquad.LogInfo.Name;
         //     squadInitiative.text = $"先攻：{squad.Resource[EmResource.Initiative]:F0}";
         //     OnMoving();
         // }

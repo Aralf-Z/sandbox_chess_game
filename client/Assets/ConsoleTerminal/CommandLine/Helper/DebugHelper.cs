@@ -1,5 +1,5 @@
 /*
-    provide an attribute to mark debug info, when we use CommandHelper.Debug(), we can get all debug info
+    provide an attribute to mark debug info, when we use CommandHelper.LogDebug(), we can get all debug info
     include parent object's debug info
 */
 
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace RedSaw.CommandLineInterface{
 
     /// <summary>
-    /// mark one field or property is debug info, when we use CommandHelper.Debug(), we can get all debug info
+    /// mark one field or property is debug info, when we use CommandHelper.LogDebug(), we can get all debug info
     /// include parent object's debug info
     /// </summary>
     [AttributeUsage(AttributeTargets.Field|AttributeTargets.Property, AllowMultiple = false, Inherited = true)]

@@ -89,12 +89,12 @@ namespace Game
         //
         // private void OnSquadSelect()
         // {
-        //     selectedSquadNameText.text = $"当前选中：{Mod.Battlefield.selectedSquad.Info.Name}";
+        //     selectedSquadNameText.text = $"当前选中：{Mod.Battlefield.selectedSquad.LogInfo.Name}";
         // }
         //
         // private void OnNextSquadMove()
         // {
-        //     currentSquadNameText.text = $"当前行动：{Mod.Battlefield.curMovingSquad.Info.Name}";
+        //     currentSquadNameText.text = $"当前行动：{Mod.Battlefield.curMovingSquad.LogInfo.Name}";
         // }
         //
         // private void OnSquadInitiativeRoll()

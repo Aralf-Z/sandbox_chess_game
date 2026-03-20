@@ -12,6 +12,7 @@ namespace FastGameDev.Utility.Inspector
         public readonly int depth;
 
         private readonly Adapter mNodeAdapter = new NodeAdapter();
+        private readonly Adapter mLeafAdapter = new ListAdapter();
         private readonly Dictionary<Type, Adapter> mAdaptersCache = new ();
         private readonly List<Adapter> mAdapters;
 
@@ -28,7 +29,8 @@ namespace FastGameDev.Utility.Inspector
                 new BoolAdapter(),
                 new StringAdapter(),
                 new ListAdapter(),
-                new DictionaryAdapter()
+                new DictionaryAdapter(),
+                new EntityAdapter(),
             };
         }
 
@@ -54,8 +56,7 @@ namespace FastGameDev.Utility.Inspector
                 };
                 
                 root.children.Add(node);
-                
-                SearchNode(node, obj, 2);
+                SearchNode(node, obj, 3);
             }
             
             return root;
@@ -69,6 +70,7 @@ namespace FastGameDev.Utility.Inspector
             {
                 var type = node switch
                 {
+                    RootNode rNode => rNode.instance.GetType(),
                     FieldNode fieldNode => fieldNode.info.FieldType,
                     ListElementLeaf listNode => listNode.GetValue().GetType(),
                     DictionaryElementLeaf dicNode => dicNode.GetValue().GetType(),
@@ -88,16 +90,31 @@ namespace FastGameDev.Utility.Inspector
                 }
                 else
                 {
+                    
                     var attri = type.GetCustomAttribute<InspectableAttribute>();
 
-                    if (attri != null && childDepth <= depth)
+                    if (attri == null)
+                    {
+                        node.adapter = RequireAdapter(type);
+                        node.tag = type.Name;
+                    }
+                    else
                     {
                         node.adapter = mNodeAdapter;
                         node.tag = attri.Tag ?? type.Name;
                     }
                 }
-                
-                if(node is FieldNode fNode && node.adapter != null) SearchNode(node, fNode.info.GetValue(obj), childDepth + 1);
+
+                if (node.adapter != null)
+                {
+                    switch (node)
+                    {
+                        case RootNode rNode: SearchNode(node, rNode.instance, childDepth + 1);
+                            break;
+                        case FieldNode fNode: SearchNode(node, fNode.info.GetValue(obj), childDepth + 1);
+                            break;
+                    }
+                }
             }
         }
 
@@ -114,7 +131,7 @@ namespace FastGameDev.Utility.Inspector
                 }
             }
 
-            return null;
+            return mLeafAdapter;
         }
     }
 }

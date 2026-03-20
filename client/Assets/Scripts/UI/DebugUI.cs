@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Game
 {
-    public class DebugUI : UIWindow, IGetRecord
+    public class DebugUI : UIWindow, IGetNote
     {
         public Text infoText;
 
@@ -35,12 +35,12 @@ namespace Game
         
         private void FixedUpdate()
         {
-            var record = this.Record().Get<TroopBattlefieldRecord>();
+            var note = this.Note().Get<TroopBattlefieldNote>();
             
-            infoText.text = $"curSquad: {record.curSquad?.Info.name}\n" +
-                            $"selectedSquad: {record.selectedSquad?.Info.name}\n\n" +
+            infoText.text = $"curSquad: {note.curSquad?.Info.name}\n" +
+                            $"selectedSquad: {note.selectedSquad?.Info.name}\n\n" +
                             $"action line: \n" +
-                            $"{string.Join("\n", record.liveSquads.Select(x => $"{x.Info.name}: {x.Context.initiative}"))}";
+                            $"{string.Join("\n", note.liveSquads.Select(x => $"{x.Info.name}: {x.Context.initiative}"))}";
         }
 
         public override EmUIOrder Order => EmUIOrder.Tip;

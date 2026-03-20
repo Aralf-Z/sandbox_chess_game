@@ -8,18 +8,21 @@ namespace FastGameDev.Entity
 {
     public abstract class EntityBase :
         IGetEntity
-        , IGetRecord
+        , IGetNote
         , IGetSystem
         , IGetModule
     {
-        protected GameRecord Record => this.Record();
+        protected GameNote Note => this.Note();
         protected GameSystem System => this.System();
         protected GameEntity Entity => this.Entity();
         protected AssetModule Asset => this.Module().Asset;
         protected Tables Tables => this.Module().Config.Tables;
         
-        private readonly Dictionary<Type, ComponentBase> mBuiltInComponents = new();
-        private readonly Dictionary<Type, ComponentBase> mComponents = new();
+        internal readonly Dictionary<Type, ComponentBase> mBuiltInComponents = new();
+        internal readonly Dictionary<Type, ComponentBase> mComponents = new();
+        
+        public IReadOnlyCollection<ComponentBase> Components => mBuiltInComponents.Values;
+        public IReadOnlyDictionary<Type, ComponentBase> BuiltInComponents => mBuiltInComponents;
         
         protected internal abstract string Tag { get; }
 

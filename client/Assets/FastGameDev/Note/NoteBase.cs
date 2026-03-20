@@ -1,10 +1,10 @@
 using FastGameDev.Utility.Inspector;
 using UnityEngine;
 
-namespace FastGameDev.Record
+namespace FastGameDev.Note
 {
     [Inspectable]
-    public abstract class RecordBase
+    public abstract class NoteBase
     {
         protected internal abstract void Init();
     }

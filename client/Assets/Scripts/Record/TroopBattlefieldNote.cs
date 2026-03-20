@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using FastGameDev.Record;
+using FastGameDev.Note;
 using FastGameDev.Utility.Inspector;
 
 namespace Game
 {
     [Inspectable("军团战场记录")]
-    public class TroopBattlefieldRecord: RecordBase
+    public class TroopBattlefieldNote: NoteBase
     {
         public TroopBfEntity bf;
         public TroopEntity allyTroop;

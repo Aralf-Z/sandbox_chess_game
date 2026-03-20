@@ -48,7 +48,7 @@
     //         foreach (var cfg in tables.TbCampaign[elId].Squads)
     //         {
     //             var squad = new Squad(enemyLegion);
-    //             squad.Info.Name = cfg.Key;
+    //             squad.LogInfo.Name = cfg.Key;
     //             foreach (var actorCfg in cfg.Value)
     //                 squad.SquadGrid.Set(actorCfg.Row, actorCfg.Column, new Enemy(actorCfg.Id));
     //             
@@ -61,7 +61,7 @@
     //         foreach (var cfg in tables.TbCampaign[alId].Squads)
     //         {
     //             var squad = new Squad(allyLegion);
-    //             squad.Info.Name = cfg.Key;
+    //             squad.LogInfo.Name = cfg.Key;
     //             foreach (var actorCfg in cfg.Value)
     //                 squad.SquadGrid.Set(actorCfg.Row, actorCfg.Column, actorCfg.Id / 10000 == 1 ? new Adventurer(actorCfg.Id): new Enemy(actorCfg.Id));
     //             

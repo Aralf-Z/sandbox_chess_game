@@ -4,6 +4,7 @@ using FastGameDev.Helper;
 using FastGameDev.Module;
 using UnityEditor;
 using UnityEngine;
+using Logger = FastGameDev.Helper.Logger;
 using Object = UnityEngine.Object;
 
 namespace FastGameDev.Editor
@@ -34,7 +35,7 @@ namespace FastGameDev.Editor
                     Debug.Log(config.isActive);
                     Debug.Log(config.entryScene);
                     
-                    LogHelper.Debug("你好");
+                    Logger.LogDebug("你好");
                     LogHelperConfig.Save();
                     
                     config.isActive = !config.isActive;
@@ -67,17 +68,17 @@ namespace FastGameDev.Editor
                     }
 
                     var name = AssetDatabase.LoadAssetAtPath<Object>(originalPath).name;
-                    LogHelper.Info($"资源录入-'{name}'","Asset");
+                    Logger.LogInfo($"资源录入-'{name}'","Asset");
                     EditorUtility.DisplayProgressBar("ResourcesConfigBuilding", originalPath, (float) i / guids.Length);
                     resConfig.Add(name, path[0]);
                 }
                 
                 CreateAssetConfig(resConfig);
-                LogHelper.Info("资源路径配置完成","Asset");
+                Logger.LogInfo("资源路径配置完成","Asset");
             }
             catch (Exception e)
             {
-                LogHelper.Info($"资源路径配置失败:{e.Message}","Asset");
+                Logger.LogInfo($"资源路径配置失败:{e.Message}","Asset");
                 throw;
             }
             finally

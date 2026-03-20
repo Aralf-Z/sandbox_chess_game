@@ -7,12 +7,12 @@ namespace Game
 {
     public class TroopBattleSystem: SystemBase
     {
-        private TroopBattlefieldRecord mBfRecord;
+        private TroopBattlefieldNote mBfNote;
         private Dice mDice;
         
         protected override void Init()
         {
-            mBfRecord = this.Record().Get<TroopBattlefieldRecord>();
+            mBfNote = this.Note().Get<TroopBattlefieldNote>();
 
             mDice = new Dice();
         }
@@ -26,10 +26,10 @@ namespace Game
             TroopInit(ally);
             TroopInit(enemy);
             
-            //record
-            mBfRecord.allyTroop = ally;
-            mBfRecord.enemyTroop = enemy;
-            mBfRecord.bf = battlefield;
+            //note
+            mBfNote.allyTroop = ally;
+            mBfNote.enemyTroop = enemy;
+            mBfNote.bf = battlefield;
 
             SetSquadsPositionOnBattlefield();
             foreach (var (_, squad) in ally.Context.squads)
@@ -51,7 +51,7 @@ namespace Game
             var length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             var startPoint = length % 2 == 0 ? length / 2 : length / 2 + 1;
             
-            mBfRecord.curPoint = new GridPoint(startPoint, startPoint);
+            mBfNote.curPoint = new GridPoint(startPoint, startPoint);
             
             RollSquadInitiative();
             
@@ -96,7 +96,7 @@ namespace Game
                     for (var y = 1; y <= length; y++)
                     {
                         var position = new GridPoint(x, y);
-                        var cost = tbTile[mBfRecord.bf.Grid[position]].Cost;
+                        var cost = tbTile[mBfNote.bf.Grid[position]].Cost;
                         
                         if (x <= BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION)
                         {
@@ -109,22 +109,22 @@ namespace Game
                     }
                 }
                 
-                foreach (var squad in mBfRecord.allyTroop.Setup.squads)
+                foreach (var squad in mBfNote.allyTroop.Setup.squads)
                 {
                     var index = random.Next(atCount);
                     var point = allyTiles[index];
-                    mBfRecord.allyTroop.Context.squads[point] = squad;
-                    mBfRecord.liveSquads.Add(squad);
+                    mBfNote.allyTroop.Context.squads[point] = squad;
+                    mBfNote.liveSquads.Add(squad);
                     squad.Context.point = point;
                     allyTiles[index] = allyTiles[atCount--];
                 }
                 
-                foreach (var squad in mBfRecord.enemyTroop.Setup.squads)
+                foreach (var squad in mBfNote.enemyTroop.Setup.squads)
                 {
                     var index = random.Next(etCount);
                     var point = enemyTiles[index];
-                    mBfRecord.enemyTroop.Context.squads[point] = squad;
-                    mBfRecord.liveSquads.Add(squad);
+                    mBfNote.enemyTroop.Context.squads[point] = squad;
+                    mBfNote.liveSquads.Add(squad);
                     squad.Context.point = point;
                     enemyTiles[index] = enemyTiles[etCount--];
                 }
@@ -175,20 +175,20 @@ namespace Game
         {
             var dice = new Dices(20);
             
-            foreach (var squad in mBfRecord.liveSquads)
+            foreach (var squad in mBfNote.liveSquads)
             {
                 var initiative = squad.Attribute.Int(PanelAttri.INITIATIVE) + mDice.RollSum(dice);
                 squad.Context.initiative =  initiative;
             }
             
             SortLiveSquadsByInitiative();
-            mBfRecord.selectedSquad = mBfRecord.curSquad = mBfRecord.liveSquads[0];//todo 长度可能会<1？
+            mBfNote.selectedSquad = mBfNote.curSquad = mBfNote.liveSquads[0];//todo 长度可能会<1？
         }
 
         private void SortLiveSquadsByInitiative()
         {
             //todo 排序可能不会稳定，隐性的bug？
-            mBfRecord.liveSquads.Sort((a, b) =>
+            mBfNote.liveSquads.Sort((a, b) =>
                 (a.Context.initiative * 10000 + a.Attribute.Float(PanelAttri.INITIATIVE))
                     .CompareTo(b.Context.initiative * 10000 + b.Attribute.Float(PanelAttri.INITIATIVE)));
         }
@@ -197,14 +197,14 @@ namespace Game
         {
             var find = false;
             
-            foreach (var squad in mBfRecord.liveSquads)
+            foreach (var squad in mBfNote.liveSquads)
             {
                 if (find)
                 {
-                    mBfRecord.selectedSquad = mBfRecord.curSquad = squad;
+                    mBfNote.selectedSquad = mBfNote.curSquad = squad;
                     break;
                 }
-                find = squad == mBfRecord.curSquad;
+                find = squad == mBfNote.curSquad;
             }
         }
 
