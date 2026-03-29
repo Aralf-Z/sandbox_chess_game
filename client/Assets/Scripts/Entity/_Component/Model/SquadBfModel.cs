@@ -17,7 +17,13 @@ namespace Game
 
         public WorldModel Model { get; private set; }
 
-        protected override void OnHostReady()
+        protected override void OnAdded()
+        {
+            Model = Host.Get<WorldModel>();
+            Model.Evt_OnLoaded += OnModelLoaded;
+        }
+
+        private void OnModelLoaded()
         {
             const int col = BattlefieldDefine.SQUAD_BF_COL_COUNT;
             const int row = BattlefieldDefine.SQUAD_BF_ROW_COUNT;

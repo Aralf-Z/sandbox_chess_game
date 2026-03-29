@@ -10,18 +10,25 @@ namespace Game
         , IGetNote
         , IGetModule
     {
+        public WorldModel Model { get; private set; }
+        
         private Dictionary<GridPoint, TroopBfTileEntity> mTiles = new ();
-
-        private WorldModel mModel;
         
         private GameObject mTipTile;
-        
-        protected override void OnHostReady()
+
+        protected override void OnAdded()
+        {
+            Model = Host.Get<WorldModel>();
+            Model.Evt_OnLoaded += OnModelLoaded;
+        }
+
+        private void OnModelLoaded()
         {
             const float length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             const float x0 = - (length - 1) / 2f;
             const float y0 = - (length - 1) / 2f;
             
+            Model = Host.Get<WorldModel>();
             var grid = Host.Get<TroopBfGrid>();
             
             for (var i = 0; i < length; i++)
@@ -34,14 +41,14 @@ namespace Game
                     var id = grid[point];
                     var tileConfig = TroopBfTileEntity.GetConfig(x1, y1, id);
                     var tile = this.Entity().Require<TroopBfTileEntity>(tileConfig);
-                    tile.Model.Transform.SetParent(mModel.Transform);
+                    tile.Model.Transform.SetParent(Model.Transform);
                     tile.Model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
                     mTiles[point] = tile;
                 }
             }
 
             var prefab = this.Module().Asset.LoadSync<GameObject>("tip_tile_on_select");
-            mTipTile = Object.Instantiate(prefab, mModel.Transform);
+            mTipTile = Object.Instantiate(prefab, Model.Transform);
         }
 
         public void UpdateSelectedTile()
@@ -56,7 +63,7 @@ namespace Game
             const float x0 = - (length - 1) / 2f;
             const float y0 = - (length - 1) / 2f;
 
-            return mModel.Transform.position + new Vector3(x0 + point.X - 1, y0 + point.Y - 1, 0);
+            return Model.Transform.position + new Vector3(x0 + point.X - 1, y0 + point.Y - 1, 0);
         }
     }
 }

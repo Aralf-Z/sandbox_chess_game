@@ -25,8 +25,6 @@ namespace GameDev.Entity
         protected internal abstract string Tag { get; }
 
         protected internal abstract void Init(int config);
-
-        public EmState State { get; private set; }
         
         public T Add<T>() where T: ComponentBase, new()
         {
@@ -40,7 +38,6 @@ namespace GameDev.Entity
             var component = new T { Host = this };
             mComponents.Add(key, component);
             component.OnAdded();
-            CheckReady();
             
             return component;
         }
@@ -69,24 +66,6 @@ namespace GameDev.Entity
         public bool Has<T>()
         {
             return mComponents.ContainsKey(typeof(T));
-        }
-
-        public void CheckReady()
-        {
-            if(State is EmState.Ready) return;
-            
-            foreach (var (_, cmp) in mComponents)
-            {
-                if(cmp.State is not EmState.Ready) return;
-            }
-            
-            State = EmState.Ready;
-            
-            foreach (var (_, cmp) in mComponents)
-            {
-                if(cmp.State is EmState.Unready)
-                    cmp.OnHostReady();
-            }
         }
     }
 }

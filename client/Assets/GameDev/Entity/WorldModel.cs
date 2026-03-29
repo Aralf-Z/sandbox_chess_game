@@ -17,10 +17,7 @@ namespace GameDev.Entity
         
         public string name = string.Empty;
 
-        protected internal override void OnAdded()
-        {
-            State = EmState.Unready;
-        }
+        public event Action Evt_OnLoaded;
 
         public void Load()
         {
@@ -40,11 +37,7 @@ namespace GameDev.Entity
             Go.name = name;
             Bind = Go.AddComponent<ModelBind>();
             Bind.Bind(this);
-            
-            State = EmState.Ready;
-            
-            Host.CheckReady();
+            Evt_OnLoaded?.Invoke();
         }
-        
     }
 }
