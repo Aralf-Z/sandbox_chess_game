@@ -10,18 +10,16 @@ namespace GameDev.Core
     public class GameEntity : MonoBehaviour,
         IGetModule
     {
-        private bool mIsInited;
-        
         private readonly List<EntityBase> mEntities = new List<EntityBase>();
         
         internal void Init()
         {
-            mIsInited = true;
+
         }
 
         internal void Destroy()
         {
-            mIsInited = false;
+            
         }
         
         public T Require<T>(int configId = -1) where T : EntityBase, new ()

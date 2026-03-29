@@ -222,30 +222,15 @@ namespace GameDev.Utility.Inspector
 
             var i = 0;
             
-            foreach (var (cmpType, _) in entity.mBuiltInComponents)
-            {
-                node.children.Add(new DictionaryElementLeaf()
-                {
-                    parent = node,
-                    owner = entity.mBuiltInComponents,
-                    type = cmpType,
-                    key = cmpType,
-                    collection = entity.mBuiltInComponents,
-                    name = $"[{cmpType.Name}]",
-                    depth = childDepth,
-                    index = i++,
-                });
-            }
-            
             foreach (var (cmpType, _) in entity.mComponents)
             {
                 node.children.Add(new DictionaryElementLeaf()
                 {
                     parent = node,
-                    owner = entity.mBuiltInComponents,
+                    owner = entity.mComponents,
                     type = cmpType,
                     key = cmpType,
-                    collection = entity.mBuiltInComponents,
+                    collection = entity.mComponents,
                     name = $"[{cmpType.Name}]",
                     depth = childDepth,
                     index = i++,
