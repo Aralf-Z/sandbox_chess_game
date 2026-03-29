@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FastGameDev.Syztem;
 using UnityEngine;
+using Logger = FastGameDev.Helper.Logger;
 
 namespace FastGameDev.Core
 {
@@ -13,11 +15,22 @@ namespace FastGameDev.Core
         
         internal void Init()
         {
-            foreach (var sys in GetComponentsInChildren<SystemBase>())
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var count = 0;
+
+            foreach (var assembly in assemblies)
             {
-                sys.Init();
-                mSystems.Add(sys.GetType(), sys);
+                foreach (var type in assembly.GetTypes().Where(t => !t.IsAbstract && typeof(SystemBase).IsAssignableFrom(t)))
+                {
+                    var system = (SystemBase)Activator.CreateInstance(type);
+                    system.Init();
+                    mSystems.Add(type, system);
+                    count++;
+                    Logger.LogInfo($"create system '{type.FullName}'", "system");
+                }
             }
+            
+            Logger.LogInfo($"systems loaded '{count}'.", "system");
             
             IsInited = true;
         }

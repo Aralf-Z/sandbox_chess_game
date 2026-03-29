@@ -1,5 +1,6 @@
 namespace Game
 {
+    //todo 一定要优化掉
     public class BattlefieldDefine
     {
         public const int ALLY_ENEMY_ROW_DIVISION = 6;

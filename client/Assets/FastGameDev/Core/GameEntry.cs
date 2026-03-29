@@ -11,6 +11,8 @@ namespace FastGameDev.Core
 
         private void Start()
         {
+            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameApplication);
             gameApplication.StartGame();
         }
     }

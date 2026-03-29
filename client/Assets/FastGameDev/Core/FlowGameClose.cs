@@ -17,7 +17,7 @@ namespace FastGameDev.Core
             App.gameLogic.Destroy();
             App.gameSystem.Destroy();
             
-            App.ShutDownGame();
+            App.ShutDown();
         }
 
         protected internal override void Check() { }

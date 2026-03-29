@@ -1,12 +1,16 @@
+using System;
 using System.Buffers;
 using FastGameDev.Core;
 using FastGameDev.Syztem;
 using FastGameDev.Utility.Math;
+using UnityEngine;
 
 namespace Game
 {
     public class TroopBattleSystem: SystemBase
     {
+        public event Action Evt_OnCurrentPointChanged;
+        
         private TroopBattlefieldNote mBfNote;
         private Dice mDice;
         
@@ -20,7 +24,6 @@ namespace Game
         public void EnterBattle(TroopEntity ally, TroopEntity enemy, TroopBfEntity battlefield)
         {
             //todo temp code
-
             battlefield.Model.name = "troops_bf";
             battlefield.Model.Load();
             TroopInit(ally);
@@ -51,11 +54,8 @@ namespace Game
             var length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             var startPoint = length % 2 == 0 ? length / 2 : length / 2 + 1;
             
-            mBfNote.curPoint = new GridPoint(startPoint, startPoint);
-            
             RollSquadInitiative();
-            
-            battlefield.Enter();
+            SelectTile(new GridPoint(startPoint, startPoint));
         }
         
         private void TroopInit(TroopEntity troop)
@@ -241,6 +241,16 @@ namespace Game
         public void CurSquadEnd()
         {
             
+        }
+
+        public void SelectTile(GridPoint point)
+        {
+            var x = Mathf.Clamp(point.X, 1, BattlefieldDefine.TROOP_BF_GRID_LENGTH);
+            var y = Mathf.Clamp(point.Y, 1, BattlefieldDefine.TROOP_BF_GRID_LENGTH);
+            
+            mBfNote.curPoint = new GridPoint(x,y);
+            mBfNote.bf.SelfModel.UpdateSelectedTile();
+            Evt_OnCurrentPointChanged?.Invoke();
         }
     }
 }

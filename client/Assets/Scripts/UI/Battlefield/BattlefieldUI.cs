@@ -1,5 +1,7 @@
+using System;
 using FastGameDev.Core;
 using FastGameDev.Module;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game
@@ -18,17 +20,21 @@ namespace Game
         public Button escapeBtn;
         public Button endBtn;
         
+        public TroopBattleSystem mSystem;
+        public TroopBattlefieldNote mNote;
+        
         protected override void OnCreate()
         {
-            var sys = this.System().Get<TroopBattleSystem>();
+            mSystem = this.System().Get<TroopBattleSystem>();
+            mNote = this.Note().Get<TroopBattlefieldNote>();
             
-            attackBtn.onClick.AddListener(sys.CurSquadAttack);
-            skillBtn.onClick.AddListener(sys.CurSquadSkill);
-            rushBtn.onClick.AddListener(sys.CurSquadRush);
-            reorganizeBtn.onClick.AddListener(sys.CurSquadReorganize);
-            waitBtn.onClick.AddListener(sys.CurSquadWait);
-            escapeBtn.onClick.AddListener(sys.CurSquadEscape);
-            endBtn.onClick.AddListener(sys.CurSquadEnd);
+            attackBtn.onClick.AddListener(mSystem.CurSquadAttack);
+            skillBtn.onClick.AddListener(mSystem.CurSquadSkill);
+            rushBtn.onClick.AddListener(mSystem.CurSquadRush);
+            reorganizeBtn.onClick.AddListener(mSystem.CurSquadReorganize);
+            waitBtn.onClick.AddListener(mSystem.CurSquadWait);
+            escapeBtn.onClick.AddListener(mSystem.CurSquadEscape);
+            endBtn.onClick.AddListener(mSystem.CurSquadEnd);
         }
 
         protected override void OnOpen()
@@ -45,9 +51,21 @@ namespace Game
         {
             
         }
-        
-        
-        
+
+        private void Update()
+        {
+            if(null == mSystem || null == mNote)  return;
+            
+            var zero = new GridPoint(0, 0);
+            var select = zero;
+            select += Input.GetKeyDown(KeyCode.UpArrow) ? new GridPoint(0, 1) : zero;
+            select += Input.GetKeyDown(KeyCode.DownArrow) ? new GridPoint(0, -1) : zero;
+            select += Input.GetKeyDown(KeyCode.LeftArrow) ? new GridPoint(-1, 0) : zero;
+            select += Input.GetKeyDown(KeyCode.RightArrow) ? new GridPoint(1, 0) : zero;
+            
+            mSystem.SelectTile(mNote.curPoint + select);
+        }
+
         // private BattlefieldUIActorFloatInfo actorFloatInfoTemplate;
         //
         // private IObjectPool<BattlefieldUIActorFloatInfo>  mActorPool;

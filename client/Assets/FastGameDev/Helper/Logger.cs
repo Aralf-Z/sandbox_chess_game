@@ -8,7 +8,7 @@ namespace FastGameDev.Helper
     /// </summary>
     public class Logger
     {
-        private static LogHelperConfig Config => LogHelperConfig.Ins;
+        private static LoggerConfig Config => LoggerConfig.Ins;
         
         private static void Log(string message, string title = null, Color color = default)
         {
@@ -29,11 +29,11 @@ namespace FastGameDev.Helper
         /// <param name="color"></param>
         public static void LogInfo(string message, string title = null, Color color = default)
         {
-            if (Config.level >=　LogHelperConfig.Level.Info)
+            if (Config.level >=　LoggerConfig.Level.Info)
             {
                 if (color == default)
                 {
-                    Log(message, title, Config.colors[(int)LogHelperConfig.Level.Info]);
+                    Log(message, title, Config.colors[(int)LoggerConfig.Level.Info]);
                 }
                 else
                 {
@@ -50,11 +50,11 @@ namespace FastGameDev.Helper
         /// <param name="color"></param>
         public static void LogWarning(string message, string title = null, Color color = default)
         {
-            if(Config.level >= LogHelperConfig.Level.Warning) 
+            if(Config.level >= LoggerConfig.Level.Warning) 
             {
                 if (color == default)
                 {
-                    Log(message, title, Config.colors[(int)LogHelperConfig.Level.Warning]);
+                    Log(message, title, Config.colors[(int)LoggerConfig.Level.Warning]);
                 }
                 else
                 {
@@ -71,11 +71,11 @@ namespace FastGameDev.Helper
         /// <param name="color"></param>
         public static void LogError(string message, string title = null, Color color = default)
         {
-            if(Config.level >= LogHelperConfig.Level.Error) 
+            if(Config.level >= LoggerConfig.Level.Error) 
             {
                 if (color == default)
                 {
-                    Log(message, title, Config.colors[(int)LogHelperConfig.Level.Error]);
+                    Log(message, title, Config.colors[(int)LoggerConfig.Level.Error]);
                 }
                 else
                 {
@@ -92,11 +92,11 @@ namespace FastGameDev.Helper
         /// <param name="color"></param>
         public static void LogDebug(string message, string title = null, Color color = default)
         {
-            if(Config.level >=　LogHelperConfig.Level.Debug) 
+            if(Config.level >=　LoggerConfig.Level.Debug) 
             {
                 if (color == default)
                 {
-                    Log(message, title, Config.colors[(int)LogHelperConfig.Level.Debug]);
+                    Log(message, title, Config.colors[(int)LoggerConfig.Level.Debug]);
                 }
                 else
                 {
@@ -113,7 +113,7 @@ namespace FastGameDev.Helper
         /// <param name="color"></param>
         public static void LogFrame(string message, string title = null, Color color = default)
         {
-            if(Config.level >=　LogHelperConfig.Level.Debug) 
+            if(Config.level >=　LoggerConfig.Level.Debug) 
                 LogDebug(message,$"[f:{Time.frameCount}] {(title == null ? "" : $"<{title}>")}", color);
         }
 
@@ -125,7 +125,7 @@ namespace FastGameDev.Helper
         /// <param name="color"></param>
         public static void LogTime(string message, string title = null, Color color = default)
         {
-            if(Config.level >=　LogHelperConfig.Level.Debug) 
+            if(Config.level >=　LoggerConfig.Level.Debug) 
                 LogDebug(message,$"[t:{Time.realtimeSinceStartup:F3}] {(title == null ? "" : $"<{title}>")}", color);
         }
     }

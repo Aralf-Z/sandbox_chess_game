@@ -15,14 +15,6 @@ namespace FastGameDev.Core
 
         public void StartGame()
         {
-            DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(gameNote);
-            DontDestroyOnLoad(gameEntity);
-            DontDestroyOnLoad(gameLogic);
-            DontDestroyOnLoad(gameModule);
-            DontDestroyOnLoad(gameSystem);
-            DontDestroyOnLoad(gameFlow);
-            
             Instance = this;
             gameFlow.Init();
         }
@@ -46,7 +38,7 @@ namespace FastGameDev.Core
             gameLogic.OnFixedUpdate(dt);
         }
 
-        public void ShutDownGame()
+        public void ShutDown()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

@@ -12,7 +12,7 @@ namespace Game
         {
             mBfNote = this.Note().Get<SquadBattlefieldNote>();
         }
-        
+
         public void Attack(SquadEntity attacker, SquadEntity defender)
         {
             mBfNote.allySquad = attacker.Info.stand is EmSquadStand.Ally ? attacker : defender;

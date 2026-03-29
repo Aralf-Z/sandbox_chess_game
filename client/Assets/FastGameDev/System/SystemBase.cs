@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace FastGameDev.Syztem
 {
-    public abstract class SystemBase: MonoBehaviour
-        , IGetModule
+    public abstract class SystemBase: 
+        IGetModule
         , IGetNote
     {
         protected internal abstract void Init();

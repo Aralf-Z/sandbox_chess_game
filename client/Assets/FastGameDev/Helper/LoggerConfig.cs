@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FastGameDev.Helper
 {
-    public class LogHelperConfig: AppConfig<LogHelperConfig>
+    public class LoggerConfig: AppConfig<LoggerConfig>
     {
         public enum Level
         {

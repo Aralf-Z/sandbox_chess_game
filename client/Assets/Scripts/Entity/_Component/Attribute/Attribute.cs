@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using FastGameDev.Entity;
+using FastGameDev.Helper;
 using FastGameDev.Utility.Value;
 
 namespace Game
@@ -10,7 +11,7 @@ namespace Game
         
         public float this[string attributeName] => mAttri[attributeName].Value;
         
-        public int Int(string attributeName) => (int) mAttri[attributeName].Value;
+        public int Int(string attributeName) => mAttri[attributeName].Value.Floor();
         
         public float Float(string attributeName) => mAttri[attributeName].Value;
         
