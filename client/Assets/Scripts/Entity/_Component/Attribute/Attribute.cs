@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using FastGameDev.Entity;
-using FastGameDev.Helper;
-using FastGameDev.Utility.Value;
+using GameDev.Entity;
+using GameDev.Helper;
+using GameDev.Utility.Value;
 
 namespace Game
 {

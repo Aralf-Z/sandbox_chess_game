@@ -1,5 +1,5 @@
-using FastGameDev.Core;
-using FastGameDev.Syztem;
+using GameDev.Core;
+using GameDev.Syztem;
 using UnityEngine;
 
 namespace Game

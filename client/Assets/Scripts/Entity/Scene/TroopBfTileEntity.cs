@@ -1,4 +1,4 @@
-using FastGameDev.Entity;
+using GameDev.Entity;
 using UnityEngine;
 
 namespace Game

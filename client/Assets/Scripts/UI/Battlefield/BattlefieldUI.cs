@@ -1,6 +1,6 @@
 using System;
-using FastGameDev.Core;
-using FastGameDev.Module;
+using GameDev.Core;
+using GameDev.Module;
 using UnityEngine;
 using UnityEngine.UI;
 

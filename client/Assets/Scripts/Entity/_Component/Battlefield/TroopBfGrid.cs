@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using FastGameDev.Entity;
-using FastGameDev.Utility.Math;
+using GameDev.Entity;
+using GameDev.Utility.Math;
 
 namespace Game
 {

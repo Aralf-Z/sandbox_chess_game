@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using FastGameDev.Entity;
-using FastGameDev.Utility.Value;
+using GameDev.Entity;
+using GameDev.Utility.Value;
 using UnityEngine;
 
 namespace Game

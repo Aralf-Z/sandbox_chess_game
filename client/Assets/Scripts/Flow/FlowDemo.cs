@@ -1,8 +1,8 @@
 using System.Linq;
-using FastGameDev;
-using FastGameDev.Core;
-using FastGameDev.Helper;
-using FastGameDev.Module;
+using GameDev;
+using GameDev.Core;
+using GameDev.Helper;
+using GameDev.Module;
 using Game.Config;
 using Game.Config.Character;
 

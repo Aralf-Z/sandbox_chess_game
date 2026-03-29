@@ -1,5 +1,5 @@
-using FastGameDev.Core;
-using FastGameDev.Utility.FSM;
+using GameDev.Core;
+using GameDev.Utility.FSM;
 
 namespace Game
 {

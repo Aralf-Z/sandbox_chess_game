@@ -1,4 +1,4 @@
-using FastGameDev.Core;
+using GameDev.Core;
 
 namespace Test
 {

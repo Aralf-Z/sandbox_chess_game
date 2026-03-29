@@ -1,0 +1,19 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace GameDev.Core
+{
+    public class GameEntry : MonoBehaviour
+    {
+        public GameApplication gameApplication;
+
+        private void Start()
+        {
+            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameApplication);
+            gameApplication.StartGame();
+        }
+    }
+}

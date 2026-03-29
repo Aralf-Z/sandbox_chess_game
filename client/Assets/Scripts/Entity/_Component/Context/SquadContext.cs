@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using FastGameDev.Core;
-using FastGameDev.Entity;
+using GameDev.Core;
+using GameDev.Entity;
 using Game.Config.Character;
 
 namespace Game

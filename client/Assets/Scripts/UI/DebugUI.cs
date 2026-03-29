@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using FastGameDev.Core;
-using FastGameDev.Module;
+using GameDev.Core;
+using GameDev.Module;
 using UnityEngine;
 using UnityEngine.UI;
 

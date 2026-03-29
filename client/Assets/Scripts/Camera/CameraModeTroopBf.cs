@@ -1,4 +1,4 @@
-using FastGameDev.Utility.FSM;
+using GameDev.Utility.FSM;
 using UnityEngine;
 
 namespace Game

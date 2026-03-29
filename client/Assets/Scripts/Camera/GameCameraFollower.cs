@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using FastGameDev.Module;
-using FastGameDev.Utility.FSM;
+using GameDev.Module;
+using GameDev.Utility.FSM;
 using UnityEngine;
 
 namespace Game

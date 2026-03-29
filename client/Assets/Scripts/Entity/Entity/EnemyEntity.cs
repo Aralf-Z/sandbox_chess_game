@@ -1,6 +1,6 @@
-using FastGameDev;
-using FastGameDev.Core;
-using FastGameDev.Entity;
+using GameDev;
+using GameDev.Core;
+using GameDev.Entity;
 using UnityEngine;
 
 namespace Game

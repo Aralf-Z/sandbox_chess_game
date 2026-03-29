@@ -1,5 +1,5 @@
-using FastGameDev.Note;
-using FastGameDev.Utility.Inspector;
+using GameDev.Note;
+using GameDev.Utility.Inspector;
 
 namespace Game
 {

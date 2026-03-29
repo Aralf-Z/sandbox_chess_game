@@ -1,8 +1,8 @@
 using System;
 using System.Buffers;
-using FastGameDev.Core;
-using FastGameDev.Syztem;
-using FastGameDev.Utility.Math;
+using GameDev.Core;
+using GameDev.Syztem;
+using GameDev.Utility.Math;
 using UnityEngine;
 
 namespace Game

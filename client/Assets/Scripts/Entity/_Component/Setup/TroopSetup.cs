@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using FastGameDev.Entity;
+using GameDev.Entity;
 
 namespace Game
 {
