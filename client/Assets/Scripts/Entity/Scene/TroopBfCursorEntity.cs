@@ -9,7 +9,7 @@ namespace Game
         
         protected override void Init(int config)
         {
-            Model = AddBuiltInComponent<WorldModel>();
+            Model = Add<WorldModel>();
             Model.name = "tip_tile_on_select";
             Model.Load();
         }

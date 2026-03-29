@@ -7,22 +7,25 @@ namespace GameDev.Entity
 {
     public class WorldModel: ComponentBase
         , IGetModule
+        , IGetEntity
     {
-        private static GameObject kDefaultRoot = new GameObject("model_root");
-        
         public GameObject Go { get; private set; }
 
+        public ModelBind Bind { get; private set; }
+        
         public Transform Transform => Go.transform;
         
         public string name = string.Empty;
 
-        public event Action Evt_OnSpawn;
-        
-        public void Load(Transform parent = null)
+        protected internal override void OnAdded()
+        {
+            State = EmState.Unready;
+        }
+
+        public void Load()
         {
             var template = this.Module().Asset.LoadSync<GameObject>(name);
-
-            parent = parent ? parent : kDefaultRoot.transform;
+            var parent = this.Entity().transform;
             
             if (template)
             {
@@ -35,8 +38,12 @@ namespace GameDev.Entity
             }
             
             Go.name = name;
+            Bind = Go.AddComponent<ModelBind>();
+            Bind.Bind(this);
             
-            Evt_OnSpawn?.Invoke();
+            State = EmState.Ready;
+            
+            Host.CheckReady();
         }
         
     }

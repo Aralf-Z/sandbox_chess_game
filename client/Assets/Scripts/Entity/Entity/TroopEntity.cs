@@ -10,9 +10,9 @@ namespace Game
         
         protected override void Init(int config)
         {
-            Info = AddBuiltInComponent<TroopInfo>();
-            Setup = AddBuiltInComponent<TroopSetup>();
-            Context = AddBuiltInComponent<TroopContext>();
+            Info = Add<TroopInfo>();
+            Setup = Add<TroopSetup>();
+            Context = Add<TroopContext>();
             
             if(config == 0) return;
             

@@ -16,14 +16,8 @@ namespace Game
         private Transform mEnemyRoot;//固定在左边
 
         public WorldModel Model { get; private set; }
-        
-        protected override void OnAdded()
-        {
-            Model = Host.Get<WorldModel>();
-            Model.Evt_OnSpawn += OnModelLoaded;
-        }
 
-        private void OnModelLoaded()
+        protected override void OnHostReady()
         {
             const int col = BattlefieldDefine.SQUAD_BF_COL_COUNT;
             const int row = BattlefieldDefine.SQUAD_BF_ROW_COUNT;

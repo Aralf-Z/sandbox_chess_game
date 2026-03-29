@@ -18,22 +18,15 @@ namespace GameDev.Entity
         protected AssetModule Asset => this.Module().Asset;
         protected Tables Tables => this.Module().Config.Tables;
         
-        internal readonly Dictionary<Type, ComponentBase> mBuiltInComponents = new();
         internal readonly Dictionary<Type, ComponentBase> mComponents = new();
         
-        public IReadOnlyCollection<ComponentBase> Components => mBuiltInComponents.Values;
-        public IReadOnlyDictionary<Type, ComponentBase> BuiltInComponents => mBuiltInComponents;
+        public IReadOnlyCollection<ComponentBase> Components => mComponents.Values;
         
         protected internal abstract string Tag { get; }
 
         protected internal abstract void Init(int config);
 
-        protected T AddBuiltInComponent<T>() where T: ComponentBase, new()
-        {
-            var component = Add<T>();
-            mBuiltInComponents.Add(typeof(T), component);
-            return component;
-        }
+        public EmState State { get; private set; }
         
         public T Add<T>() where T: ComponentBase, new()
         {
@@ -47,6 +40,8 @@ namespace GameDev.Entity
             var component = new T { Host = this };
             mComponents.Add(key, component);
             component.OnAdded();
+            CheckReady();
+            
             return component;
         }
         
@@ -54,29 +49,44 @@ namespace GameDev.Entity
         {
             return (T)mComponents.GetValueOrDefault(typeof(T));
         }
+
+        public T GetOrAdd<T>() where T : ComponentBase, new()
+        {
+            if (mComponents.TryGetValue(typeof(T), out var tar))
+            {
+                return (T)tar;
+            }
+           
+            return Add<T>();
+        }
         
-        /// <returns> 移出成功 </returns>
-        public bool Remove<T>() where T : ComponentBase
+        public void Remove<T>() where T : ComponentBase
         {
             var key = typeof(T);
-
-            if (mBuiltInComponents.ContainsKey(key))
-                return false;
-            
-            var tar = mComponents.GetValueOrDefault(key);
             mComponents.Remove(key);
-            mBuiltInComponents.Remove(key);
-            return true;
         }
 
         public bool Has<T>()
         {
             return mComponents.ContainsKey(typeof(T));
         }
-        
-        public bool IsBuiltin<T>()
+
+        public void CheckReady()
         {
-            return mBuiltInComponents.ContainsKey(typeof(T));
+            if(State is EmState.Ready) return;
+            
+            foreach (var (_, cmp) in mComponents)
+            {
+                if(cmp.State is not EmState.Ready) return;
+            }
+            
+            State = EmState.Ready;
+            
+            foreach (var (_, cmp) in mComponents)
+            {
+                if(cmp.State is EmState.Unready)
+                    cmp.OnHostReady();
+            }
         }
     }
 }

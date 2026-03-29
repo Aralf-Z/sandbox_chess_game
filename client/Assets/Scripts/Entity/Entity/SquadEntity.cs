@@ -9,12 +9,12 @@ namespace Game
         
         protected override void Init(int config)
         {
-            Attribute = AddBuiltInComponent<Attribute>();
-            Info = AddBuiltInComponent<SquadInfo>();
-            Setup = AddBuiltInComponent<SquadSetup>();
-            Context = AddBuiltInComponent<SquadContext>();
-            Model = AddBuiltInComponent<WorldModel>();
-            SelfModel = AddBuiltInComponent<SquadModel>();
+            Attribute = Add<Attribute>();
+            Info = Add<SquadInfo>();
+            Setup = Add<SquadSetup>();
+            Context = Add<SquadContext>();
+            Model = Add<WorldModel>();
+            SelfModel = Add<SquadModel>();
         }
         
         public Attribute Attribute { get; private set; }

@@ -16,13 +16,7 @@ namespace Game
         
         private GameObject mTipTile;
         
-        protected override void OnAdded()
-        {
-            mModel = Host.Get<WorldModel>();
-            mModel.Evt_OnSpawn += OnMModelLoaded;
-        }
-        
-        private void OnMModelLoaded()
+        protected override void OnHostReady()
         {
             const float length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             const float x0 = - (length - 1) / 2f;

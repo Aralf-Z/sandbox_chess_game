@@ -17,10 +17,10 @@ namespace Game
         {
             //todo 后面并非预设，能自定义
 
-            Attribute = AddBuiltInComponent<Attribute>();
-            Info = AddBuiltInComponent<CharacterInfo>();
-            Setup = AddBuiltInComponent<CharacterSetup>();
-            Model = AddBuiltInComponent<WorldModel>();
+            Attribute = Add<Attribute>();
+            Info = Add<CharacterInfo>();
+            Setup = Add<CharacterSetup>();
+            Model = Add<WorldModel>();
             
             var cfg = this.Module().Config.Tables.TbAdventurer[config];
             var itemPreset = cfg.ItemPreset1;

@@ -16,10 +16,10 @@ namespace Game
 
         protected override void Init(int config)
         {
-            Attribute = AddBuiltInComponent<Attribute>();
-            Info = AddBuiltInComponent<CharacterInfo>();
-            Setup = AddBuiltInComponent<CharacterSetup>();
-            Model = AddBuiltInComponent<WorldModel>();
+            Attribute = Add<Attribute>();
+            Info = Add<CharacterInfo>();
+            Setup = Add<CharacterSetup>();
+            Model = Add<WorldModel>();
             
             var cfg = this.Module().Config.Tables.TbPreset[config];
             var itemPreset = cfg.ItemPreset1;

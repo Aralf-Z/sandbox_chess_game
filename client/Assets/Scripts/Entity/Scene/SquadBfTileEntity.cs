@@ -47,7 +47,7 @@ namespace Game
             var r = config % 100;
 
             Pos = (c, r);
-            Model = AddBuiltInComponent<WorldModel>();
+            Model = Add<WorldModel>();
             Model.name = "squadBfTile";
             Model.Load();
             Model.Go.name = $"row = {r}, col = {c}";
@@ -99,7 +99,7 @@ namespace Game
     //         var y = config % 100;
     //         
     //         Point = new GridPoint(x, y);
-    //         Model = AddBuiltInComponent<WorldModel>();
+    //         Model = Add<WorldModel>();
     //         Model.name = "squadBfTile";
     //         Model.Load();
     //         

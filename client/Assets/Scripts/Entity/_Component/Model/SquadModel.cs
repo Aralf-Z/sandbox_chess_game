@@ -6,14 +6,8 @@ namespace Game
     public class SquadModel: ComponentBase
     {
         public WorldModel Model { get; private set; }
-        
-        protected override void OnAdded()
-        {
-            Model = Host.Get<WorldModel>();
-            Model.Evt_OnSpawn += OnModelLoaded;
-        }
 
-        private void OnModelLoaded()
+        protected override void OnHostReady()
         {
             var render = Model.Transform.GetComponentInChildren<SpriteRenderer>();
             render.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_SQUAD;
