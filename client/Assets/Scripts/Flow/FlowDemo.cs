@@ -40,10 +40,10 @@ namespace Game
             //敌方军团随机位置
             //我方军团随机位置
             //TroopsBattleSystem.EnterBattle()
-            
-            var tbf = Entity.Require<TroopBfEntity>();
-            var allyTroop = Entity.Require<TroopEntity>(allyId);
-            var enemyTroop =  Entity.Require<TroopEntity>(enemyId);
+
+            var tbf = EntityFactory.RequireTroopBf();
+            var allyTroop = EntityFactory.RequireTroop(allyId);
+            var enemyTroop =  EntityFactory.RequireTroop(enemyId);
             
             System.Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
             

@@ -5,6 +5,6 @@ namespace Game
 {
     public class TroopSetup: ComponentBase
     {
-        public readonly List<SquadEntity> squads = new List<SquadEntity>();
+        public readonly List<Entity> squads = new List<Entity>();
     }
 }

@@ -46,7 +46,7 @@ namespace GameDev.Module
             
             return asset;
 #else
-            return mAssetMap.Try(assetName, out var path) ? Resources.Load<T>(path) : null;
+            return mAssetMap.Try(assetName, out var path) ? Resources.TryLoad<T>(path) : null;
 #endif
         }
     }

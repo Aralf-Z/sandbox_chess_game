@@ -9,16 +9,17 @@ namespace Game
     public class SquadSetup: ComponentBase
         , IGetModule
     {
-        public TroopEntity belong;
+        public Entity troopBelong;
         
-        public readonly Dictionary<(int row, int column), ICharacter> characters = new ();
+        public readonly Dictionary<(int row, int column), Entity> characters = new ();
         
-        public ICharacter this[(int row, int column) stance] => characters.GetValueOrDefault(stance, null);
+        public Entity this[(int row, int column) stance] => characters.GetValueOrDefault(stance, null);
 
-        public bool Set(int row, int column, ICharacter character)
+        public bool Set(int row, int column, Entity character)
         {
             var tables = this.Module().Config.Tables;
-            var bodyType = tables.TbRace[character.Info.subrace].BodyType;
+            var info = character.Get<CharacterInfo>();
+            var bodyType = tables.TbRace[info.subrace].BodyType;
             (int w, int h) rect = bodyType switch
             {
                 EmBodyType.Small => (1,1), EmBodyType.Medium => (2,1), EmBodyType.Large => (3,2), EmBodyType.Gargantuan => (6,3),

@@ -6,9 +6,9 @@ namespace Game
     [Inspectable("小队战场记录")]
     public class SquadBattlefieldNote: NoteBase
     {
-        public SquadBfEntity bf;
-        public SquadEntity allySquad;
-        public SquadEntity enemySquad;
+        public Entity bf;
+        public Entity allySquad;
+        public Entity enemySquad;
         
         protected override void Init()
         {

@@ -11,6 +11,6 @@ namespace Game
     {
         public GridPoint point;
         public int initiative;
-        public readonly Dictionary<(int row, int column), ICharacter> characters = new();
+        public readonly Dictionary<SquadPos, Entity> characters = new();
     }
 }

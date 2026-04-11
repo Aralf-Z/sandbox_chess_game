@@ -6,26 +6,19 @@ using Game.Config;
 
 namespace GameDev.Entity
 {
-    public abstract class EntityBase :
-        IGetEntity
-        , IGetNote
-        , IGetSystem
-        , IGetModule
+    public abstract class EntityBase
     {
-        protected GameNote Note => this.Note();
-        protected GameSystem System => this.System();
-        protected GameEntity Entity => this.Entity();
-        protected AssetModule Asset => this.Module().Asset;
-        protected Tables Tables => this.Module().Config.Tables;
-        
         internal readonly Dictionary<Type, ComponentBase> mComponents = new();
         
         public IReadOnlyCollection<ComponentBase> Components => mComponents.Values;
         
-        protected internal abstract string Tag { get; }
-
-        protected internal abstract void Init(int config);
+        protected internal abstract string Tag { get; set; }
         
+        /// <summary>
+        /// 添加组件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public T Add<T>() where T: ComponentBase, new()
         {
             var key = typeof(T);
@@ -42,11 +35,21 @@ namespace GameDev.Entity
             return component;
         }
         
+        /// <summary>
+        /// 获得组件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public T Get<T>() where T : ComponentBase
         {
             return (T)mComponents.GetValueOrDefault(typeof(T));
         }
 
+        /// <summary>
+        /// 获得组件，获取不到则添加一个组件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public T GetOrAdd<T>() where T : ComponentBase, new()
         {
             if (mComponents.TryGetValue(typeof(T), out var tar))
@@ -57,12 +60,23 @@ namespace GameDev.Entity
             return Add<T>();
         }
         
+        /// <summary>
+        /// 移出组件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         public void Remove<T>() where T : ComponentBase
         {
             var key = typeof(T);
+            var component = mComponents[key];
             mComponents.Remove(key);
+            component.OnRemoved();
         }
 
+        /// <summary>
+        /// 是否拥有组件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public bool Has<T>()
         {
             return mComponents.ContainsKey(typeof(T));

@@ -16,7 +16,7 @@ namespace Game
         public override void OnEnter()
         {
             var note = this.Note().Get<SquadBattlefieldNote>();
-            mHost.transform.position = note.bf.Model.Transform.position;
+            //mHost.transform.position = note.bf.Model.Transform.position;
         }
     }
 }

@@ -8,7 +8,7 @@
 // using UnityEngine.UI;
 // using ZToolKit;
 //
-// public class Load : MonoBehaviour
+// public class TryLoad : MonoBehaviour
 // {
 //     public Text loadingTxt;
 //     private float mLoadingTimer;

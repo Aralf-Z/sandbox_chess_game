@@ -21,7 +21,7 @@
 //         
 //         public LegionBattlefieldBind()
 //         {
-//             var tile = ResTool.Load<GameObject>(kNormalTile);
+//             var tile = ResTool.TryLoad<GameObject>(kNormalTile);
 //             
 //             SelfGo = new GameObject("LegionBattlefield");
 //             for (var i = 1; i <= ILegionBattlefieldGrid.TROOP_BF_GRID_LENGTH; i++)
@@ -39,7 +39,7 @@
 //                 }
 //             }
 //
-//             var prefab = ResTool.Load<GameObject>("tip_tile_on_select");
+//             var prefab = ResTool.TryLoad<GameObject>("tip_tile_on_select");
 //             mOnSelectTipTile = Object.Instantiate(prefab, SelfGo.transform);
 //             var spriteRenderer = mOnSelectTipTile.GetComponent<SpriteRenderer>();
 //             spriteRenderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TIP_TILE;
@@ -111,7 +111,7 @@
 //             bool IObject<ReachableTipTile>.IsCollected { get; set; }
 //             void IObject<ReachableTipTile>.OnNew()
 //             {
-//                 GameObject = Object.Instantiate(ResTool.Load<GameObject>(kReachableTipTile));
+//                 GameObject = Object.Instantiate(ResTool.TryLoad<GameObject>(kReachableTipTile));
 //                 Renderer = GameObject.GetComponent<SpriteRenderer>();
 //                 TileClicked = GameObject.GetComponent<TileClicked>();
 //                 Renderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TIP_TILE;
@@ -135,7 +135,7 @@
 //             bool IObject<UnreachableTipTile>.IsCollected { get; set; }
 //             void IObject<UnreachableTipTile>.OnNew()
 //             {
-//                 GameObject = Object.Instantiate(ResTool.Load<GameObject>(kUnreachableTipTile));
+//                 GameObject = Object.Instantiate(ResTool.TryLoad<GameObject>(kUnreachableTipTile));
 //                 Renderer = GameObject.GetComponent<SpriteRenderer>();
 //                 Renderer.sortingOrder = SpriteOrderDefine.TROOP_BATTLEFIELD_TIP_TILE;
 //             }

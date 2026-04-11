@@ -19,7 +19,7 @@ namespace GameDev.Entity
 
         public event Action Evt_OnLoaded;
 
-        public void Load()
+        public void TryLoad()
         {
             var template = this.Module().Asset.LoadSync<GameObject>(name);
             var parent = this.Entity().transform;

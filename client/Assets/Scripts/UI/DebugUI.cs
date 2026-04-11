@@ -37,10 +37,10 @@ namespace Game
         {
             var note = this.Note().Get<TroopBattlefieldNote>();
             
-            infoText.text = $"curSquad: {note.curSquad?.Info.name}\n" +
-                            $"selectedSquad: {note.selectedSquad?.Info.name}\n\n" +
-                            $"action line: \n" +
-                            $"{string.Join("\n", note.liveSquads.Select(x => $"{x.Info.name}: {x.Context.initiative}"))}";
+            // infoText.text = $"curSquad: {note.curSquad?.Info.name}\n" +
+            //                 $"selectedSquad: {note.selectedSquad?.Info.name}\n\n" +
+            //                 $"action line: \n" +
+            //                 $"{string.Join("\n", note.liveSquads.Select(x => $"{x.Info.name}: {x.Context.initiative}"))}";
         }
 
         public override EmUIOrder Order => EmUIOrder.Tip;

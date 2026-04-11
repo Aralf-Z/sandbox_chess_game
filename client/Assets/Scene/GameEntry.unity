@@ -4906,7 +4906,7 @@ GameObject:
   - component: {fileID: 750169472266348967}
   - component: {fileID: 6093564228715212332}
   m_Layer: 5
-  m_Name: ConsoleTerminal
+  m_Name: GameConsole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

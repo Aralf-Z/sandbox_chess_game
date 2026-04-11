@@ -7,13 +7,13 @@ namespace Game
     [Inspectable("军团战场记录")]
     public class TroopBattlefieldNote: NoteBase
     {
-        public TroopBfEntity bf;
-        public TroopEntity allyTroop;
-        public TroopEntity enemyTroop;
-        public SquadEntity curSquad;
-        public SquadEntity selectedSquad;
+        public Entity bf;
+        public Entity allyTroop;
+        public Entity enemyTroop;
+        public Entity curSquad;
+        public Entity selectedSquad;
         public GridPoint curPoint;
-        public readonly List<SquadEntity> liveSquads = new ();
+        public readonly List<Entity> liveSquads = new ();
         
         protected override void Init()
         {

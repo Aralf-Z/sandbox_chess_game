@@ -5,6 +5,6 @@ namespace Game
 {
     public class TroopContext: ComponentBase
     {
-        public readonly Dictionary<GridPoint, SquadEntity> squads = new ();
+        public readonly Dictionary<GridPoint, Entity> squads = new ();
     }
 }

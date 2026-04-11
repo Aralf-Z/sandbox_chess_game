@@ -22,11 +22,10 @@ namespace GameDev.Core
             
         }
         
-        public T Require<T>(int configId = -1) where T : EntityBase, new ()
+        public T Require<T>() where T : EntityBase, new ()
         {
             var en = new T();
             mEntities.Add(en);
-            en.Init(configId);
             return en;
         }
 

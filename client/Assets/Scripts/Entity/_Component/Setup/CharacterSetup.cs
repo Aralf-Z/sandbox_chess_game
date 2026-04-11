@@ -4,7 +4,7 @@ namespace Game
 {
     public class CharacterSetup: ComponentBase
     {
-        public SquadEntity belong;
+        public Entity squadBelong;
         public GridPoint gridPoint;
     }
 }

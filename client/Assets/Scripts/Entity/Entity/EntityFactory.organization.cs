@@ -1,0 +1,63 @@
+using System.Linq;
+using GameDev.Entity;
+
+namespace Game
+{
+    public static partial class EntityFactory
+    {
+        public static Entity RequireSquad()
+        {
+            var squad = game.Entity.Require<Entity>();
+            var attri = squad.Add<Attribute>();
+            var info = squad.Add<SquadInfo>();
+            var setup = squad.Add<SquadSetup>();
+            var ctx = squad.Add<SquadContext>();
+            var model = squad.Add<WorldModel>();
+            var selfModel = squad.Add<SquadModel>();
+            
+            model.name = "squad";
+            model.TryLoad();
+            
+            return squad;
+        }
+
+        public static Entity RequireTroop(int troopId)
+        {
+            var troop = game.Entity.Require<Entity>();
+            var info = troop.Add<TroopInfo>();
+            var setup = troop.Add<TroopSetup>();
+            var ctx = troop.Add<TroopContext>();
+            var cfg = game.Tables.TbCampaign.GetOrDefault(troopId);
+
+            //todo 移动到System
+            foreach (var (squadName, squadStances) in cfg.Squads)
+            {
+                var squad = RequireSquad();
+                var squadInfo = squad.Get<SquadInfo>();
+                var squadSetup = squad.Get<SquadSetup>();
+                var squadAttri = squad.Add<Attribute>();
+                    
+                squadInfo.name = squadName;
+                squadSetup.troopBelong = troop;
+                
+                foreach (var stance in squadStances)
+                {
+                    var character = stance.Id / 10000 == 1 
+                        ? RequireAdventurer(stance.Id) 
+                        : stance.Id % 60000 > 5000
+                            ? RequireEnemy(stance.Id)
+                            : RequireAlly(stance.Id);
+                    
+                    squadInfo.stand = stance.Id % 60000 > 5000 ? EmSquadStand.Enemy : EmSquadStand.Ally;
+                    squadSetup.Set(stance.Row, stance.Column, character);
+                }
+
+                squadAttri.Add(PanelAttri.INITIATIVE, squadSetup.characters.Values.Sum(x => ((EntityBase)x).Get<Attribute>()[PanelAttri.INITIATIVE])/ squadSetup.characters.Count);
+                
+                setup.squads.Add(squad);
+            }
+
+            return troop;
+        }
+    }
+}
