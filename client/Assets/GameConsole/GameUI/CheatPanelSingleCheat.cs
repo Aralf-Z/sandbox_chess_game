@@ -3,7 +3,7 @@ using RedSaw.CommandLineInterface;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ConsoleTerminal.GameUI
+namespace GameConsole.GameUI
 {
     public class CheatPanelSingleCheat : MonoBehaviour
     {

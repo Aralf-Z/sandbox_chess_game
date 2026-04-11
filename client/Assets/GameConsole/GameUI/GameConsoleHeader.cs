@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-namespace ConsoleTerminal.GameUI
+namespace GameConsole.GameUI
 {
     [RequireComponent(typeof(Image))]
     public class GameConsoleHeader : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,

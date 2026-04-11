@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ConsoleTerminal.GameUI
+namespace GameConsole.GameUI
 {
     /// <summary>default implementation of alternative options panel</summary>
     public class GameConsoleAlternativeOptionsPanel : MonoBehaviour

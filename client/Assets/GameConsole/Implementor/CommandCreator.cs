@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using RedSaw.CommandLineInterface;
 
-namespace ConsoleTerminal.Implementor
+namespace GameConsole.Implementor
 {
     public class CommandCreator:
         ICommandCreator

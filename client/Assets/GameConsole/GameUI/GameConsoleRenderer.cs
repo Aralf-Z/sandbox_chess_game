@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace ConsoleTerminal.GameUI
+namespace GameConsole.GameUI
 {
     /// <summary>default implementation of IConsoleRenderer with Unity legacy UI</summary>
     public class GameConsoleRenderer : MonoBehaviour, IConsoleRenderer

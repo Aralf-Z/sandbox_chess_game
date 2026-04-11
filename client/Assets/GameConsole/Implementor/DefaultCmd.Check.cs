@@ -1,5 +1,5 @@
 
-namespace ConsoleTerminal.Implementor
+namespace GameConsole.Implementor
 {
     public partial class DefaultCmd
     {

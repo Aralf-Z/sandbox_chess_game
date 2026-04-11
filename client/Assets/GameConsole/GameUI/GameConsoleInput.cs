@@ -1,7 +1,7 @@
 using RedSaw.CommandLineInterface;
 using UnityEngine;
 
-namespace ConsoleTerminal.GameUI
+namespace GameConsole.GameUI
 {
     /// <summary>default implementation of IConsoleInput with legacy Input</summary>
     public class UserInput : IConsoleInput

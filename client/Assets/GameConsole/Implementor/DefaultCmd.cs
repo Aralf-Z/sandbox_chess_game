@@ -1,8 +1,8 @@
-using ConsoleTerminal.GameUI;
+using GameConsole.GameUI;
 using RedSaw.CommandLineInterface;
 using UnityEngine;
 
-namespace ConsoleTerminal.Implementor
+namespace GameConsole.Implementor
 {
     public partial class DefaultCmd
     {
@@ -13,9 +13,9 @@ namespace ConsoleTerminal.Implementor
             Error,
         }
         
-        private static GameConsole sGameConsole;
+        private static GameConsolePanel sGameConsolePanel;
         
-        private static GameConsole GC => sGameConsole ??= Object.FindFirstObjectByType<GameConsole>();
+        private static GameConsolePanel GC => sGameConsolePanel ??= Object.FindFirstObjectByType<GameConsolePanel>();
         
         [Command(desc: "[打印]-字符串")]
         private static void Print(string str, EmLogType logType = EmLogType.Info)

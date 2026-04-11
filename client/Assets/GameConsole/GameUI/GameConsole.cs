@@ -1,99 +1,58 @@
-using ConsoleTerminal.Implementor;
-using RedSaw.CommandLineInterface;
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-namespace ConsoleTerminal.GameUI
+namespace GameConsole.GameUI
 {
-    /// <summary>the final wrapper of CommandConsoleSystem build in Unity</summary>
     public class GameConsole : MonoBehaviour
     {
-        [SerializeField] private GameConsoleRenderer consoleRenderer;
-
-        [SerializeField] private CheatPanel cheatPanel;
-
-        [SerializeField] private GameConsoleHeader headerBar;
-
-        [SerializeField, Tooltip("the capacity of input history, at least 1")]
-        private int inputHistoryCapacity = 20;
-
-        [SerializeField, Tooltip("the capacity of command query cache, at least 1")]
-        private int commandQueryCacheCapacity = 20;
-
-        [SerializeField, Tooltip("alternative command options count, at least 1")]
-        private int alternativeCommandCount = 8;
-
-        [SerializeField, Tooltip("should output with time information of [HH:mm:ss]")]
-        private bool shouldOutputWithTime = true;
-
-        [SerializeField, Tooltip("should record failed command input")]
-        private bool shouldRecordFailedCommand = true;
-
-        [SerializeField, Tooltip("should receive unity message")]
-        private bool shouldReceiveUnityMessage = true;
-
-        [SerializeField, Tooltip("[debug] output virtual machine exception call stack")]
-        private bool shouldOutputVmExceptionStack = true;
-
-        private ConsoleController<LogType> mConsole;
+        [SerializeField] private GameObject root;
         
-        /// <summary>initialize console, call this function to initialize console </summary>
-        public void Awake()
+        [SerializeField] private CheatPanel cheatPanel;
+        private RectTransform mCheatRectTransf;
+        
+        [SerializeField] private Button cheatBtn;
+        [SerializeField] private RectTransform cheatBtnRectTransf;
+
+        private void Awake()
         {
-            mConsole = new ConsoleController<LogType>(
-                consoleRenderer,
-                new UserInput(),
-                new CommandCreator(),
-
-                inputHistoryCapacity: inputHistoryCapacity,
-                commandQueryCacheCapacity: commandQueryCacheCapacity,
-                alternativeCommandCount: alternativeCommandCount,
-                shouldRecordFailedCommand: shouldRecordFailedCommand,
-                outputWithTime: shouldOutputWithTime,
-                outputStackTraceOfCommandExecution: shouldOutputVmExceptionStack
-            );
+            root.SetActive(false);
             
-            cheatPanel.SetConsole(mConsole);
-
-            if (shouldReceiveUnityMessage) 
-                Application.logMessageReceived += UnityConsoleLog;
+            mCheatRectTransf = (RectTransform)cheatPanel.transform;
             
-            var parentTransform = transform.GetComponent<RectTransform>();
-            headerBar.Init(pos => parentTransform.position += (Vector3)pos);
+            cheatBtnRectTransf.localScale = new Vector3(cheatPanel.gameObject.activeInHierarchy ? 1 : -1, 1, 1);
+            cheatBtn.onClick.AddListener(OnClickCheatBtn);
+        }
+        
+        private void OnClickCheatBtn()
+        {
+            if (cheatPanel.gameObject.activeInHierarchy)
+            {
+                cheatBtnRectTransf.localScale = new Vector3(-1, 1, 1);
+                mCheatRectTransf.DOKill();
+                mCheatRectTransf.anchoredPosition = new Vector2(1600, 0);
+                mCheatRectTransf.DOAnchorPosX(810, .5f)
+                    .OnComplete(() => cheatPanel.gameObject.SetActive(false));
+                
+                cheatPanel.Hide();
+            }
+            else
+            {
+                cheatBtnRectTransf.localScale = new Vector3(1, 1, 1);
+                mCheatRectTransf.DOKill();
+                mCheatRectTransf.anchoredPosition = new Vector2(810, 0);
+                cheatPanel.gameObject.SetActive(true);
+                mCheatRectTransf.DOAnchorPosX(1600, .5f);
+                cheatPanel.Open();
+            }
         }
 
         private void Update()
         {
-            mConsole.Update();
-        }
-
-        private void OnDestroy()
-        {
-            if (shouldReceiveUnityMessage)
-                Application.logMessageReceived -= UnityConsoleLog;
-        }
-
-        private void UnityConsoleLog(string msg, string stack, LogType type)
-        {
-            mConsole.Output(msg, GetHexColor(type));
-        }
-
-        private string GetHexColor(LogType type)
-        {
-            return type switch
+            if (Input.GetKeyDown(KeyCode.BackQuote))
             {
-                LogType.Error or LogType.Exception or LogType.Assert => "#b13c45",
-                LogType.Warning => "yellow",
-                _ => "#fffde3",
-            };
+                root.SetActive(!root.activeSelf);
+            }
         }
-
-        public void Print(string msg, string hexColor)
-        {
-            mConsole.Output(msg, hexColor);
-        }
-        
-        /// <summary>clear output of current console</summary>
-        public void ClearOutput() => mConsole.ClearOutputPanel();
     }
 }
