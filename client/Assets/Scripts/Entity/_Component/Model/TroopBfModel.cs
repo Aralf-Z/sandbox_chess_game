@@ -28,27 +28,27 @@ namespace Game
             const float x0 = - (length - 1) / 2f;
             const float y0 = - (length - 1) / 2f;
             
-            // Model = Host.Get<WorldModel>();
-            // var grid = Host.Get<TroopBfGrid>();
-            //
-            // for (var i = 0; i < length; i++)
-            // {
-            //     for (var j = 0; j < length; j++)
-            //     {
-            //         var x1 = i + 1;
-            //         var y1 = j + 1;
-            //         var point = new GridPoint(x1, y1);
-            //         var id = grid[point];
-            //         var tileConfig = TroopBfTileEntity.GetConfig(x1, y1, id);
-            //         var tile = this.Entity().Require<TroopBfTileEntity>(tileConfig);
-            //         tile.Model.Transform.SetParent(Model.Transform);
-            //         tile.Model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
-            //         mTiles[point] = tile;
-            //     }
-            // }
-            //
-            // var prefab = this.Module().Asset.LoadSync<GameObject>("tip_tile_on_select");
-            // mTipTile = Object.Instantiate(prefab, Model.Transform);
+            Model = Host.Get<WorldModel>();
+            var grid = Host.Get<TroopBfGrid>();
+            
+            for (var i = 0; i < length; i++)
+            {
+                for (var j = 0; j < length; j++)
+                {
+                    var x1 = i + 1;
+                    var y1 = j + 1;
+                    var point = new GridPoint(x1, y1);
+                    var id = grid[point];
+                    // var tileConfig = TroopBfTileEntity.GetConfig(x1, y1, id);
+                    // var tile = this.Entity().Require<TroopBfTileEntity>(tileConfig);
+                    // tile.Model.Transform.SetParent(Model.Transform);
+                    // tile.Model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
+                    // mTiles[point] = tile;
+                }
+            }
+            
+            var prefab = this.Module().Asset.LoadSync<GameObject>("tip_tile_on_select");
+            mTipTile = Object.Instantiate(prefab, Model.Transform);
         }
 
         public void UpdateSelectedTile()

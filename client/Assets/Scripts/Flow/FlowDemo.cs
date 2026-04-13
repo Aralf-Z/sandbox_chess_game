@@ -34,12 +34,7 @@ namespace Game
         protected override void Enter()
         {
             Logger.LogInfo("Demo 开始", "流程");
-            //todo
-            //创建 "军团战斗地图"
-            //创建 友方军团 和 敌方军团
-            //敌方军团随机位置
-            //我方军团随机位置
-            //TroopsBattleSystem.EnterBattle()
+
 
             var tbf = EntityFactory.RequireTroopBf();
             var allyTroop = EntityFactory.RequireTroop(allyId);

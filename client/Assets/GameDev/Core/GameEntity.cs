@@ -10,7 +10,7 @@ namespace GameDev.Core
     public class GameEntity : MonoBehaviour,
         IGetModule
     {
-        private readonly List<EntityBase> mEntities = new List<EntityBase>();
+        private readonly HashSet<EntityBase> mEntities = new HashSet<EntityBase>();
         
         internal void Init()
         {
@@ -31,6 +31,7 @@ namespace GameDev.Core
 
         public void Recycle<T>(T entity) where T : EntityBase
         {
+            entity.Clear();
             mEntities.Remove(entity);
         }
         

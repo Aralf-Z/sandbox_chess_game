@@ -18,6 +18,7 @@ namespace Game
         {
             var ad = game.Entity.Require<Entity>();
             var attri = ad.Add<Attribute>();
+            var res = ad.Add<Resources>();
             var info = ad.Add<CharacterInfo>();
             var setup = ad.Add<CharacterSetup>();
             var model = ad.Add<WorldModel>();
@@ -40,6 +41,7 @@ namespace Game
         {
             var ally = game.Entity.Require<Entity>();
             var attri = ally.Add<Attribute>();
+            var res = ally.Add<Resources>();
             var info = ally.Add<CharacterInfo>();
             var setup = ally.Add<CharacterSetup>();
             var model = ally.Add<WorldModel>();
@@ -62,6 +64,7 @@ namespace Game
         {
             var en = game.Entity.Require<Entity>();
             var attri = en.Add<Attribute>();
+            var res = en.Add<Resources>();
             var info = en.Add<CharacterInfo>();
             var setup = en.Add<CharacterSetup>();
             var model = en.Add<WorldModel>();

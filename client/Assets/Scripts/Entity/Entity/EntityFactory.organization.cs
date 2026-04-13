@@ -9,6 +9,7 @@ namespace Game
         {
             var squad = game.Entity.Require<Entity>();
             var attri = squad.Add<Attribute>();
+            var res = squad.Add<Resources>();
             var info = squad.Add<SquadInfo>();
             var setup = squad.Add<SquadSetup>();
             var ctx = squad.Add<SquadContext>();

@@ -72,6 +72,15 @@ namespace GameDev.Entity
             component.OnRemoved();
         }
 
+        public void Clear()
+        {
+            foreach (var component in mComponents.Values)
+            {
+                component.OnRemoved();
+            }
+            mComponents.Clear();
+        }
+        
         /// <summary>
         /// 是否拥有组件
         /// </summary>

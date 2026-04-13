@@ -47,22 +47,23 @@ namespace Game
             
             var allyRoot = new GameObject("Ally").transform;
             allyRoot.transform.SetParent(transform);
-            allyRoot.transform.localPosition = Vector3.left * 7;
+            allyRoot.transform.localPosition = Vector3.right * 7;
             
             
             var enemyRoot = new GameObject("Enemy").transform;
             enemyRoot.transform.SetParent(transform);
-            enemyRoot.transform.localPosition = Vector3.right * 7;
+            enemyRoot.transform.localPosition = Vector3.left * 7;
             
-            for (var x = 0; x < col; x++)
+            for (var i = 0; i < row; i++)
             {
-                for (var y = 0; y < row; y++)
+                for (var j = 0; j < col; j++)
                 {
-                    var colIndex = x + 1;
-                    var rowIndex = y + 1;
+                    var rowIndex = i + 1;
+                    var colIndex = j + 1;
                     var pos = GetLocalPos(rowIndex, colIndex);
-                    var allyTile = SpawnTile(x, y,$"({rowIndex}, {colIndex})", allyRoot);
-                    var enemyTile = SpawnTile(x, y,$"({rowIndex}, {colIndex})", enemyRoot);
+                    var tileName = $"row-{rowIndex}; col-{colIndex}";
+                    var allyTile = SpawnTile(colIndex, rowIndex,tileName, allyRoot);
+                    var enemyTile = SpawnTile(colIndex, rowIndex,tileName, enemyRoot);
 
                     allyTile.transform.localPosition = pos;
                     enemyTile.transform.localPosition = pos;
@@ -72,13 +73,18 @@ namespace Game
             allyRoot.transform.eulerAngles = Vector3.forward * -90;
             enemyRoot.transform.eulerAngles = Vector3.forward * 90;
 
-            GameObject SpawnTile(int x, int y, string tileName, Transform parent)
+            GameObject SpawnTile(int c, int r, string tileName, Transform parent)
             {
                 var go = new GameObject(tileName);
                 var model = new GameObject("model");
                 var render = model.AddComponent<SpriteRenderer>();
+                var info = go.AddComponent<SquadBfTileInfo>();
+                
                 render.sortingOrder = SpriteOrderDefine.SQUAD_BATTLEFIELD_TILE;
-                render.color = mColors[y][x];
+                render.color = mColors[r - 1][c - 1];
+                info.col = c;
+                info.row = r;
+                
                 go.transform.SetParent(parent);
                 model.transform.SetParent(go.transform);
 
@@ -89,12 +95,13 @@ namespace Game
             }
         }
         
+        //→ col, ↓ row
         private static Vector3 GetLocalPos(int row, int col)
         {
             const float x0 = - (BattlefieldDefine.SQUAD_BF_COL_COUNT - 1) / 2f;
-            const float y0 = - (BattlefieldDefine.SQUAD_BF_ROW_COUNT - 2) / 2f;
+            const float y0 = BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION / 2f - .5f;
 
-            return new Vector3(x0 + col - 1, y0 + 2 * (BattlefieldDefine.SQUAD_BF_ROW_COUNT + 1 - row), 0);
+            return new Vector3(x0 + col - 1, 2 * (y0 - row + 1), 0);//列站1个单位长度，排站2个单位长度
         }
 
 #if UNITY_EDITOR

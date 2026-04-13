@@ -8,7 +8,8 @@ namespace GameDev.Utility.Value
     public class SumValue
     {
         public float Value { get; private set; }
-
+        public float Ratio => mSourceRatiosSum;
+        
         public float BaseValue { get;}
 
         private float mSourceValuesSum;

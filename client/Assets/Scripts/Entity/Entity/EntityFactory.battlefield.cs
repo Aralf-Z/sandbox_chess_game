@@ -30,5 +30,15 @@ namespace Game
             
             return bf;
         }
+
+        public static Entity RequireTroopBfTile()
+        {
+            var tile = game.Entity.Require<Entity>();
+            
+            var model = tile.Add<WorldModel>();
+            var selfModel = tile.Add<TroopBfTileModel>();
+            
+            return tile;
+        }
     }
 }

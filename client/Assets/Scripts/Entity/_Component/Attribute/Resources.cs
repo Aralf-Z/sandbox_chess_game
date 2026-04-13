@@ -1,64 +1,81 @@
 using System.Collections.Generic;
 using GameDev.Entity;
+using GameDev.Helper;
 using GameDev.Utility.Value;
 using UnityEngine;
 
 namespace Game
 {
+    /// <summary>
+    /// 资源，是可恢复的
+    /// </summary>
     public class Resources: ComponentBase
     {
+        public Attribute Max {get; private set; }
+        
         private readonly Dictionary<string, ResPack> mRes = new();
         
-        public (float max, float cur) this[string resourceName]
-        {
-            get
-            {
-                var pack = mRes[resourceName];
-                return (pack.max.Value, pack.curValue);
-            }
-        }
+        public float this[string resourceName] => mRes[resourceName].value;
         
-        public float GetMax(string resourceName) => mRes[resourceName].max.Value;
+        public int Int(string resourceName) => mRes[resourceName].value.Floor();
         
-        public float GetCur(string resourceName) => mRes[resourceName].curValue;
+        public float Float(string resourceName) => mRes[resourceName].value;
 
-        public void Add(string resourceName, float baseValue) => mRes.Add(resourceName, new ResPack(baseValue));
+        public void Add(string resourceName, float value, bool overflowable = false, bool changeOnMaxChanged = true) 
+            => mRes.Add(resourceName, new ResPack(resourceName, value, overflowable, changeOnMaxChanged));
 
         public void Remove(string resourceName) => mRes.Remove(resourceName);
         
-        public void AddValue(string resourceName, SourceValue value) => mRes[resourceName].max.Add(value);
-
-        public void RemoveValue(string resourceName, SourceValue value) => mRes[resourceName].max.Remove(value);
-        
-        public void AddRatio(string resourceName, SourceValue value) => mRes[resourceName].max.AddRatio(value);
-
-        public void RemoveRatio(string resourceName, SourceValue value) => mRes[resourceName].max.RemoveRatio(value);
-        
         public void Recover(string resourceName)
         {
-            mRes[resourceName].curValue = mRes[resourceName].max.Value;
+            mRes[resourceName].value = Max[resourceName];
+        }
+
+        protected override void OnAdded()
+        {
+            Max = Host.GetOrAdd<Attribute>();
+            Max.Evt_OnValueChange += OnMaxValueChange;
+            Max.Evt_OnRatioChange += OnMaxRatioChange;
         }
         
-        /// <returns> 恢复溢出值 </returns>
-        public float Change(string resourceName, float value)
+        public void Change(string resourceName, float value)
         {
             var pack = mRes[resourceName];
-            var tarValue = pack.curValue + value;
-            var overflow = pack.max.Value >= tarValue ? 0 : tarValue - value;
-            
-            pack.curValue = Mathf.Clamp(tarValue, 0, pack.max.Value);
-            return overflow;
+            var tarValue = pack.value + value;
+            pack.value = pack.overflowable
+                ? tarValue 
+                : Mathf.Clamp(tarValue, 0, Max[resourceName]);
+        }
+
+        private void OnMaxValueChange(string key, float preValue, float nextValue)
+        {
+            if (mRes.TryGetValue(key, out var pack) && pack.changeOnMaxChanged)
+            {
+                pack.value += nextValue - preValue;
+            }
+        }
+
+        private void OnMaxRatioChange(string key,float preValue, float nextValue)
+        {
+            if (mRes.TryGetValue(key, out var pack) && pack.changeOnMaxChanged)
+            {
+                pack.value += nextValue - preValue;
+            }
         }
         
         private class ResPack
         {
-            public readonly SumValue max;
-            public float curValue;
+            public readonly string key;
+            public float value;
+            public readonly bool overflowable;
+            public readonly bool changeOnMaxChanged;
 
-            public ResPack(float value)
+            public ResPack(string key, float value, bool overflowable = false, bool changeOnMaxChanged = true)
             {
-                max = new SumValue(value);
-                curValue = value;
+                this.key = key;
+                this.value = value;
+                this.overflowable = overflowable;
+                this.changeOnMaxChanged = changeOnMaxChanged;
             }
         }
     }

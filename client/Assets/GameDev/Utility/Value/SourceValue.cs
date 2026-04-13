@@ -1,3 +1,5 @@
+using System;
+
 namespace GameDev.Utility.Value
 {
     public struct SourceValue
@@ -31,6 +33,20 @@ namespace GameDev.Utility.Value
         {
             var value = (int)Value;
             return $"{(value >= 0 ? "+" : "-")}{value} [{Name}]";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is SourceValue other)
+            {
+                return Name == other.Name && Value.Equals(other.Value);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Value);
         }
     }
 }
