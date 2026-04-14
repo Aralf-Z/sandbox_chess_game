@@ -22,13 +22,18 @@ namespace Game
             Model.Evt_OnLoaded += OnModelLoaded;
         }
 
+        protected override void OnRemoved()
+        {
+            Model.Evt_OnLoaded -= OnModelLoaded;
+        }
+
         private void OnModelLoaded()
         {
-            foreach (var info in Model.Go.transform.Find("Ally").GetComponentsInChildren<SquadBfTileInfo>())
+            foreach (var info in Model.Transform.Find("Ally").GetComponentsInChildren<SquadBfTileInfo>())
             {
                 mAllyTileInfoMap.Add(new SquadPos(info.row, info.col), info);
             }
-            foreach (var info in Model.Go.transform.Find("Enemy").GetComponentsInChildren<SquadBfTileInfo>())
+            foreach (var info in Model.Transform.Find("Enemy").GetComponentsInChildren<SquadBfTileInfo>())
             {
                 mEnemyTileInfoMaps.Add(new SquadPos(info.row, info.col), info);
             }

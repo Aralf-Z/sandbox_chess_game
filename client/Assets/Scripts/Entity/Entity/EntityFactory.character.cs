@@ -45,7 +45,7 @@ namespace Game
             var info = ally.Add<CharacterInfo>();
             var setup = ally.Add<CharacterSetup>();
             var model = ally.Add<WorldModel>();
-            var cfg = game.Tables.TbAdventurer[configId];
+            var cfg = game.Tables.TbPreset[configId];
             var preset = cfg.ItemPreset1;
 
             info.name = cfg.Name;
@@ -68,7 +68,7 @@ namespace Game
             var info = en.Add<CharacterInfo>();
             var setup = en.Add<CharacterSetup>();
             var model = en.Add<WorldModel>();
-            var cfg = game.Tables.TbAdventurer[configId];
+            var cfg = game.Tables.TbPreset[configId];
             var preset = cfg.ItemPreset1;
 
             info.name = cfg.Name;

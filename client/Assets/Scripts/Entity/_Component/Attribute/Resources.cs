@@ -21,8 +21,8 @@ namespace Game
         
         public float Float(string resourceName) => mRes[resourceName].value;
 
-        public void Add(string resourceName, float value, bool overflowable = false, bool changeOnMaxChanged = true) 
-            => mRes.Add(resourceName, new ResPack(resourceName, value, overflowable, changeOnMaxChanged));
+        public void Add(string resourceName, float value, bool changeOnMaxChanged = true) 
+            => mRes.Add(resourceName, new ResPack(resourceName, value, changeOnMaxChanged));
 
         public void Remove(string resourceName) => mRes.Remove(resourceName);
         
@@ -38,11 +38,11 @@ namespace Game
             Max.Evt_OnRatioChange += OnMaxRatioChange;
         }
         
-        public void Change(string resourceName, float value)
+        public void Change(string resourceName, float value, bool overflow = false)
         {
             var pack = mRes[resourceName];
             var tarValue = pack.value + value;
-            pack.value = pack.overflowable
+            pack.value = overflow
                 ? tarValue 
                 : Mathf.Clamp(tarValue, 0, Max[resourceName]);
         }
@@ -67,14 +67,12 @@ namespace Game
         {
             public readonly string key;
             public float value;
-            public readonly bool overflowable;
             public readonly bool changeOnMaxChanged;
 
-            public ResPack(string key, float value, bool overflowable = false, bool changeOnMaxChanged = true)
+            public ResPack(string key, float value, bool changeOnMaxChanged = true)
             {
                 this.key = key;
                 this.value = value;
-                this.overflowable = overflowable;
                 this.changeOnMaxChanged = changeOnMaxChanged;
             }
         }

@@ -11,9 +11,9 @@ namespace Game
     {
         public Entity troopBelong;
         
-        public readonly Dictionary<(int row, int column), Entity> characters = new ();
+        public readonly Dictionary<SquadPos, Entity> characters = new ();
         
-        public Entity this[(int row, int column) stance] => characters.GetValueOrDefault(stance, null);
+        public Entity this[SquadPos stance] => characters.GetValueOrDefault(stance, null);
 
         public bool Set(int row, int column, Entity character)
         {
@@ -34,7 +34,7 @@ namespace Game
                 {
                     var c = column + i;
                     var r = row + j;
-                    characters[(r, c)] = character;
+                    characters[new SquadPos(r, c)] = character;
                 }
             }
 
@@ -48,7 +48,7 @@ namespace Game
                     {
                         var rp = r + j;
                         var cp = c + i;
-                        if (characters.ContainsKey((rp, cp)))
+                        if (characters.ContainsKey(new SquadPos(r, c)))
                             return false;
                     }
                 }

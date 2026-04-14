@@ -68,7 +68,7 @@ namespace GameDev.Editor
                     }
 
                     var name = AssetDatabase.LoadAssetAtPath<Object>(originalPath).name;
-                    Logger.LogInfo($"资源录入-'{name}'","Asset");
+                    Logger.LogInfo($"资源录入 - '{name}'.","Asset");
                     EditorUtility.DisplayProgressBar("ResourcesConfigBuilding", originalPath, (float) i / guids.Length);
                     resConfig.Add(name, path[0]);
                 }

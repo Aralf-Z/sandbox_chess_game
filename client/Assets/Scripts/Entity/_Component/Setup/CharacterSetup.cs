@@ -5,6 +5,7 @@ namespace Game
     public class CharacterSetup: ComponentBase
     {
         public Entity squadBelong;
-        public GridPoint gridPoint;
+        public SquadPos squadPos;
+        public int index;
     }
 }

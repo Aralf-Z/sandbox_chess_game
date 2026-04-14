@@ -1,6 +1,7 @@
 using System;
 using System.Buffers;
 using GameDev.Core;
+using GameDev.Entity;
 using GameDev.Syztem;
 using GameDev.Utility.Math;
 using UnityEngine;
@@ -24,64 +25,66 @@ namespace Game
         public void EnterBattle(Entity ally, Entity enemy, Entity battlefield)
         {
             //todo temp code
-            // battlefield.Model.name = "troops_bf";
-            // battlefield.Model.TryLoad();
-            // TroopInit(ally);
-            // TroopInit(enemy);
-            //
-            // //note
-            // mBfNote.allyTroop = ally;
-            // mBfNote.enemyTroop = enemy;
-            // mBfNote.bf = battlefield;
-            //
-            // SetSquadsPositionOnBattlefield();
-            // foreach (var (_, squad) in ally.Context.squads)
-            // {
-            //     squad.Model.name = "squad";
-            //     squad.Model.TryLoad();
-            //     squad.Model.Transform.position = battlefield.SelfModel.GetWorldPosition(squad.Context.point);
-            // }
-            // foreach (var (_, squad) in enemy.Context.squads)
-            // {
-            //     squad.Model.name = "squad";
-            //     squad.Model.TryLoad();
-            //     squad.Model.Transform.position = battlefield.SelfModel.GetWorldPosition(squad.Context.point);
-            // }
-            //
-            // //related mode
-            // this.Module().Camera.ChangeCameraMode<CameraModeTroopBf>();
-            //
-            // var length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
-            // var startPoint = length % 2 == 0 ? length / 2 : length / 2 + 1;
-            //
-            // RollSquadInitiative();
-            // SelectTile(new GridPoint(startPoint, startPoint));
+            
+            //note
+            mBfNote.allyTroop = ally;
+            mBfNote.enemyTroop = enemy;
+            mBfNote.bf = battlefield;
+            
+            SetSquadsPositionOnBattlefield();
+            
+            TroopInit(ally);
+            TroopInit(enemy);
+            
+            //related mode
+            this.Module().Camera.ChangeCameraMode<CameraModeTroopBf>();
+            
+            var length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
+            var startPoint = length % 2 == 0 ? length / 2 : length / 2 + 1;
+            
+            RollSquadInitiative();
+            SelectTile(new GridPoint(startPoint, startPoint));
+            
+            void TroopInit(Entity troop)
+            {
+                //Setup => Context
+                var setup = troop.Get<TroopSetup>();
+                var ctx =  troop.Get<TroopContext>();
+                var troopModel = mBfNote.bf.Get<TroopBfModel>();
+            
+                foreach (var squad in setup.squads)
+                {
+                    var squadSetup = squad.Get<SquadSetup>();
+                    var squadCtx = squad.Get<SquadContext>();
+                    var squadModel = squad.Get<SquadModel>();
+                
+                    squadCtx.characters.Clear();
+                    foreach (var (pos, character) in squadSetup.characters)
+                    {
+                        squadCtx.characters.Add(pos, character);
+                        squadModel.SetIn(character);
+                    }
+                }
+
+                foreach (var (pos, squad) in ctx.squads)
+                {
+                    var model = squad.Get<WorldModel>();
+                    model.Position = troopModel.GetWorldPosition(pos);
+                }
+            }
         }
         
-        // private void TroopInit(TroopEntity troop)
-        // {
-        //     //SetUp => Context
-        //     foreach (var squad in troop.Setup.squads)
-        //     {
-        //         squad.Context.characters.Clear();
-        //         foreach (var (pos, character) in squad.Setup.characters)
-        //         { squad.Context.characters.Add(pos, character); }
-        //     }
-        //     
-        //     //TryLoad Model
-        //     foreach (var (_, squad) in troop.Context.squads)
-        //     {
-        //         squad.Model.name = "squad";
-        //         squad.Model.TryLoad();
-        //     }
-        // }
-        //
         private void SetSquadsPositionOnBattlefield()
         {
             const int length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
             const int costMax = BattlefieldDefine.TROOP_BF_TILE_COST_MAX;
             const int tilesMaxLength = length * length;
-            
+
+            var grid = mBfNote.bf.Get<TroopBfGrid>();
+            var allySu = mBfNote.allyTroop.Get<TroopSetup>();
+            var allyCtx = mBfNote.allyTroop.Get<TroopContext>();
+            var enemySu = mBfNote.enemyTroop.Get<TroopSetup>();
+            var enemyCtx = mBfNote.enemyTroop.Get<TroopContext>();
             var random = new System.Random();
             var tbTile = this.Module().Config.Tables.TbTroopBfTile;
             var allyTiles = ArrayPool<GridPoint>.Shared.Rent(tilesMaxLength);
@@ -91,43 +94,45 @@ namespace Game
             
             try
             {
-                // for (var x = 1; x <= length; x++)
-                // {
-                //     for (var y = 1; y <= length; y++)
-                //     {
-                //         var position = new GridPoint(x, y);
-                //         var cost = tbTile[mBfNote.bf.Grid[position]].Cost;
-                //         
-                //         if (x <= BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION)
-                //         {
-                //             if (cost <= costMax) allyTiles[atCount++] = position; 
-                //         }
-                //         else
-                //         {
-                //             if (cost <= costMax) enemyTiles[etCount++] = position;
-                //         }
-                //     }
-                // }
-                //
-                // foreach (var squad in mBfNote.allyTroop.Setup.squads)
-                // {
-                //     var index = random.Next(atCount);
-                //     var point = allyTiles[index];
-                //     mBfNote.allyTroop.Context.squads[point] = squad;
-                //     mBfNote.liveSquads.Add(squad);
-                //     squad.Context.point = point;
-                //     allyTiles[index] = allyTiles[atCount--];
-                // }
-                //
-                // foreach (var squad in mBfNote.enemyTroop.Setup.squads)
-                // {
-                //     var index = random.Next(etCount);
-                //     var point = enemyTiles[index];
-                //     mBfNote.enemyTroop.Context.squads[point] = squad;
-                //     mBfNote.liveSquads.Add(squad);
-                //     squad.Context.point = point;
-                //     enemyTiles[index] = enemyTiles[etCount--];
-                // }
+                for (var x = 1; x <= length; x++)
+                {
+                    for (var y = 1; y <= length; y++)
+                    {
+                        var position = new GridPoint(x, y);
+                        var cost = tbTile[grid[position]].Cost;
+                        
+                        if (x <= BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION)
+                        {
+                            if (cost <= costMax) allyTiles[atCount++] = position; 
+                        }
+                        else
+                        {
+                            if (cost <= costMax) enemyTiles[etCount++] = position;
+                        }
+                    }
+                }
+                
+                foreach (var squad in allySu.squads)
+                {
+                    var index = random.Next(atCount);
+                    var point = allyTiles[index];
+                    var ctx = squad.Get<SquadContext>();
+                    allyCtx.squads[point] = squad;
+                    mBfNote.liveSquads.Add(squad);
+                    ctx.point = point;
+                    allyTiles[index] = allyTiles[atCount--];
+                }
+                
+                foreach (var squad in enemySu.squads)
+                {
+                    var index = random.Next(etCount);
+                    var point = enemyTiles[index];
+                    var ctx = squad.Get<SquadContext>();
+                    enemyCtx.squads[point] = squad;
+                    mBfNote.liveSquads.Add(squad);
+                    ctx.point = point;
+                    enemyTiles[index] = enemyTiles[etCount--];
+                }
             }
             finally
             {

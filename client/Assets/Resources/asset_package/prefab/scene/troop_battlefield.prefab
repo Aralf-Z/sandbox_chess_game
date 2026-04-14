@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4784476987671192997}
   m_Layer: 0
-  m_Name: troops_battlefield
+  m_Name: troop_battlefield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -37,7 +37,8 @@ namespace Game
                 var squadInfo = squad.Get<SquadInfo>();
                 var squadSetup = squad.Get<SquadSetup>();
                 var squadAttri = squad.Add<Attribute>();
-                    
+                var index = 1;
+                
                 squadInfo.name = squadName;
                 squadSetup.troopBelong = troop;
                 
@@ -48,6 +49,11 @@ namespace Game
                         : stance.Id % 60000 > 5000
                             ? RequireEnemy(stance.Id)
                             : RequireAlly(stance.Id);
+                    var charSetUp = character.Get<CharacterSetup>();
+
+                    charSetUp.index = index++;
+                    charSetUp.squadBelong = squad;
+                    charSetUp.squadPos = new SquadPos(stance.Row, stance.Column);
                     
                     squadInfo.stand = stance.Id % 60000 > 5000 ? EmSquadStand.Enemy : EmSquadStand.Ally;
                     squadSetup.Set(stance.Row, stance.Column, character);

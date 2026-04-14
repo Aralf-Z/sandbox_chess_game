@@ -28,7 +28,7 @@ namespace GameConsole.GameUI
         {
             if (cheatPanel.gameObject.activeInHierarchy)
             {
-                cheatBtnRectTransf.localScale = new Vector3(-1, 1, 1);
+                cheatBtnRectTransf.localScale = new Vector3(1, 1, 1);
                 mCheatRectTransf.DOKill();
                 mCheatRectTransf.anchoredPosition = new Vector2(1600, 0);
                 mCheatRectTransf.DOAnchorPosX(810, .5f)
@@ -38,7 +38,7 @@ namespace GameConsole.GameUI
             }
             else
             {
-                cheatBtnRectTransf.localScale = new Vector3(1, 1, 1);
+                cheatBtnRectTransf.localScale = new Vector3(-1, 1, 1);
                 mCheatRectTransf.DOKill();
                 mCheatRectTransf.anchoredPosition = new Vector2(810, 0);
                 cheatPanel.gameObject.SetActive(true);

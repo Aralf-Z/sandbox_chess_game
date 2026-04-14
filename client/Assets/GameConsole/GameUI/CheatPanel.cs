@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RedSaw.CommandLineInterface;
@@ -11,7 +12,12 @@ namespace GameConsole.GameUI
         [SerializeField] private Transform cheatContainer;
         
         private ConsoleController<LogType> mConsole;
-        
+
+        private void Start()
+        {
+            singleCheat.gameObject.SetActive(false);
+        }
+
         public void SetConsole(ConsoleController<LogType> console)
         {
             mConsole = console;
@@ -41,8 +47,6 @@ namespace GameConsole.GameUI
                     yield return null;
                 }
             }
-            
-            singleCheat.gameObject.SetActive(false);
         }
 
         private CheatPanelSingleCheat GetACheat()

@@ -18,7 +18,7 @@ namespace GameConsole.GameUI
         /// <summary>push esc or other keys to quit focus on console</summary>
         public bool QuitFocus => Input.GetKeyDown(KeyCode.Escape);
 
-        /// <summary>push F1 or other keys to show or hide console</summary>
-        public bool ShowOrHide => false; //Input.GetKeyDown(KeyCode.BackQuote);
+        /// <summary>push BackQuote or other keys to show or hide console</summary>
+        public bool ShowOrHide => Input.GetKeyDown(KeyCode.BackQuote);
     }
 }

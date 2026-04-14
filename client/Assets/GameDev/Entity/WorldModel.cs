@@ -15,6 +15,12 @@ namespace GameDev.Entity
         
         public Transform Transform => Go.transform;
         
+        public Vector3 Position
+        {
+            get => Go.transform.position;
+            set => Go.transform.position = value;
+        }
+
         public string name = string.Empty;
 
         public event Action Evt_OnLoaded;

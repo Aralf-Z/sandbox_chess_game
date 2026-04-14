@@ -12,7 +12,7 @@ namespace Game
     {
         public WorldModel Model { get; private set; }
         
-        //private Dictionary<GridPoint, TroopBfTileEntity> mTiles = new ();
+        private Dictionary<GridPoint, WorldModel> mTiles = new ();
         
         private GameObject mTipTile;
 
@@ -22,6 +22,11 @@ namespace Game
             Model.Evt_OnLoaded += OnModelLoaded;
         }
 
+        protected override void OnRemoved()
+        {
+            Model.Evt_OnLoaded -= OnModelLoaded;
+        }
+        
         private void OnModelLoaded()
         {
             const float length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
@@ -39,15 +44,18 @@ namespace Game
                     var y1 = j + 1;
                     var point = new GridPoint(x1, y1);
                     var id = grid[point];
-                    // var tileConfig = TroopBfTileEntity.GetConfig(x1, y1, id);
-                    // var tile = this.Entity().Require<TroopBfTileEntity>(tileConfig);
-                    // tile.Model.Transform.SetParent(Model.Transform);
-                    // tile.Model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
-                    // mTiles[point] = tile;
+                    var tile = EntityFactory.RequireTroopBfTile(id);
+                    var model = tile.Get<WorldModel>();
+                    
+                    model.Transform.SetParent(Model.Transform);
+                    model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
+                    
+                    mTiles[point] = model;
                 }
             }
             
             var prefab = this.Module().Asset.LoadSync<GameObject>("tip_tile_on_select");
+            
             mTipTile = Object.Instantiate(prefab, Model.Transform);
         }
 
@@ -59,11 +67,7 @@ namespace Game
         
         public Vector3 GetWorldPosition(GridPoint point)
         {
-            const float length = BattlefieldDefine.TROOP_BF_GRID_LENGTH;
-            const float x0 = - (length - 1) / 2f;
-            const float y0 = - (length - 1) / 2f;
-
-            return Model.Transform.position + new Vector3(x0 + point.X - 1, y0 + point.Y - 1, 0);
+            return mTiles.GetValueOrDefault(point)?.Position ?? Vector3.zero;
         }
     }
 }

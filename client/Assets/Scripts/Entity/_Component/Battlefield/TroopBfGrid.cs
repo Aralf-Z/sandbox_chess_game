@@ -10,9 +10,9 @@ namespace Game
         
         public int this[GridPoint point] => mPerlin.Get(point.X, point.Y) switch
         {
-            < .65f => BattlefieldDefine.TROOP_BF_TILE_ID_PREFIX + 1,
-            < .8f => BattlefieldDefine.TROOP_BF_TILE_ID_PREFIX + 2,
-            _ => BattlefieldDefine.TROOP_BF_TILE_ID_PREFIX + 3
+            < .65f => 80001,
+            < .8f => 80002,
+            _ => 80003
         };
         
         public TroopBfGrid()
