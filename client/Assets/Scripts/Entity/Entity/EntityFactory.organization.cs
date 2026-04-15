@@ -1,5 +1,6 @@
 using System.Linq;
 using GameDev.Entity;
+using GameDev.Helper;
 
 namespace Game
 {
@@ -56,7 +57,10 @@ namespace Game
                     charSetUp.squadPos = new SquadPos(stance.Row, stance.Column);
                     
                     squadInfo.stand = stance.Id % 60000 > 5000 ? EmSquadStand.Enemy : EmSquadStand.Ally;
-                    squadSetup.Set(stance.Row, stance.Column, character);
+                    if(!squadSetup.Set(stance.Row, stance.Column, character))
+                    {
+                        Logger.LogWarning($"error '{character.Get<CharacterInfo>().name}' from '{squadInfo.name}' at {stance.Row}th, {stance.Column}th.");
+                    }
                 }
 
                 squadAttri.Add(PanelAttri.INITIATIVE, squadSetup.characters.Values.Sum(x => ((EntityBase)x).Get<Attribute>()[PanelAttri.INITIATIVE])/ squadSetup.characters.Count);

@@ -48,7 +48,7 @@ namespace Game
                     {
                         var rp = r + j;
                         var cp = c + i;
-                        if (characters.ContainsKey(new SquadPos(r, c)))
+                        if (characters.ContainsKey(new SquadPos(rp, cp)))
                             return false;
                     }
                 }

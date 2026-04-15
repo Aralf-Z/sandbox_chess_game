@@ -49,6 +49,7 @@ namespace Game
                     
                     model.Transform.SetParent(Model.Transform);
                     model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
+                    model.Go.name = $"({x1},{y1}) - {this.Module().Config.Tables.TbTroopBfTile[id].Name}";
                     
                     mTiles[point] = model;
                 }

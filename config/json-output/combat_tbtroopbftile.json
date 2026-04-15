@@ -7,13 +7,13 @@
   },
   {
     "id": 80002,
-    "name": "苦难",
+    "name": "困难",
     "cost": 2,
     "asset": "tile_tough"
   },
   {
     "id": 80003,
-    "name": "无法通过",
+    "name": "阻挡",
     "cost": 99999999,
     "asset": "tile_block"
   }

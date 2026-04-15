@@ -28,21 +28,9 @@ public partial class TbGlobal
 
 
     /// <summary>
-    /// 战役地图边长
+    /// 最高等级
     /// </summary>
-     public int BattleMapLength => _data.BattleMapLength;
-    /// <summary>
-    /// 战斗倒地回合计数上限
-    /// </summary>
-     public int BattleDownRoundCountMax => _data.BattleDownRoundCountMax;
-    /// <summary>
-    /// 奇物栏位数量上限
-    /// </summary>
-     public int ArtifactField => _data.ArtifactField;
-    /// <summary>
-    /// 默认能力
-    /// </summary>
-     public int[] DefaultAbilities => _data.DefaultAbilities;
+     public int MaxLevel => _data.MaxLevel;
     
     public void ResolveRef(Tables tables)
     {

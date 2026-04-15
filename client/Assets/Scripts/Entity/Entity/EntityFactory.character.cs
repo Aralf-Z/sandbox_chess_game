@@ -56,6 +56,7 @@ namespace Game
             
             model.name = "ally";
             model.TryLoad();
+            model.Go.name = info.name;
             
             return ally;
         }

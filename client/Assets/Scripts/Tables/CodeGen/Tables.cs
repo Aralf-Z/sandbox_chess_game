@@ -14,6 +14,7 @@ namespace Game.Config
 public partial class Tables
 {
     public Game.TbGlobal TbGlobal {get; }
+    public Game.TbDefine TbDefine {get; }
     public Character.TbWeaponType TbWeaponType {get; }
     /// <summary>
     /// 能力-5
@@ -55,6 +56,7 @@ public partial class Tables
     public Tables(System.Func<string, ByteBuf> loader)
     {
         TbGlobal = new Game.TbGlobal(loader("game_tbglobal"));
+        TbDefine = new Game.TbDefine(loader("game_tbdefine"));
         TbWeaponType = new Character.TbWeaponType(loader("character_tbweapontype"));
         TbAbility = new Character.TbAbility(loader("character_tbability"));
         TbAdventurer = new Character.TbAdventurer(loader("character_tbadventurer"));
@@ -71,6 +73,7 @@ public partial class Tables
     private void ResolveRef()
     {
         TbGlobal.ResolveRef(this);
+        TbDefine.ResolveRef(this);
         TbWeaponType.ResolveRef(this);
         TbAbility.ResolveRef(this);
         TbAdventurer.ResolveRef(this);

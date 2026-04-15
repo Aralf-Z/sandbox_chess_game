@@ -101,7 +101,7 @@ namespace Game
                         var position = new GridPoint(x, y);
                         var cost = tbTile[grid[position]].Cost;
                         
-                        if (x <= BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION)
+                        if (y <= BattlefieldDefine.ALLY_ENEMY_ROW_DIVISION)
                         {
                             if (cost <= costMax) allyTiles[atCount++] = position; 
                         }

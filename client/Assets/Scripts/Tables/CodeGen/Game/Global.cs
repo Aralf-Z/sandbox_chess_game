@@ -16,10 +16,7 @@ public sealed partial class Global : Luban.BeanBase
 {
     public Global(ByteBuf _buf) 
     {
-        BattleMapLength = _buf.ReadInt();
-        BattleDownRoundCountMax = _buf.ReadInt();
-        ArtifactField = _buf.ReadInt();
-        {int __n0 = _buf.ReadSize(); DefaultAbilities = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); DefaultAbilities[__index0] = __e0;}}
+        MaxLevel = _buf.ReadInt();
     }
 
     public static Global DeserializeGlobal(ByteBuf _buf)
@@ -28,21 +25,9 @@ public sealed partial class Global : Luban.BeanBase
     }
 
     /// <summary>
-    /// 战役地图边长
+    /// 最高等级
     /// </summary>
-    public readonly int BattleMapLength;
-    /// <summary>
-    /// 战斗倒地回合计数上限
-    /// </summary>
-    public readonly int BattleDownRoundCountMax;
-    /// <summary>
-    /// 奇物栏位数量上限
-    /// </summary>
-    public readonly int ArtifactField;
-    /// <summary>
-    /// 默认能力
-    /// </summary>
-    public readonly int[] DefaultAbilities;
+    public readonly int MaxLevel;
    
     public const int __ID__ = -119014113;
     public override int GetTypeId() => __ID__;
@@ -54,10 +39,7 @@ public sealed partial class Global : Luban.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "battleMapLength:" + BattleMapLength + ","
-        + "battleDownRoundCountMax:" + BattleDownRoundCountMax + ","
-        + "artifactField:" + ArtifactField + ","
-        + "defaultAbilities:" + Luban.StringUtil.CollectionToString(DefaultAbilities) + ","
+        + "maxLevel:" + MaxLevel + ","
         + "}";
     }
 }
