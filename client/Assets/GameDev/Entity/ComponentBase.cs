@@ -19,5 +19,7 @@ namespace GameDev.Entity
         {
             
         }
+        
+        public T GetSibling<T>() where T : ComponentBase => Host.Get<T>();
     }
 }

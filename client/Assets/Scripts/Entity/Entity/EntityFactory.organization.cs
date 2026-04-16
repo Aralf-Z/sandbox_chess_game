@@ -30,8 +30,7 @@ namespace Game
             var setup = troop.Add<TroopSetup>();
             var ctx = troop.Add<TroopContext>();
             var cfg = game.Tables.TbCampaign.GetOrDefault(troopId);
-
-            //todo 移动到System
+            
             foreach (var (squadName, squadStances) in cfg.Squads)
             {
                 var squad = RequireSquad();

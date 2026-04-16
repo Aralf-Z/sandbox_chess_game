@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Game
 {
     public class TroopBfModel: ComponentBase
+        , IGetSystem
         , IGetEntity
         , IGetNote
         , IGetModule
@@ -20,11 +21,13 @@ namespace Game
         {
             Model = Host.Get<WorldModel>();
             Model.Evt_OnLoaded += OnModelLoaded;
+            this.System().Get<TroopBattleSystem>().Evt_OnCurrentPointChanged += UpdateSelectedTile;
         }
 
         protected override void OnRemoved()
         {
             Model.Evt_OnLoaded -= OnModelLoaded;
+            this.System().Get<TroopBattleSystem>().Evt_OnCurrentPointChanged -= UpdateSelectedTile;
         }
         
         private void OnModelLoaded()
@@ -46,10 +49,12 @@ namespace Game
                     var id = grid[point];
                     var tile = EntityFactory.RequireTroopBfTile(id);
                     var model = tile.Get<WorldModel>();
+                    var info = model.Go.GetComponent<TroopBfTileInfo>();
                     
                     model.Transform.SetParent(Model.Transform);
-                    model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0); 
-                    model.Go.name = $"({x1},{y1}) - {this.Module().Config.Tables.TbTroopBfTile[id].Name}";
+                    model.Transform.localPosition = new Vector3(x0 + i, y0 + j, 0);
+                    model.Go.name = $"({x1},{y1})";
+                    info.point = point;
                     
                     mTiles[point] = model;
                 }
@@ -60,10 +65,10 @@ namespace Game
             mTipTile = Object.Instantiate(prefab, Model.Transform);
         }
 
-        public void UpdateSelectedTile()
+        private void UpdateSelectedTile()
         {
             var note = this.Note().Get<TroopBattlefieldNote>();
-            mTipTile.transform.position = GetWorldPosition(note.curPoint);
+            mTipTile.transform.position = GetWorldPosition(note.currentPoint);
         }
         
         public Vector3 GetWorldPosition(GridPoint point)

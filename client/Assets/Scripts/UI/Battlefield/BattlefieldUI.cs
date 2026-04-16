@@ -63,7 +63,7 @@ namespace Game
             select += Input.GetKeyDown(KeyCode.LeftArrow) ? new GridPoint(-1, 0) : zero;
             select += Input.GetKeyDown(KeyCode.RightArrow) ? new GridPoint(1, 0) : zero;
             
-            mSystem.SelectTile(mNote.curPoint + select);
+            mSystem.SelectTile(mNote.currentPoint + select);
         }
 
         // private BattlefieldUIActorFloatInfo actorFloatInfoTemplate;

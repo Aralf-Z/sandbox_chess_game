@@ -1,15 +1,23 @@
+using GameDev.Core;
+using GameDev.Entity;
 using GameDev.Utility.FSM;
 using UnityEngine;
 
 namespace Game
 {
     public class CameraModeTroopBf: StatusBase
+    , IGetNote
     {
         private GameCameraFollower mHost;
         
         public override void Init<T>(T host)
         {
             mHost =  host as GameCameraFollower;
+        }
+
+        public override void OnEnter()
+        {
+            mHost.transform.position = this.Note().Get<TroopBattlefieldNote>().currentSquad.ctx.GetSibling<WorldModel>().Position;
         }
 
         public override void OnUpdate(float dt)

@@ -40,7 +40,8 @@ namespace Game
             var allyTroop = EntityFactory.RequireTroop(allyId);
             var enemyTroop =  EntityFactory.RequireTroop(enemyId);
             
-            System.Get<TroopBattleSystem>().EnterBattle(allyTroop, enemyTroop, tbf);
+            System.Get<TroopBattleSystem>().EnterBattle(tbf.Get<TroopBfGrid>(), allyTroop.Get<TroopInfo>(),allyTroop.Get<TroopSetup>(), allyTroop.Get<TroopContext>(),
+                enemyTroop.Get<TroopInfo>(),enemyTroop.Get<TroopSetup>(), enemyTroop.Get<TroopContext>());
             
             UI.Open<BattlefieldUI>();
             UI.Open<DebugUI>();
