@@ -52,20 +52,6 @@ namespace Game
             
         }
 
-        private void Update()
-        {
-            if(null == mSystem || null == mNote)  return;
-            
-            var zero = new GridPoint(0, 0);
-            var select = zero;
-            select += Input.GetKeyDown(KeyCode.UpArrow) ? new GridPoint(0, 1) : zero;
-            select += Input.GetKeyDown(KeyCode.DownArrow) ? new GridPoint(0, -1) : zero;
-            select += Input.GetKeyDown(KeyCode.LeftArrow) ? new GridPoint(-1, 0) : zero;
-            select += Input.GetKeyDown(KeyCode.RightArrow) ? new GridPoint(1, 0) : zero;
-            
-            mSystem.SelectTile(mNote.currentPoint + select);
-        }
-
         // private BattlefieldUIActorFloatInfo actorFloatInfoTemplate;
         //
         // private IObjectPool<BattlefieldUIActorFloatInfo>  mActorPool;

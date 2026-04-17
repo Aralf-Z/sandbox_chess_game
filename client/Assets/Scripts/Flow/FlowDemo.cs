@@ -24,7 +24,7 @@ namespace Game
         public int allyId = 71001;
         public int enemyId = 70001;
 
-        public string troopsBfAsset = "troops_battlefield";
+        public InputManager input;
         
         protected override void Init()
         {
@@ -35,6 +35,7 @@ namespace Game
         {
             Logger.LogInfo("Demo 开始", "流程");
 
+            input.Init();
 
             var tbf = EntityFactory.RequireTroopBf();
             var allyTroop = EntityFactory.RequireTroop(allyId);
