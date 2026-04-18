@@ -49,7 +49,7 @@ public partial class Tables
     /// </summary>
     public Combat.TbCampaign TbCampaign {get; }
     /// <summary>
-    /// 战术地图瓦片-8
+    /// 战术地图瓦片-9
     /// </summary>
     public Combat.TbTroopBfTile TbTroopBfTile {get; }
 

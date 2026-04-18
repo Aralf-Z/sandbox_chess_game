@@ -26,6 +26,8 @@ namespace Game
         public float Float(string attributeName) => mAttri[attributeName].Value;
         
         public void Add(string attributeName, float baseValue) => mAttri.Add(attributeName, new SumValue(baseValue));
+        
+        public void Set(string attributeName) => mAttri[attributeName] = new SumValue(0);
 
         public void Remove(string attributeName) => mAttri.Remove(attributeName);
         

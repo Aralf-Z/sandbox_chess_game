@@ -114,4 +114,7 @@
   <constalias name="高等治疗药水" value="80002" />
   <constalias name="特效治疗药水" value="80003" />
   <constalias name="极效治疗药水" value="80004" />
+  <constalias name="普通" value="90001" />
+  <constalias name="困难" value="90002" />
+  <constalias name="阻挡" value="90003" />
 </module>

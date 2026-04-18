@@ -10,9 +10,9 @@ namespace Game
         
         public int this[GridPoint point] => mPerlin.Get(point.X, point.Y) switch
         {
-            < .65f => 80001,
-            < .8f => 80002,
-            _ => 80003
+            < .65f => 90001,
+            < .8f => 90002,
+            _ => 90003
         };
         
         public TroopBfGrid()

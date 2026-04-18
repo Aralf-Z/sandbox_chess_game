@@ -13,7 +13,7 @@ using Luban;
 namespace Game.Config.Combat
 {
 /// <summary>
-/// 战术地图瓦片-8
+/// 战术地图瓦片-9
 /// </summary>
 public partial class TbTroopBfTile
 {

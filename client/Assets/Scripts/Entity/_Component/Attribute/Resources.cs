@@ -21,10 +21,7 @@ namespace Game
         
         public float Float(string resourceName) => mRes[resourceName].value;
 
-        public void Add(string resourceName, float value, bool changeOnMaxChanged = true) 
-            => mRes.Add(resourceName, new ResPack(resourceName, value, changeOnMaxChanged));
-
-        public void Remove(string resourceName) => mRes.Remove(resourceName);
+        public void Add(string resourceName, bool changeOnMaxChanged = true) => mRes.Add(resourceName, new ResPack(resourceName, changeOnMaxChanged));
         
         public void Recover(string resourceName)
         {
@@ -69,10 +66,9 @@ namespace Game
             public float value;
             public readonly bool changeOnMaxChanged;
 
-            public ResPack(string key, float value, bool changeOnMaxChanged = true)
+            public ResPack(string key, bool changeOnMaxChanged = true)
             {
                 this.key = key;
-                this.value = value;
                 this.changeOnMaxChanged = changeOnMaxChanged;
             }
         }

@@ -1,18 +1,18 @@
 [
   {
-    "id": 80001,
+    "id": 90001,
     "name": "普通",
     "cost": 1,
     "asset": "tile_normal"
   },
   {
-    "id": 80002,
+    "id": 90002,
     "name": "困难",
     "cost": 2,
     "asset": "tile_tough"
   },
   {
-    "id": 80003,
+    "id": 90003,
     "name": "阻挡",
     "cost": 99999999,
     "asset": "tile_block"
