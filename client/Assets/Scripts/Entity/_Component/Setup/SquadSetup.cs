@@ -9,16 +9,15 @@ namespace Game
     public class SquadSetup: ComponentBase
         , IGetModule
     {
-        public Entity troopBelong;
+        public TroopInfo troopBelong;
         
-        public readonly Dictionary<SquadPos, Entity> characters = new ();
+        public readonly Dictionary<SquadPos, CharacterInfo> members = new ();
         
-        public Entity this[SquadPos stance] => characters.GetValueOrDefault(stance, null);
+        public CharacterInfo this[SquadPos stance] => members.GetValueOrDefault(stance, null);
 
-        public bool Set(int row, int column, Entity character)
+        public bool Set(int row, int column, CharacterInfo info)
         {
             var tables = this.Module().Config.Tables;
-            var info = character.Get<CharacterInfo>();
             var bodyType = tables.TbRace[info.subrace].BodyType;
             (int w, int h) rect = bodyType switch
             {
@@ -34,7 +33,7 @@ namespace Game
                 {
                     var c = column + i;
                     var r = row + j;
-                    characters[new SquadPos(r, c)] = character;
+                    members[new SquadPos(r, c)] = info;
                 }
             }
 
@@ -48,7 +47,7 @@ namespace Game
                     {
                         var rp = r + j;
                         var cp = c + i;
-                        if (characters.ContainsKey(new SquadPos(rp, cp)))
+                        if (members.ContainsKey(new SquadPos(rp, cp)))
                             return false;
                     }
                 }

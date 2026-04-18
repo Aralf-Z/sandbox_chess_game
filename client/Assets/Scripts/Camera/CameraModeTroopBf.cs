@@ -17,7 +17,7 @@ namespace Game
 
         public override void OnEnter()
         {
-            mHost.transform.position = this.Note().Get<TroopBattlefieldNote>().currentSquad.ctx.GetSibling<WorldModel>().Position;
+            mHost.transform.position = this.Note().Get<TroopBattleNote>().currentSquad.ctx.GetSibling<WorldModel>().Position;
         }
 
         public override void OnUpdate(float dt)

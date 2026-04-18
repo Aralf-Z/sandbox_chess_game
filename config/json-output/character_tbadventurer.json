@@ -3,6 +3,11 @@
     "id": 10001,
     "name": "安缇洛雅·阿玛斯塔夏",
     "subrace": 30005,
+    "asset": {
+      "prefab": "adventurer",
+      "squadPrefab": "adventurer",
+      "icon": "temp_icon"
+    },
     "level": 2,
     "clasz": [
       [
@@ -54,6 +59,11 @@
     "id": 10002,
     "name": "索林·白须",
     "subrace": 30003,
+    "asset": {
+      "prefab": "adventurer",
+      "squadPrefab": "adventurer",
+      "icon": "temp_icon"
+    },
     "level": 2,
     "clasz": [
       [
@@ -106,6 +116,11 @@
     "id": 10003,
     "name": "彻宁·格拉尔",
     "subrace": 30001,
+    "asset": {
+      "prefab": "adventurer",
+      "squadPrefab": "adventurer",
+      "icon": "temp_icon"
+    },
     "level": 2,
     "clasz": [
       [
@@ -156,6 +171,11 @@
     "id": 10004,
     "name": "凯芙拉·斯托维恩",
     "subrace": 30001,
+    "asset": {
+      "prefab": "adventurer",
+      "squadPrefab": "adventurer",
+      "icon": "temp_icon"
+    },
     "level": 2,
     "clasz": [
       [
@@ -208,6 +228,11 @@
     "id": 10005,
     "name": "梅·文",
     "subrace": 30008,
+    "asset": {
+      "prefab": "adventurer",
+      "squadPrefab": "adventurer",
+      "icon": "temp_icon"
+    },
     "level": 2,
     "clasz": [
       [
@@ -260,6 +285,11 @@
     "id": 10006,
     "name": "米亚斯坦·樱木",
     "subrace": 30009,
+    "asset": {
+      "prefab": "adventurer",
+      "squadPrefab": "adventurer",
+      "icon": "temp_icon"
+    },
     "level": 2,
     "clasz": [
       [

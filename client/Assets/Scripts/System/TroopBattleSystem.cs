@@ -1,5 +1,6 @@
 using System;
 using System.Buffers;
+using System.Collections.Generic;
 using GameDev.Core;
 using GameDev.Entity;
 using GameDev.Syztem;
@@ -11,13 +12,15 @@ namespace Game
     public class TroopBattleSystem: SystemBase
     {
         public event Action Evt_OnCurrentPointChanged;
+        public event Action Evt_OnCurrentSquadChanged;
+        public event Action Evt_OnSelectedSquadChanged;
         
-        private TroopBattlefieldNote mBfNote;
+        private TroopBattleNote mBfNote;
         private Dice mDice;
         
         protected override void Init()
         {
-            mBfNote = this.Note().Get<TroopBattlefieldNote>();
+            mBfNote = this.Note().Get<TroopBattleNote>();
 
             mDice = new Dice();
         }
@@ -36,10 +39,8 @@ namespace Game
             var tModel = grid.GetSibling<TroopBfModel>();
             TroopInit(tModel, allySetup, allyCtx);
             TroopInit(tModel, enemySetup, enemyCtx);
-            
-            //related mode
-            RollSquadInitiative();
-            this.Module().Camera.ChangeCameraMode<CameraModeTroopBf>();
+
+            StartNewTurn();
             
             void TroopInit(TroopBfModel model, TroopSetup setup, TroopContext ctx)
             {
@@ -51,11 +52,13 @@ namespace Game
                     var squadCtx = squad.Get<SquadContext>();
                     var squadModel = squad.Get<SquadModel>();
                 
-                    squadCtx.characters.Clear();
-                    foreach (var (pos, character) in squadSetup.characters)
+                    squadCtx.members.Clear();
+                    foreach (var (pos, c) in squadSetup.members)
                     {
-                        squadCtx.characters.Add(pos, character);
-                        squadModel.SetIn(character);
+                        var charAsp = new CharacterBattleAspect(c.Host);
+                        
+                        squadCtx.members.Add(pos, charAsp);
+                        squadModel.SetIn(c, c.GetSibling<CharacterSetup>());
                     }
                 }
 
@@ -136,38 +139,42 @@ namespace Game
             
         }
 
-        // public void SelectSquad(SquadEntity squad)
-        // {
-        //     
-        // }
-        //
-        // public void SelectedSquadMove()
-        // {
-        //     
-        // }
-        //
-        // public void CurrentSquadMove()
-        // {
-        //     
-        // }
-        //
-        // public int SquadMoveCost(SquadEntity squad, GridPoint moveTo)
-        // {
-        //     return 0;
-        // }
-        //
-        // public void AttackSquad(SquadEntity attacker, SquadEntity defender)
-        // {
-        //     
-        // }
+        public void StartNewTurn()
+        {
+            RecoverResOnNewTurn();
+            RollSquadInitiative();
+            
+            this.Module().Camera.ChangeCameraMode<CameraModeTroopBf>();
+        }
+        
+        public void SearchReachable(Resources squadRes, SquadContext squadCtx)
+        {
+            
+        }
 
         public void NextSquadMove()
         {
             
         }
 
+        private void RecoverResOnNewTurn()
+        {
+            foreach (var squad in mBfNote.liveSquads)
+            {
+                //todo 细化
+                squad.res.Recover(ResAttri.MOVEMENT);
+                foreach (var (_, charAsp) in squad.ctx.members)
+                {
+                    charAsp.res.Recover(ResAttri.ACTION);
+                    charAsp.res.Recover(ResAttri.BONUS_ACTION);
+                }
+            }
+        }
+        
         private void RollSquadInitiative()
         {
+            if(mBfNote.liveSquads.Count == 0) return;
+            
             var dice = new Dices(20);
             
             foreach (var squad in mBfNote.liveSquads)
@@ -176,13 +183,11 @@ namespace Game
                 squad.ctx.initiative =  initiative;
             }
             
-            // todo 排序可能不会稳定，隐性的bug？
-            mBfNote.liveSquads.Sort((a, b) =>
-                (a.ctx.initiative * 10000 + a.attri.Float(PanelAttri.INITIATIVE))
+            mBfNote.liveSquads.Sort((a, b) => (a.ctx.initiative * 10000 + a.attri.Float(PanelAttri.INITIATIVE))
                 .CompareTo(b.ctx.initiative * 10000 + b.attri.Float(PanelAttri.INITIATIVE)));
             
-            mBfNote.selectedSquad = mBfNote.currentSquad = mBfNote.liveSquads[0];//todo 长度可能会<1？
-            SelectTile(mBfNote.selectedSquad.ctx.point);
+            mBfNote.currentSquad = mBfNote.liveSquads[0];
+            SelectTile(mBfNote.currentSquad.ctx.point);
         }
         
         private void SearchNextSquad()
@@ -241,7 +246,20 @@ namespace Game
             var y = Mathf.Clamp(point.Y, 1, BattlefieldDefine.TROOP_BF_GRID_LENGTH);
             
             mBfNote.currentPoint = new GridPoint(x,y);
+            TryGetSelectSquad();
             Evt_OnCurrentPointChanged?.Invoke();
+        }
+
+        private void TryGetSelectSquad()
+        {
+            foreach (var asp in mBfNote.liveSquads)
+            {
+                if (asp.ctx.point == mBfNote.currentPoint && asp != mBfNote.selectedSquad)
+                {
+                    mBfNote.selectedSquad = asp;
+                    Evt_OnSelectedSquadChanged?.Invoke();
+                }
+            }
         }
     }
 }

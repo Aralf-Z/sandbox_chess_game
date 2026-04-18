@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using GameDev.Core;
 using GameDev.Entity;
 using UnityEngine;
 
 namespace Game
 {
     public class SquadModel: ComponentBase
+    , IGetModule
     {
         public WorldModel Model { get; private set; }
 
@@ -31,14 +33,10 @@ namespace Game
             mPoints.Add(Model.Transform.Find("point6").transform);
         }
 
-        public void SetIn(Entity member)
+        public void SetIn(CharacterInfo info, CharacterSetup setup)
         {
-            var setup = member.Get<CharacterSetup>();
-            var model = member.Get<WorldModel>();
-            
-            model.Transform.SetParent(mPoints[setup.index - 1]);
-            model.Transform.localScale = Vector3.one;
-            model.Transform.localPosition = Vector3.zero;
+            var prefab = this.Module().Asset.LoadSync<GameObject>(info.asset.SquadPrefab);
+            Object.Instantiate(prefab, mPoints[setup.index - 1]);
         }
 
         public void SetOut(Entity member)

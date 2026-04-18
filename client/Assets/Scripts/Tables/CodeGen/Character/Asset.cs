@@ -10,36 +10,36 @@
 using Luban;
 
 
-namespace Game.Config.Combat
+namespace Game.Config.Character
 {
-public sealed partial class SquadStance : Luban.BeanBase
+public sealed partial class Asset : Luban.BeanBase
 {
-    public SquadStance(ByteBuf _buf) 
+    public Asset(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Row = _buf.ReadInt();
-        Column = _buf.ReadInt();
+        Prefab = _buf.ReadString();
+        SquadPrefab = _buf.ReadString();
+        Icon = _buf.ReadString();
     }
 
-    public static SquadStance DeserializeSquadStance(ByteBuf _buf)
+    public static Asset DeserializeAsset(ByteBuf _buf)
     {
-        return new Combat.SquadStance(_buf);
+        return new Character.Asset(_buf);
     }
 
     /// <summary>
-    /// 角色id
+    /// 预制体
     /// </summary>
-    public readonly int Id;
+    public readonly string Prefab;
     /// <summary>
-    /// 排
+    /// 小队预制体
     /// </summary>
-    public readonly int Row;
+    public readonly string SquadPrefab;
     /// <summary>
-    /// 列
+    /// 图标
     /// </summary>
-    public readonly int Column;
+    public readonly string Icon;
    
-    public const int __ID__ = 1603210256;
+    public const int __ID__ = 33462187;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
@@ -49,9 +49,9 @@ public sealed partial class SquadStance : Luban.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "row:" + Row + ","
-        + "column:" + Column + ","
+        + "prefab:" + Prefab + ","
+        + "squadPrefab:" + SquadPrefab + ","
+        + "icon:" + Icon + ","
         + "}";
     }
 }

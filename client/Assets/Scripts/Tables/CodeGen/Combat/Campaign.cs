@@ -18,7 +18,7 @@ public sealed partial class Campaign : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
-        {int n0 = _buf.ReadSize(); Squads = new System.Collections.Generic.Dictionary<string, Combat.SquadStance[]>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { string _k0;  _k0 = _buf.ReadString(); Combat.SquadStance[] _v0;  {int __n1 = _buf.ReadSize(); _v0 = new Combat.SquadStance[__n1];for(var __index1 = 0 ; __index1 < __n1 ; __index1++) { Combat.SquadStance __e1;__e1 = global::Game.Config.Combat.SquadStance.DeserializeSquadStance(_buf); _v0[__index1] = __e1;}}     Squads.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); Squads = new System.Collections.Generic.Dictionary<string, Combat.SquadFormation[]>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { string _k0;  _k0 = _buf.ReadString(); Combat.SquadFormation[] _v0;  {int __n1 = _buf.ReadSize(); _v0 = new Combat.SquadFormation[__n1];for(var __index1 = 0 ; __index1 < __n1 ; __index1++) { Combat.SquadFormation __e1;__e1 = global::Game.Config.Combat.SquadFormation.DeserializeSquadFormation(_buf); _v0[__index1] = __e1;}}     Squads.Add(_k0, _v0);}}
     }
 
     public static Campaign DeserializeCampaign(ByteBuf _buf)
@@ -37,7 +37,7 @@ public sealed partial class Campaign : Luban.BeanBase
     /// <summary>
     /// 小队名称
     /// </summary>
-    public readonly System.Collections.Generic.Dictionary<string, Combat.SquadStance[]> Squads;
+    public readonly System.Collections.Generic.Dictionary<string, Combat.SquadFormation[]> Squads;
    
     public const int __ID__ = -1356815670;
     public override int GetTypeId() => __ID__;

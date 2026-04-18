@@ -28,11 +28,12 @@ namespace Game
             info.name = cfg.Name;
             info.configId = configId;
             info.subrace = cfg.Subrace;
+            info.asset = cfg.Asset;
             
             attri.Add(PanelAttri.INITIATIVE, cfg.AttributePreset.Initiative);
             
-            model.name = "adventurer";
-            model.TryLoad();
+            // model.name = "adventurer";
+            // model.TryLoad();
             
             return ad;
         }
@@ -51,12 +52,13 @@ namespace Game
             info.name = cfg.Name;
             info.configId = configId;
             info.subrace = cfg.Subrace;
+            info.asset = cfg.Asset;
             
             attri.Add(PanelAttri.INITIATIVE, cfg.AttributePreset.Initiative);
             
-            model.name = "ally";
-            model.TryLoad();
-            model.Go.name = info.name;
+            // model.name = "ally";
+            // model.TryLoad();
+            // model.Go.name = info.name;
             
             return ally;
         }
@@ -75,12 +77,13 @@ namespace Game
             info.name = cfg.Name;
             info.configId = configId;
             info.subrace = cfg.Subrace;
+            info.asset = cfg.Asset;
             
             attri.Add(PanelAttri.INITIATIVE, cfg.AttributePreset.Initiative);
             
-            model.name = "enemy";
-            model.TryLoad();
-            
+            // model.name = "enemy";
+            // model.TryLoad();
+            //
             return en;
         }
     }

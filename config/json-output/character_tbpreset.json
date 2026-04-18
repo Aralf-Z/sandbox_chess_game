@@ -3,6 +3,11 @@
     "id": 60001,
     "name": "人类平民",
     "subrace": 30001,
+    "asset": {
+      "prefab": "ally",
+      "squadPrefab": "ally",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -51,6 +56,11 @@
     "id": 60002,
     "name": "商队护卫",
     "subrace": 30001,
+    "asset": {
+      "prefab": "ally",
+      "squadPrefab": "ally",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -99,6 +109,11 @@
     "id": 60003,
     "name": "商队弩手",
     "subrace": 30001,
+    "asset": {
+      "prefab": "ally",
+      "squadPrefab": "ally",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -147,6 +162,11 @@
     "id": 60004,
     "name": "商队领袖·矮人",
     "subrace": 30002,
+    "asset": {
+      "prefab": "ally",
+      "squadPrefab": "ally",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -195,6 +215,11 @@
     "id": 60005,
     "name": "矮人勇士",
     "subrace": 30003,
+    "asset": {
+      "prefab": "ally",
+      "squadPrefab": "ally",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -245,6 +270,11 @@
     "id": 60006,
     "name": "矮人碎铁近卫",
     "subrace": 30003,
+    "asset": {
+      "prefab": "ally",
+      "squadPrefab": "ally",
+      "icon": "temp_icon"
+    },
     "level": 5,
     "clasz": [
       [
@@ -295,6 +325,11 @@
     "id": 65001,
     "name": "地精盾刀手",
     "subrace": 31001,
+    "asset": {
+      "prefab": "enemy",
+      "squadPrefab": "enemy",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -348,6 +383,11 @@
     "id": 65002,
     "name": "地精长矛手",
     "subrace": 31001,
+    "asset": {
+      "prefab": "enemy",
+      "squadPrefab": "enemy",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -401,6 +441,11 @@
     "id": 65003,
     "name": "地精弓箭手",
     "subrace": 31001,
+    "asset": {
+      "prefab": "enemy",
+      "squadPrefab": "enemy",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -454,6 +499,11 @@
     "id": 65004,
     "name": "地精双刀手",
     "subrace": 31001,
+    "asset": {
+      "prefab": "enemy",
+      "squadPrefab": "enemy",
+      "icon": "temp_icon"
+    },
     "level": 1,
     "clasz": [
       [
@@ -507,6 +557,11 @@
     "id": 65005,
     "name": "地精军阀",
     "subrace": 31001,
+    "asset": {
+      "prefab": "enemy",
+      "squadPrefab": "enemy",
+      "icon": "temp_icon"
+    },
     "level": 4,
     "clasz": [
       [
@@ -560,6 +615,11 @@
     "id": 65006,
     "name": "熊地精",
     "subrace": 31002,
+    "asset": {
+      "prefab": "enemy",
+      "squadPrefab": "enemy",
+      "icon": "temp_icon"
+    },
     "level": 3,
     "clasz": [
       [

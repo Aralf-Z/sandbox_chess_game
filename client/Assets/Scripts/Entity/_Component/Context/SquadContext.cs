@@ -11,6 +11,7 @@ namespace Game
     {
         public GridPoint point;
         public int initiative;
-        public readonly Dictionary<SquadPos, Entity> characters = new();
+        public readonly Dictionary<SquadPos, CharacterBattleAspect> members = new();
+        public readonly List<GridPoint> reached = new ();
     }
 }

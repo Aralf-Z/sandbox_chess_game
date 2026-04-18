@@ -21,12 +21,12 @@ namespace Game
         public Button endBtn;
         
         public TroopBattleSystem mSystem;
-        public TroopBattlefieldNote mNote;
+        public TroopBattleNote mNote;
         
         protected override void OnCreate()
         {
             mSystem = this.System().Get<TroopBattleSystem>();
-            mNote = this.Note().Get<TroopBattlefieldNote>();
+            mNote = this.Note().Get<TroopBattleNote>();
             
             attackBtn.onClick.AddListener(mSystem.CurSquadAttack);
             skillBtn.onClick.AddListener(mSystem.CurSquadSkill);

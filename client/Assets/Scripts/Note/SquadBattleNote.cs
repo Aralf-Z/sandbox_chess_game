@@ -4,7 +4,7 @@ using GameDev.Utility.Inspector;
 namespace Game
 {
     [Inspectable("小队战场记录")]
-    public class SquadBattlefieldNote: NoteBase
+    public class SquadBattleNote: NoteBase
     {
         public Entity bf;
         public Entity allySquad;

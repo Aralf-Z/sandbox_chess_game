@@ -40,7 +40,7 @@ namespace Game
                 var index = 1;
                 
                 squadInfo.name = squadName;
-                squadSetup.troopBelong = troop;
+                squadSetup.troopBelong = info;
                 
                 foreach (var stance in squadStances)
                 {
@@ -50,19 +50,20 @@ namespace Game
                             ? RequireEnemy(stance.Id)
                             : RequireAlly(stance.Id);
                     var charSetUp = character.Get<CharacterSetup>();
+                    var charInfo = character.Get<CharacterInfo>();
 
                     charSetUp.index = index++;
                     charSetUp.squadBelong = squad;
                     charSetUp.squadPos = new SquadPos(stance.Row, stance.Column);
                     
                     squadInfo.stand = stance.Id % 60000 > 5000 ? EmSquadStand.Enemy : EmSquadStand.Ally;
-                    if(!squadSetup.Set(stance.Row, stance.Column, character))
+                    if(!squadSetup.Set(stance.Row, stance.Column, charInfo))
                     {
-                        Logger.LogWarning($"error '{character.Get<CharacterInfo>().name}' from '{squadInfo.name}' at {stance.Row}th, {stance.Column}th.");
+                        Logger.LogWarning($"error '{charInfo.name}' from '{squadInfo.name}' at {stance.Row}th, {stance.Column}th.");
                     }
                 }
 
-                squadAttri.Add(PanelAttri.INITIATIVE, squadSetup.characters.Values.Sum(x => ((EntityBase)x).Get<Attribute>()[PanelAttri.INITIATIVE])/ squadSetup.characters.Count);
+                squadAttri.Add(PanelAttri.INITIATIVE, squadSetup.members.Values.Sum(x => x.GetSibling<Attribute>()[PanelAttri.INITIATIVE])/ squadSetup.members.Count);
                 
                 setup.squads.Add(squad);
             }

@@ -6,11 +6,11 @@ namespace Game
 {
     public class SquadBattleSystem: SystemBase
     {
-        private SquadBattlefieldNote mBfNote;
+        private SquadBattleNote mBfNote;
         
         protected override void Init()
         {
-            mBfNote = this.Note().Get<SquadBattlefieldNote>();
+            mBfNote = this.Note().Get<SquadBattleNote>();
         }
 
         public void Attack(Entity attacker, Entity defender)

@@ -48,7 +48,7 @@ namespace Game
             UI.Open<DebugUI>();
             
             // var sbf = Entity.Require<SquadBfEntity>();
-            // Note.Get<SquadBattlefieldNote>().bf = sbf;
+            // Note.Get<SquadBattleNote>().bf = sbf;
             // System.Get<SquadBattleSystem>().Attack(allyTroop.Context.squads.First().Value, enemyTroop.Context.squads.First().Value);
             //UI.Open<BattlefieldUI>();
         }

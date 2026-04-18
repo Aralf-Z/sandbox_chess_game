@@ -20,6 +20,7 @@ public sealed partial class Preset : Luban.BeanBase
         Name = _buf.ReadString();
         Subrace = _buf.ReadInt();
         Subrace_Ref = null;
+        Asset = global::Game.Config.Character.Asset.DeserializeAsset(_buf);
         Level = _buf.ReadInt();
         {int n0 = _buf.ReadSize(); Clasz = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     Clasz.Add(_k0, _v0);}}
         ExpOnKilled = _buf.ReadInt();
@@ -47,6 +48,10 @@ public sealed partial class Preset : Luban.BeanBase
     /// </summary>
     public readonly int Subrace;
     public Character.Race Subrace_Ref;
+    /// <summary>
+    /// 预制体
+    /// </summary>
+    public readonly Character.Asset Asset;
     /// <summary>
     /// 角色等级
     /// </summary>
@@ -82,6 +87,7 @@ public sealed partial class Preset : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         Subrace_Ref = tables.TbRace.GetOrDefault(Subrace);
+        Asset?.ResolveRef(tables);
         MaxHp?.ResolveRef(tables);
         AttributePreset?.ResolveRef(tables);
         ItemPreset1?.ResolveRef(tables);
@@ -94,6 +100,7 @@ public sealed partial class Preset : Luban.BeanBase
         + "id:" + Id + ","
         + "name:" + Name + ","
         + "subrace:" + Subrace + ","
+        + "asset:" + Asset + ","
         + "level:" + Level + ","
         + "clasz:" + Luban.StringUtil.CollectionToString(Clasz) + ","
         + "expOnKilled:" + ExpOnKilled + ","

@@ -35,7 +35,7 @@ namespace Game
         
         private void FixedUpdate()
         {
-            var note = this.Note().Get<TroopBattlefieldNote>();
+            var note = this.Note().Get<TroopBattleNote>();
             
             infoText.text = $"curSquad: {note.currentSquad?.info.name}\n" +
                             $"selectedSquad: {note.selectedSquad?.info.name}\n\n" +

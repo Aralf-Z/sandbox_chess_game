@@ -5,7 +5,7 @@ using GameDev.Utility.Inspector;
 namespace Game
 {
     [Inspectable("军团战场记录")]
-    public class TroopBattlefieldNote: NoteBase
+    public class TroopBattleNote: NoteBase
     {
         public TroopBfGrid grid;
         

@@ -67,7 +67,7 @@ namespace Game
 
         private void UpdateSelectedTile()
         {
-            var note = this.Note().Get<TroopBattlefieldNote>();
+            var note = this.Note().Get<TroopBattleNote>();
             mTipTile.transform.position = GetWorldPosition(note.currentPoint);
         }
         
